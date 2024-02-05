@@ -1,0 +1,49 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 18px;
+}
+
+.title {
+  color: $primaryColor;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 10px;
+  // background: url(../images/check.png); проверка подключения картинки
+  // width: 500px;
+  // height: 500px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $black;
+  border-radius: 4px;
+  padding: 5px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.192px;
+  color: $white;
+  background: $black;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: $black;
+  background: $white;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
