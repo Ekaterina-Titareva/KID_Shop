@@ -577,4 +577,57 @@ h2 {
   to {
     opacity: 1;
   }
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.popup-basket {
+  position: relative;
+}
+
+.visible {
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-width: 40vw;
+  max-width: 50vw;
+  min-height: 70vh;
+  background-color: grey;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+}
+.btn-close::before, .btn-close::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 25px;
+  height: 3px;
+  background: rgb(45, 155, 146);
+}
+.btn-close::before {
+  transform: rotate(45deg);
+}
+.btn-close::after {
+  transform: rotate(-45deg);
+}
+
+.popup-basket__button {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  display: block;
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  background-color: rgb(45, 155, 146);
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */
