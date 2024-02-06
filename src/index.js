@@ -11,3 +11,11 @@ import "regenerator-runtime/runtime";
 const title = document.querySelector('.title');
 console.log(title);
 
+const button = document.querySelector('.user');
+const form = document.querySelector('#user_login');
+const popup = document.querySelector('.popup_user');
+
+button.addEventListener('click', () => {
+  form.classList.add('open');
+  popup.classList.add('popup_open');
+});
