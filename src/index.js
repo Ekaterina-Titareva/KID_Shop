@@ -14,6 +14,9 @@ console.log(title);
 const button = document.querySelector('.user');
 const form = document.querySelector('#user_login');
 const popup = document.querySelector('.popup_user');
+const buttonBasket = document.querySelector('#basket');
+const buttonClose = document.querySelector('.btn-close');
+const popupBasket = document.querySelector('.popup-basket');
 
 button.addEventListener('click', () => {
   form.classList.add('open');
