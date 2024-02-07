@@ -7,7 +7,7 @@ const catalogJson = [
     "category": "Футболки",
     "name": "Футболка с принтом",
     "description": "Футболка из мягкого хлопчатобумажного джерси с принтом, отделкой в рубчик по вырезу и застежкой-молнией на одном плече. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Розовый",
     "age_group": "1-4",
     "gender": "Девочка",
@@ -389,38 +389,201 @@ button.addEventListener('click', () => {
 });
 
 
-// Слайдер
-// Список изображений и текущий индекс
-const images = [
-  require('./images/advert1.jpg'),
-  require('./images/advert2.jpg'),
-  require('./images/advert3.jpg'),
-];
 
-let currentImageIndex = 0;
-const imageElement = document.getElementById("ad");
 
-// Функция для отображения текущего изображения
-function displayCurrentImage() {
-	imageElement.src = images[currentImageIndex];
+// Каталог и очистить фильтр
+
+let catalogContent = "";
+
+function createCatalog() {
+  // let clothes = JSON.parse(catalogJson);
+  let clothes = catalogJson;
+  for (let item of clothes) {
+    createCard(item);
+  }
+  document.querySelector(".catalog__container").innerHTML =
+  catalogContent;
 }
-const prevButton = document.querySelector(".pre-btn");
 
-// Обработчик события для кнопки "Назад"
-prevButton.addEventListener("click", function() {
-	currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-	displayCurrentImage();
+createCatalog();
+
+function createCard(item) {
+  catalogContent += `
+    <div class="catalog__item">
+      <p class= "item__name">${item.name}</p>
+      <p class= "item__category">${item.category}</p>
+      <div class= "item__img">
+        <img src="${item.image}" alt="${item.name}"></img>
+      </div>
+      <p class= "item_age">${item.age_group}</p>
+      <p class= "item_genger">${item.gender}</p>
+      <p class= "item_color">${item.color}</p>
+      <p class= "item_material">${item.material}</p>
+      <p class= "item_description">${item.description}</p>
+    </div>`;
+  return catalogContent;
+}
+
+//СПОЙЛЕР
+const spoilers = document.querySelectorAll(".filter__item_subtitle");
+
+spoilers.forEach((spoiler) => {
+  spoiler.addEventListener("click", function addVisible() {
+    spoiler.parentElement.classList.toggle("_visible");
+    spoiler.lastElementChild.classList.toggle("_minus");
+  });
 });
-const nextButton = document.querySelector(".nxt-btn");
 
-// Обработчик события для кнопки "Вперед"
-nextButton.addEventListener("click", function() {
-	currentImageIndex = (currentImageIndex + 1) % images.length;
-	displayCurrentImage();
+// let catalogObject = JSON.parse(catalogJson);
+let catalogObject = catalogJson;
+
+
+const filters = document.querySelector("#filters");
+
+filters.addEventListener("change", filterClothes);
+
+function filterClothes() {
+  const age = [...filters.querySelectorAll("#age input:checked")].map(
+    (n) => n.value
+  );
+  let costMin = Number(document.querySelector("#pricemin").value);
+  let costMax = Number(document.querySelector("#pricemax").value);
+  const category = filters.querySelector("#category").value;
+  const gender = [...filters.querySelectorAll("#gender input:checked")].map(
+    (n) => n.value
+  );
+
+  const filteredCatalog = catalogObject.filter(
+    (n) =>
+      (!age.length || age.includes(n.age_group)) &&
+      (!category || n.category.includes(category)) &&
+      (!gender.length || gender.includes(n.gender))
+  );
+
+  console.log(filteredCatalog);
+
+  outputCatalog(filteredCatalog);
+}
+
+//reset filters
+document.querySelector(".sidebar__reset").addEventListener("click", () => {
+  filters.querySelector("#category").value = "";
+  filters.querySelector("#pricemin").value = lowestPrice;
+  filters.querySelector("#pricemax").value = highestPrice;
+
+  let inputs = document.querySelectorAll("input");
+
+  for (const input of inputs) {
+    if (input.type == "checkbox" || input.type == "radio")
+      input.checked = false;
+  }
+
+  filterClothes();
+
 });
 
-// Отображаем первое изображение при загрузке страницы
-displayCurrentImage();
+function outputCatalog(clothes) {
+  document.getElementById("catalog__container").innerHTML = clothes
+    .forEach( //.map
+      (item) => `
+      <div class="catalog__item">
+      <p class= "item__name">${item.name}</p>
+      <p class= "item__category">${item.category}</p>
+      <div class= "item__img">
+        <img src="${item.image}" alt="${item.name}"></img>
+      </div>
+      <p class= "item_age">${item.age_group}</p>
+      <p class= "item_genger">${item.gender}</p>
+      <p class= "item_color">${item.color}</p>
+      <p class= "item_material">${item.material}</p>
+      <p class= "item_description">${item.description}</p>
+    </div>`
+    )
+    .join("");
+}
+
+outputCatalog(catalogObject);
+
+//nb pers input
+let personsInp = document.querySelector("#nbpers");
+const maxCapacity = Math.max(...catalogObject.map((exc) => exc.capacity));
+
+// eslint-disable-next-line no-unused-vars
+function changeQuantity(type) {
+  if (type === "minus") {
+    personsInp.value == 1 ? (personsInp.value = 1) : personsInp.value--;
+    document.querySelector("#nbpers").value = personsInp.value;
+  }
+  if (type === "plus") {
+    personsInp.value == maxCapacity
+      ? (personsInp.value = maxCapacity)
+      : personsInp.value++;
+  }
 
 
+  filterClothes();
+}
+
+
+// PRICE RANGE SLIDER
+const highestPrice = Math.max(...catalogObject.map((exc) => exc.price));
+const lowestPrice = Math.min(...catalogObject.map((exc) => exc.price));
+
+document.querySelector("#rangemin").value = lowestPrice;
+document.querySelector("#rangemax").value = highestPrice;
+
+const rangeInputMin = document.querySelector("#rangemin"); //minval
+const rangeInputMax = document.querySelector("#rangemax"); //maxval
+const priceInputMin = document.querySelector("#pricemin"); //priceInputMin
+const priceInputMax = document.querySelector("#pricemax"); //priceInputMax
+const minGap = 0;
+const range = document.querySelector(".filter-slider-track");
+
+const sliderMinValue = parseInt(rangeInputMin.min);
+const sliderMaxValue = parseInt(rangeInputMax.max);
+
+function slideMin() {
+  let gap = parseInt(rangeInputMax.value) - parseInt(rangeInputMin.value);
+  if (gap <= minGap) {
+    rangeInputMin.value = parseInt(rangeInputMax.value) - minGap;
+  }
+  priceInputMin.value = rangeInputMin.value;
+  setArea();
+}
+
+function slideMax() {
+  let gap = parseInt(rangeInputMax.value) - parseInt(rangeInputMin.value);
+  if (gap <= minGap) {
+    rangeInputMax.value = parseInt(rangeInputMin.value) + minGap;
+  }
+  priceInputMax.value = rangeInputMax.value;
+  setArea();
+}
+
+function setArea() {
+  range.style.left = (rangeInputMin.value / sliderMaxValue) * 100 + "%";
+  console.log((rangeInputMin.value / sliderMaxValue) * 100);
+  range.style.right = 100 - (rangeInputMax.value / sliderMaxValue) * 100 + "%";
+}
+
+function setMinPrice() {
+  let minPrice = parseInt(priceInputMin.value);
+  if (minPrice < sliderMinValue) {
+    priceInputMin.value = sliderMinValue;
+  }
+  rangeInputMin.value = priceInputMin.value;
+  slideMin();
+}
+
+function setMaxPrice() {
+  let maxPrice = parseInt(priceInputMax.value);
+  if (maxPrice > sliderMaxValue) {
+    priceInputMax.value = sliderMaxValue;
+  }
+  rangeInputMax.value = priceInputMax.value;
+  slideMax();
+}
+
+slideMin();
+slideMax();
 
