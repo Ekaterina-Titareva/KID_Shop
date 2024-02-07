@@ -13,9 +13,6 @@
 .container {
   margin: 0 auto;
   padding: 0 10px;
-  // background: url(../images/check.png); проверка подключения картинки
-  // width: 500px;
-  // height: 500px;
 }
 
 .btn {
@@ -119,27 +116,9 @@ form {
   font-size: 16px;
   color: #F9F0DA;
 }
-.ad_card{
-  flex: 0 0 auto;
-  width: 90%;
-  height: fit-content;
-  margin: 0 auto;
-}
-.ad_image{
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-}
-#ad{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.slider{
-  margin: 20px;
-}
+
 .about{
-  background-image: url('/src/images/фон.jpg');
+  background-image: url('/src/images/background.jpg');
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,7 +150,7 @@ h2{
 .footer{
   display: flex;
   background-color: rgb(216, 244, 245);
- justify-content: space-around;
+  justify-content: space-around;
 }
 .copyright{
   background-color: rgb(54, 53, 53);
@@ -239,3 +218,54 @@ h2{
     opacity: 1;
   }
 }
+
+
+/* Слайдер */
+.container__slider {
+  position: relative;
+  }
+  
+  .ad_card {
+    flex: 0 0 auto;
+    width: 90%;
+    height: fit-content;
+    margin: 0 auto;
+  }
+  .ad_image {
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+  }
+  #ad{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slider {
+    margin: 20px;
+  }
+  
+  .pre-btn {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+  }
+  
+  .nxt-btn {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: rotate(180deg);
+  }
+  
+  .pre-btn img,
+  .nxt-btn img {
+    opacity: 0.4;
+    padding: 5px;
+  }
+  
+  .pre-btn:hover img,
+  .nxt-btn:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+  }
