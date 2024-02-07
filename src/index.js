@@ -382,12 +382,39 @@ const catalogJson = [
 const button = document.querySelector('.user');
 const form = document.querySelector('#user_login');
 const popup = document.querySelector('.popup_user');
+const buttonBasket = document.querySelector('#basket');
+const buttonClose = document.querySelector('.btn-close');
+const popupBasket = document.querySelector('.popup-basket');
 
 button.addEventListener('click', () => {
   form.classList.add('open');
   popup.classList.add('popup_open');
 });
 
+// Открытие/закрытие popup с корзиной
+
+buttonBasket.addEventListener('click', () => {
+  let headerHeight = document.querySelector('.header').clientHeight;
+  
+  if (popupBasket.classList.contains('hidden')){
+    popupBasket.classList.remove('hidden');
+    popupBasket.classList.add('visible');
+
+    popupBasket.style.top = `${headerHeight}px`;
+  } else {
+    popupBasket.classList.add('hidden');
+    popupBasket.classList.remove('visible');
+  }
+})
+
+buttonClose.addEventListener('click', () => {
+  if (popupBasket.classList.contains('visible')){
+    popupBasket.classList.remove('visible');
+    popupBasket.classList.add('hidden');
+  }
+})
+
+console.log(document.querySelector('.header').clientHeight);
 
 // Слайдер
 // Список изображений и текущий индекс

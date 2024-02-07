@@ -24,7 +24,9 @@
             <img src="icons/favorits.svg" alt="favorits" class="menu_icon" /></a>
         </li>
         <li>
-          <a href="#"><img src="icons/basket.svg" alt="basket" class="menu_icon" /></a>
+          <button id="basket">
+            <img src="./icons/basket.svg" alt="basket" class="menu_icon" />
+          </button>
         </li>
         <button class="user">Войти</button>
         <div class="popup_user">
@@ -128,6 +130,11 @@
     </div>
   </footer>
   <div class="copyright">&#169;2024 KID</div>
+
+  <div class="popup-basket hidden">
+    <a class="btn-close"></a>
+    <a href="basket.html" class="popup-basket__button">Перейти в корзину</a>
+  </div>
 </body>
 
 </html>
