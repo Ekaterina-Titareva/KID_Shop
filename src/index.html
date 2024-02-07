@@ -1,90 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS project</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__logo">
-        <div><img src="./icons/logo.svg" alt="logo" id="logo" /></div>
-      </div>
-      <h1 class="header__title">KID</h1>
-      <div class="header__menu">
-        <ul class="menu__items">
-          <li>
-            <a href="#"
-              ><img src="./icons/catalog.svg" alt="Catalog" class="menu_icon"
-            /></a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="./icons/favorits.svg" alt="favorits" class="menu_icon"
-            /></a>
-          </li>
-          <li>
-            <a href="#"
-              ><img src="./icons/basket.svg" alt="basket" class="menu_icon"
-            /></a>
-          </li>
-          <button class="user">Войти</button>
-          <div class="popup_user">
-            <div class="popup__container">
-              <div class="popup__wrapper">
-                <div id="user_login">
-                  <form>
-                    <label>EMAIL или телефон</label>
-                    <input
-                      type="text"
-                      name="nameReq"
-                      placeholder="Введите логин"
-                    />
-                    <label>Пароль</label>
-                    <input
-                      type="text"
-                      name="lastNameReq"
-                      placeholder="Введите пароль"
-                    />
-                    <input type="checkbox" name="agree" id="agree" />
-                    <label for="agree"
-                      >СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ, С ДОГОВОРОМ
-                      ПУБЛИЧНОЙ ОФЕРТЫ И ПОЛИТИКОЙ КОНФИДЕНЦИАЛЬНОСТИ ОЗНАКОМЛЕН
-                      И ПРИНИМАЮ</label
-                    >
-                    <button type="submit" class="btn btn-success">
-                      Отправить
-                    </button>
-                    <button class="registr">Зарегестрироваться</button>
-                  </form>
-                </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS project</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <div><img src="icons/logo.svg" alt="logo" id="logo" /></div>
+    </div>
+    <h1 class="header__title">KID</h1>
+    <div class="header__menu">
+      <ul class="menu__items">
+        <li>
+          <a href="#"><img src="icons/catalog.svg" alt="Catalog" class="menu_icon" /></a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="icons/favorits.svg" alt="favorits" class="menu_icon" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="icons/basket.svg" alt="basket" class="menu_icon" /></a>
+        </li>
+        <button class="user">Войти</button>
+        <div class="popup_user">
+          <div class="popup__container">
+            <div class="popup__wrapper">
+              <div id="user_login">
+                <form>
+                  <label>EMAIL или телефон</label>
+                  <input type="text" name="nameReq" placeholder="Введите логин" />
+                  <label>Пароль</label>
+                  <input type="text" name="lastNameReq" placeholder="Введите пароль" />
+                  <input type="checkbox" name="agree" id="agree" />
+                  <label for="agree">СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ, С ДОГОВОРОМ
+                    ПУБЛИЧНОЙ ОФЕРТЫ И ПОЛИТИКОЙ КОНФИДЕНЦИАЛЬНОСТИ ОЗНАКОМЛЕН
+                    И ПРИНИМАЮ</label>
+                  <button type="submit" class="btn btn-success">
+                    Отправить
+                  </button>
+                  <button class="registr">Зарегестрироваться</button>
+                </form>
               </div>
             </div>
-          </div>
-        </ul>
-      </div>
-    </header>
-    <main>
-      <div class="search">
-        <form>
-          <input type="text" placeholder="Искать здесь..." />
-          <button type="submit"></button>
-        </form>
-      </div>
-      <div class="slider">
-        <div class="container__slider">
-          <div class="ad_container">
-            <div class="ad_card">
-              <div class="ad_image">
-                <img src="./images/реклама.jpg" alt="реклама" id="ad" />
-              </div>
-            </div>
-            <div class="ad_card"></div>
-            <div class="ad_card"></div>
           </div>
         </div>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <!-- Поиск -->
+    <div class="search">
+      <form>
+        <input type="text" placeholder="Искать здесь..." />
+        <button type="submit"></button>
+      </form>
+    </div>
+
+    <!-- Слайдер  -->
+
+    <div class="slider">
+      <div class="container__slider">
+        <div class="ad_container">
+          <div class="ad_card">
+            <div class="ad_image">
+              <a href="catalog.html">
+                <img alt="реклама" id="ad" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="pre-btn">
+          <img src="images/arrow-right.png" alt="arrow" />
+        </div>
+        <div class="nxt-btn">
+          <img src="images/arrow-right.png" alt="arrow" />
+        </div>
       </div>
+
+      <!-- О нас  -->
+
       <div class="about">
         <h2>О НАС</h2>
         <div class="about__text">
@@ -98,45 +97,37 @@
           обязательный аудит.
         </div>
       </div>
-    </main>
-    <footer class="footer">
-      <ul>
-        Социальные сети
-        <li class="social_text">
-          <div><img src="./icons/vk.svg" alt="vk" class="social_icon" /></div>
-          <a href="#">Вконтакте</a>
-        </li>
-        <li class="social_text">
-          <div>
-            <img
-              src="./icons/instagram.svg"
-              alt="instagram"
-              class="social_icon"
-            />
-          </div>
-          <a href="#">Инстаграмм</a>
-        </li>
-      </ul>
-      <ul>
-        KID
-        <li class="kid"><a href="#">О нас</a></li>
-        <li class="kid"><a href="#">Каталог</a></li>
-      </ul>
-      <div>
+  </main>
+
+  <!-- Подвал -->
+
+  <footer class="footer">
+    <ul>
+      Социальные сети
+      <li class="social_text">
+        <div><img src="icons/vk.svg" alt="vk" class="social_icon" /></div>
+        <a href="#">Вконтакте</a>
+      </li>
+      <li class="social_text">
         <div>
-          <a href="#"><img src="./icons/logo.svg" alt="logo" id="logo" /></a>
+          <img src="icons/instagram.svg" alt="instagram" class="social_icon" />
         </div>
-        <div><a href="tel:+7009005060">&#9742; 8-900-900-50-60</a></div>
+        <a href="#">Инстаграмм</a>
+      </li>
+    </ul>
+    <ul>
+      KID
+      <li class="kid"><a href="index.html">О нас</a></li>
+      <li class="kid"><a href="catalog.html">Каталог</a></li>
+    </ul>
+    <div>
+      <div>
+        <a href="#"><img src="icons/logo.svg" alt="logo" id="logo" /></a>
       </div>
-    </footer>
-    <div class="copyright">&#169;2024 KID</div>
-    <!--<h1 class="title">JS project</h1>
-  <section id="container" class="container">
-     <div class="user"></div> 
-			проверка подключения jquery-->
-    <!--<button class="btn">Кнопка</button>
-    проверка подключения bootstrap и scss-->
-    <!--<img src="images/check.png" alt="check" />
-  </section>-->
-  </body>
+      <div><a href="tel:+7009005060">&#9742; 8-900-900-50-60</a></div>
+    </div>
+  </footer>
+  <div class="copyright">&#169;2024 KID</div>
+</body>
+
 </html>
