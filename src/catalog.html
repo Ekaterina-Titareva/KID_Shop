@@ -10,29 +10,137 @@
 <body>
   <header class="header">
     <div class="header__logo">
-      <div><img src="./icons/logo.svg" alt="logo" id="logo" /></div>
+      <div><img src="icons/logo.svg" alt="logo" id="logo" /></div>
     </div>
     <h1 class="header__title">KID</h1>
     <div class="header__menu">
       <ul class="menu__items">
         <li>
-          <a href="#"><img src="./icons/catalog.svg" alt="Catalog" class="menu_icon" /></a>
+          <a href="#"><img src="icons/catalog.svg" alt="Catalog" class="menu_icon" /></a>
         </li>
         <li>
           <a href="#">
-            <img src="./icons/user.svg" alt="user" class="menu_icon" /></a>
+            <img src="icons/favorits.svg" alt="favorits" class="menu_icon" /></a>
         </li>
         <li>
-          <a href="#">
-            <img src="./icons/favorits.svg" alt="favorits" class="menu_icon" /></a>
+          <a href="#"><img src="icons/basket.svg" alt="basket" class="menu_icon" /></a>
         </li>
-        <li>
-          <a href="#"><img src="./icons/basket.svg" alt="basket" class="menu_icon" /></a>
-        </li>
+        <button class="user">Войти</button>
+        <div class="popup_user">
+          <div class="popup__container">
+            <div class="popup__wrapper">
+              <div id="user_login">
+                <form>
+                  <label>EMAIL или телефон</label>
+                  <input type="text" name="nameReq" placeholder="Введите логин" />
+                  <label>Пароль</label>
+                  <input type="text" name="lastNameReq" placeholder="Введите пароль" />
+                  <input type="checkbox" name="agree" id="agree" />
+                  <label for="agree">СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ, С ДОГОВОРОМ
+                    ПУБЛИЧНОЙ ОФЕРТЫ И ПОЛИТИКОЙ КОНФИДЕНЦИАЛЬНОСТИ ОЗНАКОМЛЕН
+                    И ПРИНИМАЮ</label>
+                  <button type="submit" class="btn btn-success">
+                    Отправить
+                  </button>
+                  <button class="registr">Зарегестрироваться</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </ul>
     </div>
   </header>
-  <main></main>
+  <main>
+
+    <section>
+
+      <div class="catalog__container">
+      </div>
+
+      <aside class="sidebar">
+        <h3 class="sidebar__title">Фильтры</h3>
+        <div class="sidebar__filter filter" id="filters">
+          <div class="filter__item">
+            <div class="filter__item_subtitle">
+              <h4>Стоимость</h4>
+              <span class="filter__item_spoiler"></span>
+            </div>
+            <div class="filter__item_content filter__price">
+
+              <div class="filter__price_inputs">
+                <input type="number" id="pricemin" step="200" class="filter-input filter-price"
+                  onchange="setMinPrice()" />
+                <input type="number" id="pricemax" step="200" class="filter-input filter-price"
+                  onchange="setMaxPrice()" />
+              </div>
+
+
+
+              <div class="filter__price_range">
+                <span class="filter-slider-track"></span>
+                <input type="range" id="rangemin" class="filter-range" min="299" max="4200" oninput="slideMin()" />
+                <input type="range" id="rangemax" class="filter-range" min="299" max="4200" oninput="slideMax()" />
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="filter__item">
+            <div class="filter__item_subtitle">
+              <h4>Пол</h4>
+              <span class="filter__item_spoiler"></span>
+            </div>
+
+            <div class="filter__item_content filter__transport" id="gender">
+              <label for="genderM"><input type="radio" id="genderM" value="Мальчик" name="gender" />Мальчик</label>
+              <label for="genderF"><input type="radio" id="genderF" value="Девочка" name="gender" />Девочка</label>
+            </div>
+
+          </div>
+          <div class="filter__item">
+            <div class="filter__item_subtitle">
+              <h4>Возраст</h4>
+              <span class="filter__item_spoiler"></span>
+            </div>
+
+            <div class="filter__item_content filter__transport" id="age">
+              <label for="age1"><input type="radio" id="age1" value="1" name="age" />1-4</label>
+              <label for="age5"><input type="radio" id="age5" value="5" name="age" />5-8</label>
+              <label for="age9"><input type="radio" id="age9" value="9" name="age" />9-14</label>
+            </div>
+
+          </div>
+
+
+
+
+          <div class="filter__item">
+            <div class="filter__item_subtitle">
+              <h4>Выберите категорию товаров</h4>
+              <span class="filter__item_spoiler"></span>
+            </div>
+            <div class="filter__item_content filter__destination">
+              <select id="category" name="category" class="filter-input">
+                <option value="">Выберите категорию</option>
+                <option value="Футболки">Футболки</option>
+                <option value="Джемперы и кардиганы">Джемперы и кардиганы</option>
+                <option value="Брюки и джинсы">Брюки и джинсы</option>
+                <option value="Куртки">Куртки</option>
+                <option value="Обувь">Обувь</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="sidebar__reset">
+            <i class="fa-solid fa-x"></i>
+            Сбросить фильтры
+          </div>
+      </aside>
+
+    </section>
+  </main>
   <footer class="footer">
     <ul>
       Социальные сети
