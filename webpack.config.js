@@ -43,6 +43,10 @@ module.exports = {
       template: "./src/catalog.html",
       filename: "catalog.html",
     }),
+    new HtmlWebpackPlugin({
+      template: "./src/basket.html",
+      filename: "basket.html",
+    }),
   ], //https://www.npmjs.com/package/html-webpack-plugin дока template - путь, откуда и какой файл брать что бы скопмилировать в папку dist
   module: {
     rules: [

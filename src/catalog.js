@@ -3,7 +3,7 @@ import "./styles/index.scss";
 
 const catalogJson = [
   {
-    "id": 1,
+    "id": "1",
     "category": "Футболки",
     "name": "Футболка с принтом",
     "description": "Футболка из мягкого хлопчатобумажного джерси с принтом, отделкой в рубчик по вырезу и застежкой-молнией на одном плече. Хлопок 100%.",
@@ -15,11 +15,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 2,
+    "id": "2",
     "category": "Футболки",
     "name": "Футболка с принтом",
     "description": "Классическая футболка из мягкого хлопкового джерси с принтом и обратимыми пайетками спереди. Отделка в рубчик вокруг выреза и низ прямого кроя. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Белый",
     "age_group": "5-8",
     "gender": "Девочка",
@@ -27,11 +27,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 3,
+    "id": "3",
     "category": "Футболки",
     "name": "Футболка оверсайз с принтом",
     "description": "Футболка оверсайз из мягкого трикотажа с принтом, с отделкой в рубчик вокруг выреза, заниженными плечами и широкими рукавами. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Фиолетовый",
     "age_group": "9-14",
     "gender": "Девочка",
@@ -39,11 +39,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 4,
+    "id": "4",
     "category": "Футболки",
     "name": "Футболка",
     "description": "Футболка с коротким рукавом из мягкого хлопкового трикотажа. Свободный крой со слегка заниженными плечами. Застежка на кнопки на левом плече для удобства одевания. Разрезы в боковых швах. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Синий",
     "age_group": "1-4",
     "gender": "Мальчик",
@@ -51,11 +51,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 5,
+    "id": "5",
     "category": "Футболки",
     "name": "Футболка с принтом",
     "description": "Футболка свободного кроя из мягкого хлопкового джерси с принтом. Отделка в рубчик вокруг выреза и спущенных плеч. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Серый",
     "age_group": "5-8",
     "gender": "Мальчик",
@@ -63,11 +63,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 6,
+    "id": "6",
     "category": "Футболки",
     "name": "Футболка с принтом",
     "description": "Классическая футболка из мягкого хлопчатобумажного джерси с принтом и отделкой в рубчик по вырезу. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Бежевый",
     "age_group": "9-14",
     "gender": "Мальчик",
@@ -75,11 +75,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 7,
+    "id": "7",
     "category": "Джемперы и кардиганы",
     "name": "Джемпер",
     "description": "Джемпер с длинными рукавами из мягкого хлопчатобумажного трикотажа с пуговицами на одном плече и отделкой в рубчик по вырезу, манжетам и низу. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Бежевый",
     "age_group": "1-4",
     "gender": "Девочка",
@@ -87,11 +87,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 8,
+    "id": "8",
     "category": "Джемперы и кардиганы",
     "name": "Кардиган из трикотажа 'Пуантель'",
     "description": "Кардиган с длинными рукавами из мягкого трикотажа 'пуантель' с фестончатыми краями, пуговицами спереди и накладными прорезными карманами спереди. Отделка в рубчик по вырезу, по ленте на пуговицах, а также на манжетах и подоле. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Белый",
     "age_group": "5-8",
     "gender": "Девочка",
@@ -99,11 +99,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 9,
+    "id": "9",
     "category": "Джемперы и кардиганы",
     "name": "Джемпер",
     "description": "Джемпер из мягкого тонкого трикотажа с круглым вырезом горловины, длинными рукавами и отделкой в рубчик на манжетах и подоле. Акрил 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Черный",
     "age_group": "9-14",
     "gender": "Девочка",
@@ -111,11 +111,11 @@ const catalogJson = [
     "material": "Акрил"
   },
   {
-    "id": 10,
+    "id": "10",
     "category": "Джемперы и кардиганы",
     "name": "Джемпер",
     "description": "Джемпер из мягкого хлопкового трикотажа с пуговицами на одном плече. Спущенные плечи, длинные рукава, отделка в рубчик по вырезу, манжетам и низу. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Зеленый",
     "age_group": "1-4",
     "gender": "Мальчик",
@@ -123,11 +123,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 11,
+    "id": "11",
     "category": "Джемперы и кардиганы",
     "name": "Хлопковый джемпер",
     "description": "Джемпер из мягкого хлопка тонкой вязки с круглым вырезом, отделанным рубчиками, длинными рукавами и отделкой в рубчик на манжетах и подоле. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Белый",
     "age_group": "5-8",
     "gender": "Мальчик",
@@ -135,11 +135,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 12,
+    "id": "12",
     "category": "Джемперы и кардиганы",
     "name": "Джемпер свободного кроя",
     "description": "Джемпер свободного кроя из мягкого хлопка однотонной вязки со спущенными плечами, длинными рукавами и отделкой в рубчик по вырезу, манжетам и подолу. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Синий",
     "age_group": "9-14",
     "gender": "Мальчик",
@@ -147,11 +147,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 13,
+    "id": "13",
     "category": "Брюки и джинсы",
     "name": "Леггинсы",
     "description": "Леггинсы из плотного хлопкового трикотажа с мягким начесом внутри. Мягкая регулируемая резинка на талии обеспечивает удобную посадку на животе. Хлопок 95%, эластан 5%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Бежевый",
     "age_group": "1-4",
     "gender": "Девочка",
@@ -162,11 +162,11 @@ const catalogJson = [
     ]
   },
   {
-    "id": 14,
+    "id": "14",
     "category": "Брюки и джинсы",
     "name": "Суперэластичные джинсы с широкими штанинами",
     "description": "Джинсы из суперэластичного денима для максимальной гибкости с приталенной посадкой на бедрах. Регулируемая резинка на талии, ширинка на молнии с пуговицей и широкие штанины. Хлопок 35%, полиэстер 65%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Синий",
     "age_group": "5-8",
     "gender": "Девочка",
@@ -177,11 +177,11 @@ const catalogJson = [
     ]
   },
   {
-    "id": 15,
+    "id": "15",
     "category": "Брюки и джинсы",
     "name": "Широкие брюки",
     "description": "Брюки свободного кроя из плотного трикотажа, напоминающего деним, с мягкой эластичной вставкой на талии и накладной ширинкой. Накладные карманы спереди, настоящие карманы сзади и широкие штанины. Хлопок 73%, полиэстер 19%, эластан 8%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Черный",
     "age_group": "9-14",
     "gender": "Девочка",
@@ -193,11 +193,11 @@ const catalogJson = [
     ]
   },
   {
-    "id": 16,
+    "id": "16",
     "category": "Брюки и джинсы",
     "name": "Джоггеры",
     "description": "Джоггеры из легкой хлопчатобумажной ткани с потайной резинкой и завязками на талии, а также потайной резинкой по краям. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Серый",
     "age_group": "1-4",
     "gender": "Мальчик",
@@ -205,11 +205,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 17,
+    "id": "17",
     "category": "Брюки и джинсы",
     "name": "Брюки-карго из саржи",
     "description": "Брюки-карго из хлопчатобумажной саржи с прямыми штанинами. Талия на резинке с завязками, накладная ширинка, незаметные боковые карманы и карманы на штанинах с клапанами. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Черный",
     "age_group": "5-8",
     "gender": "Мальчик",
@@ -217,11 +217,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 18,
+    "id": "18",
     "category": "Брюки и джинсы",
     "name": "Джоггеры",
     "description": "Джоггеры из хлопчатобумажной ткани с эластичной талией на завязках, искусственной ширинкой, диагональными боковыми карманами и открытым задним карманом. Свободный крой со складками на коленях и потайной резинкой по краям. Хлопок 98%, эластан 2%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Бежевый",
     "age_group": "9-14",
     "gender": "Мальчик",
@@ -232,11 +232,11 @@ const catalogJson = [
     ]
   },
   {
-    "id": 19,
+    "id": "19",
     "category": "Куртки",
     "name": "Хлопчатобумажная куртка с покрытием",
     "description": "Куртка из хлопчатобумажной ткани с покрытием, со съемным капюшоном, воротником-стойкой, застежкой на молнию спереди с защитой подбородка и кокеткой сзади. Передние карманы с клапанами на кнопках и рукава реглан с потайной резинкой на манжетах. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Розовый",
     "age_group": "1-4",
     "gender": "Девочка",
@@ -244,11 +244,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 20,
+    "id": "20",
     "category": "Куртки",
     "name": "Ветровка с принтом",
     "description": "Ветровка из ткани с принтом. Съемный капюшон, воротник-стойка и застежка-молния спереди с защитой подбородка от натирания. Карманы в боковых швах и узкая резинка на манжетах и подоле. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Розовый",
     "age_group": "5-8",
     "gender": "Девочка",
@@ -256,11 +256,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 21,
+    "id": "21",
     "category": "Куртки",
     "name": "Бейсбольная куртка с аппликацией",
     "description": "Короткая бейсбольная куртка из тканого материала с аппликациями. Воротник-стойка в рубчик, пуговицы спереди и прорезные боковые карманы. Заниженные плечи, длинные рукава и отделка в рубчик на манжетах и подоле. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Красный",
     "age_group": "9-14",
     "gender": "Девочка",
@@ -268,11 +268,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 22,
+    "id": "22",
     "category": "Куртки",
     "name": "Нейлоновая куртка",
     "description": "Нейлоновая куртка с легкой подкладкой, рубашечным воротником и застежкой на пуговицы. С манжетами в рубчик и обычной посадкой. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Черный",
     "age_group": "1-4",
     "gender": "Мальчик",
@@ -280,11 +280,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 23,
+    "id": "23",
     "category": "Куртки",
     "name": "Ветровка с принтом",
     "description": "Ветровка из набивной ткани со съемным капюшоном, воротником-стойкой и застежкой-молнией спереди с защитой подбородка от натирания. Слегка заниженные плечи и диагональные прорезные карманы спереди. Без подкладки. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Синий",
     "age_group": "5-8",
     "gender": "Мальчик",
@@ -292,11 +292,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 24,
+    "id": "24",
     "category": "Куртки",
     "name": "Куртка из ворса с воротником-стойкой",
     "description": "Куртка из мягкого пушистого ворса с нагрудным карманом на молнии из тканого материала. Воротник-стойка, застежка-молния спереди с защитой подбородка от натирания, прорезные карманы спереди и узкая трикотажная отделка на манжетах и подоле. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Бежевый",
     "age_group": "9-14",
     "gender": "Мальчик",
@@ -304,11 +304,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 25,
+    "id": "25",
     "category": "Обувь",
     "name": "Балетные туфли-лодочки с аппликацией",
     "description": "Балетные туфли-лодочки с эластичным ремешком и аппликацией на стопе. Атласная подкладка и стельки из технической пены Cellfit для дополнительного комфорта. Подошва с рисунком. Высота подошвы 0,4 см. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Красный",
     "age_group": "1-4",
     "gender": "Девочка",
@@ -316,11 +316,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 26,
+    "id": "26",
     "category": "Обувь",
     "name": "Блестящие балетные туфли-лодочки",
     "description": "Блестящие балетные туфли-лодочки с эластичным ремешком на ноге и петлей в крупный рубчик сзади. Атласная подкладка и стельки с принтом из технической пены Cellfit для дополнительного комфорта. Рифленая подошва. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Фиолетовый",
     "age_group": "5-8",
     "gender": "Девочка",
@@ -328,11 +328,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 27,
+    "id": "27",
     "category": "Обувь",
     "name": "Балетные туфли-лодочки",
     "description": "Балетные туфли-лодочки с эластичным ремешком на ноге. Атласная подкладка и стельки из технической пены Cellfit для дополнительного комфорта. Рифленая подошва. Высота подошвы 0,8 см. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Черный",
     "age_group": "9-14",
     "gender": "Девочка",
@@ -340,11 +340,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 28,
+    "id": "28",
     "category": "Обувь",
     "name": "Кроссовки из парусины",
     "description": "Кроссовки из хлопчатобумажной ткани с застежками-крючками спереди и петлей сзади. Подкладка и стельки из парусины и резиновая подошва с рисунком. Высота подошвы 2,1 см. Хлопок 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Синий",
     "age_group": "1-4",
     "gender": "Мальчик",
@@ -352,11 +352,11 @@ const catalogJson = [
     "material": "Хлопок"
   },
   {
-    "id": 29,
+    "id": "29",
     "category": "Обувь",
     "name": "Мигающие кроссовки",
     "description": "Кроссовки с мягким верхним краем, застежкой на крючок спереди и петлей в крупный рубчик сзади. Подкладка из сетки и стельки из технической пены Cellfit для дополнительного комфорта. Подошва с активируемыми при движении мигающими светодиодными лампочками. Высота подошвы 2,5 см. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Красный",
     "age_group": "5-8",
     "gender": "Мальчик",
@@ -364,11 +364,11 @@ const catalogJson = [
     "material": "Полиэстер"
   },
   {
-    "id": 30,
+    "id": "30",
     "category": "Обувь",
     "name": "Кроссовки",
     "description": "Кроссовки с мягким краем и язычком, шнуровкой спереди и петлей в крупный рубчик сзади. Сетчатые подкладки и стельки из технической пены Cellfit для дополнительного комфорта. Подошва с рисунком. Высота подошвы 3,1 см. Полиэстер 100%.",
-    "image": "require('./images/check.png')",
+    "image": "images/check.png",
     "color": "Зеленый",
     "age_group": "9-14",
     "gender": "Мальчик",
@@ -411,15 +411,16 @@ function createCard(item) {
   catalogContent += `
     <div class="catalog__item">
       <p class= "item__name">${item.name}</p>
-      <p class= "item__category">${item.category}</p>
+      <p class= "item__category">${item.category}</p>      
+      <p class= "item__price">Цена: ${item.price} рублей</p>
       <div class= "item__img">
         <img src="${item.image}" alt="${item.name}"></img>
       </div>
-      <p class= "item_age">${item.age_group}</p>
-      <p class= "item_genger">${item.gender}</p>
-      <p class= "item_color">${item.color}</p>
-      <p class= "item_material">${item.material}</p>
-      <p class= "item_description">${item.description}</p>
+      <p class= "item__age">Возраст: ${item.age_group}</p>
+      <p class= "item__genger">Пол: ${item.gender}</p>
+      <p class= "item__color">Цвет: ${item.color}</p>
+      <p class= "item__material">Материал: ${item.material}</p>
+      <p class= "item__description">${item.description}</p>
     </div>`;
   return catalogContent;
 }
@@ -436,7 +437,6 @@ spoilers.forEach((spoiler) => {
 
 // let catalogObject = JSON.parse(catalogJson);
 let catalogObject = catalogJson;
-
 
 const filters = document.querySelector("#filters");
 
@@ -460,8 +460,6 @@ function filterClothes() {
       (!gender.length || gender.includes(n.gender))
   );
 
-  console.log(filteredCatalog);
-
   outputCatalog(filteredCatalog);
 }
 
@@ -483,46 +481,27 @@ document.querySelector(".sidebar__reset").addEventListener("click", () => {
 });
 
 function outputCatalog(clothes) {
-  document.getElementById("catalog__container").innerHTML = clothes
-    .forEach( //.map
+
+  document.querySelector(".catalog__container").innerHTML = clothes.map(
       (item) => `
       <div class="catalog__item">
       <p class= "item__name">${item.name}</p>
-      <p class= "item__category">${item.category}</p>
+      <p class= "item__category">${item.category}</p>      
+      <p class= "item__price">Цена: ${item.price} рублей</p>
       <div class= "item__img">
         <img src="${item.image}" alt="${item.name}"></img>
       </div>
-      <p class= "item_age">${item.age_group}</p>
-      <p class= "item_genger">${item.gender}</p>
-      <p class= "item_color">${item.color}</p>
-      <p class= "item_material">${item.material}</p>
-      <p class= "item_description">${item.description}</p>
+      <p class= "item__age">Возраст: ${item.age_group}</p>
+      <p class= "item__genger">Пол: ${item.gender}</p>
+      <p class= "item__color">Цвет: ${item.color}</p>
+      <p class= "item__material">Материал: ${item.material}</p>
+      <p class= "item__description">${item.description}</p>
     </div>`
     )
     .join("");
 }
 
-outputCatalog(catalogObject);
-
-//nb pers input
-let personsInp = document.querySelector("#nbpers");
-const maxCapacity = Math.max(...catalogObject.map((exc) => exc.capacity));
-
-// eslint-disable-next-line no-unused-vars
-function changeQuantity(type) {
-  if (type === "minus") {
-    personsInp.value == 1 ? (personsInp.value = 1) : personsInp.value--;
-    document.querySelector("#nbpers").value = personsInp.value;
-  }
-  if (type === "plus") {
-    personsInp.value == maxCapacity
-      ? (personsInp.value = maxCapacity)
-      : personsInp.value++;
-  }
-
-
-  filterClothes();
-}
+// outputCatalog(catalogObject);
 
 
 // PRICE RANGE SLIDER
@@ -562,7 +541,6 @@ function slideMax() {
 
 function setArea() {
   range.style.left = (rangeInputMin.value / sliderMaxValue) * 100 + "%";
-  console.log((rangeInputMin.value / sliderMaxValue) * 100);
   range.style.right = 100 - (rangeInputMax.value / sliderMaxValue) * 100 + "%";
 }
 
