@@ -53,10 +53,7 @@
   </header>
   <main>
 
-    <section>
-
-      <div class="catalog__container">
-      </div>
+    <section class="catalog__wrapper">
 
       <aside class="sidebar">
         <h3 class="sidebar__title">Фильтры</h3>
@@ -93,7 +90,7 @@
               <span class="filter__item_spoiler"></span>
             </div>
 
-            <div class="filter__item_content filter__transport" id="gender">
+            <div class="filter__item_content filter__gender" id="gender">
               <label for="genderM"><input type="radio" id="genderM" value="Мальчик" name="gender" />Мальчик</label>
               <label for="genderF"><input type="radio" id="genderF" value="Девочка" name="gender" />Девочка</label>
             </div>
@@ -105,10 +102,10 @@
               <span class="filter__item_spoiler"></span>
             </div>
 
-            <div class="filter__item_content filter__transport" id="age">
-              <label for="age1"><input type="radio" id="age1" value="1" name="age" />1-4</label>
-              <label for="age5"><input type="radio" id="age5" value="5" name="age" />5-8</label>
-              <label for="age9"><input type="radio" id="age9" value="9" name="age" />9-14</label>
+            <div class="filter__item_content filter__age" id="age">
+              <label for="age1"><input type="radio" id="age1" value="1-4" name="age" />1-4</label>
+              <label for="age5"><input type="radio" id="age5" value="5-8" name="age" />5-8</label>
+              <label for="age9"><input type="radio" id="age9" value="9-14" name="age" />9-14</label>
             </div>
 
           </div>
@@ -121,7 +118,7 @@
               <h4>Выберите категорию товаров</h4>
               <span class="filter__item_spoiler"></span>
             </div>
-            <div class="filter__item_content filter__destination">
+            <div class="filter__item_content filter__category">
               <select id="category" name="category" class="filter-input">
                 <option value="">Выберите категорию</option>
                 <option value="Футболки">Футболки</option>
@@ -139,7 +136,10 @@
           </div>
       </aside>
 
-    </section>
+      <div class="catalog__container">
+      </div>
+
+      <!-- </section> -->
   </main>
   <footer class="footer">
     <ul>

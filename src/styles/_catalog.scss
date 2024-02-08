@@ -1,3 +1,12 @@
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  font-weight: normal;
+  position: relative;
+}
+
 /* ---- VARIABLES ---- */
 :root {
     --color-white: #ffffff;
@@ -17,9 +26,49 @@
     --font-text: "Montserrat", sans-serif;
     --font-accent: "Pacifico";
   }
+
   
+.catalog__wrapper{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 40px;
+  gap: 100px;
+}
+
 
   /** ---- Filter Section ---- **/
+.sidebar__title {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 700;}
+
+.sidebar__reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0px 0px 20px;
+  color: var(--color-black);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sidebar__reset i {
+  color: var(--color-gray);
+  transition: color 0.3s;
+}
+
+.sidebar__reset:hover i {
+  color: var(--color-primary);
+  transition: color 0.3s;
+}
+
+.fa-x:before {
+  content: "\58";
+}
+
   .filter__item {
     display: flex;
     flex-direction: column;
@@ -174,58 +223,45 @@
     width: 60px;
   }
   
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  #persons {
-    margin-left: 8px;
-  }
   
   .filter__quantity span {
     color: var(--color-primary);
     cursor: pointer;
   }
   
-  .filter__age_group,
+  .filter__age,
   .filter__gender {
     flex-direction: column;
     gap: 5px;
   }
   
-  .filter__age_group input,
+  .filter__age input,
   .filter__gender input {
     margin-right: 5px;
   }
   
-  .filter__age_group label,
+  .filter__age label,
   .filter__gender label {
     display: inline-flex;
   }
   
+  .sidebar__reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 0px 0px 20px;
+    color: var(--color-black);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+  }
 
 
-  
-  /** ---- Excursions Section ---- **/
-  .excursions {
-    background-color: var(--color-light-gray);
-    grid-area: excursions;
-  }
-  
-  .excursions__title {
-    font-family: var(--font-title);
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: 24px;
-    text-align: left;
-    margin: 0px 0px 40px;
-  }
-  
   .catalog__container {
     display: grid;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px 30px;
   }
   
   .catalog__item {
@@ -236,6 +272,8 @@
     background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     border-radius: 10px;
+    border: 1px solid var(--color-primary);
+    padding: 10px;
   }
   
   .item__img {
@@ -248,12 +286,7 @@
     border-radius: 10px 10px 0 0px;
     object-fit: cover;
   }
-  
-  .excursion__card {
-    display: flex;
-    flex-direction: column;
-    padding: 24px 40px;
-  }
+
   
   .item__category {
     color: var(--color-secondary);
@@ -266,7 +299,7 @@
     color: var(--color-black);
     font-size: 18px;
     font-weight: 700;
-    margin: 0px 0px 20px;
+    margin: 0px 0px 10px;
   }
   
   .item__description {
@@ -275,39 +308,6 @@
     font-weight: 500;
     border-left: 3px solid var(--color-primary);
     padding-left: 24px;
-    margin-bottom: 40px;
+    margin: 20px 15px 10px 0px;
   }
-  
-  .excursion__button {
-    margin-bottom: 16px;
-    display: flex;
-    align-items: flex-end;
-  }
-  
-  @media screen and (min-width: 768px) {
-    .catalog__item {
-      display: flex;
-      flex-direction: row;
-    }
-  
-    .item__img img {
-      border-radius: 10px 0 0 10px;
-      width: 100%;
-      height: 100%;
-    }
-  
-    .item__description {
-      margin-bottom: 20px;
-    }
-  
-  }
-  @media screen and (min-width: 1024px) {
-    .catalog {
-      padding-left: 40px;
-    }
-  
-    .catalog__container {
-      gap: 40px;
-    }
-  }
-  
+
