@@ -13,6 +13,8 @@ module.exports = {
   entry: {
     index: './src/index.js',
     catalog: './src/catalog.js',
+    basket: './src/basket.js',
+    functions: './src/functions.js',
   },
   // entry: {
   //   main: "./src/index.js", // точка входа, куда заглянет вебпак в первую очередь

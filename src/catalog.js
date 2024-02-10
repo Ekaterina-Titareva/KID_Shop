@@ -1,4 +1,7 @@
 import "./styles/index.scss";
+import { makeMiniBasketItem } from "./functions";
+import { catalogJson } from "./index";
+
 // fetch('catalog.json')
 //   .then(response => response.json())
 //   .then(data => {
@@ -517,6 +520,7 @@ function createCard(item) {
       <p class= "item__color">Цвет: ${item.color}</p>
       <p class= "item__material">Материал: ${item.material}</p>
       <p class= "item__description">${item.description}</p>
+      <button class="add-button">Добавить в корзину</button>
     </div>`;
   return catalogContent;
 }
@@ -562,8 +566,6 @@ function filterClothes() {
 
   outputCatalog(filteredCatalog);
 }
-
-
 
 // Бегунок стоимости
 const lowestPrice = Math.min(...catalogObject.map((exc) => exc.priceadult));
@@ -665,6 +667,7 @@ function outputCatalog(clothes) {
 
 
 // Форма
+
 const button = document.querySelector(".user");
 const form = document.querySelector("#user_login");
 const popup = document.querySelector(".popup_user");
@@ -678,6 +681,9 @@ button.addEventListener("click", () => {
 });
 
 // Открытие/закрытие popup с корзиной
+const buttonBasket = document.querySelector('#basket');
+const buttonClose = document.querySelector('.btn-close');
+const popupBasket = document.querySelector('.popup-basket');
 
 buttonBasket.addEventListener("click", () => {
   let headerHeight = document.querySelector(".header").clientHeight;
@@ -700,4 +706,35 @@ buttonClose.addEventListener("click", () => {
   }
 });
 
+
+// Добавление товаров в корзину
+const buttons = document.querySelectorAll('.add-button');
+let catalogCards = document.querySelectorAll('.catalog__item');
+
+buttons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        let catalogItems = Array.from(catalogCards);
+        let addToBasketItem = event.target.closest('div');
+        let index = catalogItems.indexOf(addToBasketItem)
+        let key = `в корзину ${catalogJson[index].id}`;
+
+        window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
+        
+        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
+    })
+})
+
+
+//Для отрисовки товаров в корзине после перезагрузки страницы
+for (let i = 0; i < catalogJson.length; i++) {
+    let key = `в корзину ${catalogJson[i].id}`;
+
+    window.addEventListener('DOMContentLoaded',() => {
+        if(localStorage.getItem(key)){
+            makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+    }
+    });
+}
+
 console.log(document.querySelector(".header").clientHeight);
+
