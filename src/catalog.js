@@ -1,14 +1,12 @@
 import "./styles/index.scss";
-import { makeMiniBasketItem } from "./functions";
-import { catalogJson } from "./index";
 
 // fetch('catalog.json')
 //   .then(response => response.json())
 //   .then(data => {
-// const catalogJson = JSON.parse(data);
+// const catalogData = JSON.parse(data);
 
 
-const catalogJson = [
+const catalogData = [
   {
     id: "1",
     category: "Футболки",
@@ -496,8 +494,8 @@ const catalogJson = [
 let catalogContent = "";
 
 function createCatalog() {
-  // let clothes = JSON.parse(catalogJson);
-  let clothes = catalogJson;
+  // let clothes = JSON.parse(catalogData);
+  let clothes = catalogData;
   for (let item of clothes) {
     createCard(item);
   }
@@ -537,8 +535,8 @@ spoilers.forEach((spoiler) => {
 
 
 // Фильтр
-// let catalogObject = JSON.parse(catalogJson);
-let catalogObject = catalogJson;
+// let catalogObject = JSON.parse(catalogData);
+let catalogObject = catalogData;
 
 const filters = document.querySelector("#filters");
 
@@ -653,6 +651,7 @@ function outputCatalog(clothes) {
       <p class= "item__color">Цвет: ${item.color}</p>
       <p class= "item__material">Материал: ${item.material}</p>
       <p class= "item__description">${item.description}</p>
+      <button class="add-button">Добавить в корзину</button>
     </div>`
     )
     .join("");
@@ -666,18 +665,125 @@ function outputCatalog(clothes) {
 
 
 
+
 // Форма
+const userBtn = document.querySelector('.user');
+const formLogin = document.querySelector('#user_login');
+const popupLogin = document.querySelector('.popup_user');
 
-const button = document.querySelector(".user");
-const form = document.querySelector("#user_login");
-const popup = document.querySelector(".popup_user");
-const buttonBasket = document.querySelector("#basket");
-const buttonClose = document.querySelector(".btn-close");
-const popupBasket = document.querySelector(".popup-basket");
 
-button.addEventListener("click", () => {
-  form.classList.add("open");
-  popup.classList.add("popup_open");
+userBtn.addEventListener('click', () => {
+  formLogin.classList.add('open');
+  popupLogin.classList.add('popup_open');
+});
+
+//Форма регистарции
+const registr = document.querySelector('.registr');
+const popupReg = document.querySelector('.popup_user_registr');
+const formReg = document.querySelector('#user_registr');
+
+registr.addEventListener('click',()=>{
+  formReg.classList.add('open');
+  popupReg.classList.add('popup_open');
+  popupLogin.classList.remove('popup_open');
+  formLogin.classList.remove('open');
+
+});
+// Кнопки закрытия
+document.querySelector('.close').addEventListener('click', ()=>{
+  document.querySelector('.popup_user').style.display = 'none';
+});
+
+document.querySelector('.close_reg').addEventListener('click',()=>{
+  document.querySelector('.popup_user_registr').style.display = 'none';
+});
+
+//Валидация формы входа
+const formLog = document.forms.formLogin;
+
+formLog.addEventListener('submit', function(evt){
+  evt.preventDefault();
+  let hasError = false;
+  const emailRegexLogin = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const login = formLog.elements.login;
+  const password = formLog.elements.password;
+  const agree = formLog.elements.agree;
+
+  if(emailRegexLogin.test(login.value)=== false){
+    document.getElementById('error_login').textContent = 'Неверный логин';
+    hasError = true;
+   
+  }
+  if(password.value === ''){
+    document.getElementById('error_password').textContent = 'Неверный пароль';
+    hasError = true;
+    
+  }
+  if(!agree.checked){
+    document.getElementById('check_login').textContent = 'Необходимо согласие с условиями';
+    hasError = true;
+  }
+
+  if(hasError === false){
+    formLog.reset();
+    alert('Добро пожаловать!');
+  }
+ 
+})
+
+
+//Валидация формы регистрации
+
+const checkFormReg = document.forms.formRegistration;
+
+
+checkFormReg.addEventListener('submit', function(evt){
+evt.preventDefault();
+let hasError = false;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const userName = checkFormReg.elements.regname;
+const userSurname = checkFormReg.elements.surname;
+const userEmail = checkFormReg.elements.email;
+const userPassOne = checkFormReg.elements.password;
+const userPassTwo = checkFormReg.elements.passcheck;
+const agree = checkFormReg.elements.agree;
+
+if(userName.value === ' '){
+  document.getElementById('name_error').textContent = 'Введите имя';
+  hasError = true;
+}
+if(userSurname.value === ' '){
+  document.getElementById('surname_error').textContent = 'Введите фамилию';
+  hasError =true;
+}
+if(emailRegex.test(userEmail.value)=== false){
+  document.getElementById('emailreg_error').textContent = 'Некорректная почта';
+  hasError = true;
+}
+if(userEmail.value === ''){
+  document.getElementById('emailreg_error').textContent = 'Введите почту';
+  hasError = true;
+}
+
+if(userPassOne.value === ''|| userPassOne.length<8){
+  document.getElementById('password_error').textContent = 'Придумайте пароль минимум 8 символов';
+  hasError = true;
+}
+if(userPassTwo.value !== userPassOne.value || userPassTwo.value == ''){
+  document.getElementById('checkpass_error').textContent = 'Пароль не совпадает';
+  hasError = true;
+}
+if(!agree.checked){
+  document.getElementById('check_reg').textContent = 'Необходимо согласие с условиями';
+  hasError = true;
+}
+if(hasError === false){
+  document.querySelectorAll('.error').textContent = ' ';
+  checkFormReg.reset();
+  document.getElementById('success').textContent = 'Вы успешно зарегистрировались!';
+ 
+}
+
 });
 
 // Открытие/закрытие popup с корзиной
@@ -685,56 +791,58 @@ const buttonBasket = document.querySelector('#basket');
 const buttonClose = document.querySelector('.btn-close');
 const popupBasket = document.querySelector('.popup-basket');
 
-buttonBasket.addEventListener("click", () => {
-  let headerHeight = document.querySelector(".header").clientHeight;
-
-  if (popupBasket.classList.contains("hidden")) {
-    popupBasket.classList.remove("hidden");
-    popupBasket.classList.add("visible");
+buttonBasket.addEventListener('click', () => {
+  let headerHeight = document.querySelector('.header').clientHeight;
+  
+  if (popupBasket.classList.contains('hidden')){
+    popupBasket.classList.remove('hidden');
+    popupBasket.classList.add('visible');
 
     popupBasket.style.top = `${headerHeight}px`;
   } else {
-    popupBasket.classList.add("hidden");
-    popupBasket.classList.remove("visible");
+    popupBasket.classList.add('hidden');
+    popupBasket.classList.remove('visible');
   }
-});
-
-buttonClose.addEventListener("click", () => {
-  if (popupBasket.classList.contains("visible")) {
-    popupBasket.classList.remove("visible");
-    popupBasket.classList.add("hidden");
-  }
-});
-
-
-// Добавление товаров в корзину
-const buttons = document.querySelectorAll('.add-button');
-let catalogCards = document.querySelectorAll('.catalog__item');
-
-buttons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        let catalogItems = Array.from(catalogCards);
-        let addToBasketItem = event.target.closest('div');
-        let index = catalogItems.indexOf(addToBasketItem)
-        let key = `в корзину ${catalogJson[index].id}`;
-
-        window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
-        
-        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
-    })
 })
 
+buttonClose.addEventListener('click', () => {
+  if (popupBasket.classList.contains('visible')){
+    popupBasket.classList.remove('visible');
+    popupBasket.classList.add('hidden');
+  }
+})
 
-//Для отрисовки товаров в корзине после перезагрузки страницы
-for (let i = 0; i < catalogJson.length; i++) {
-    let key = `в корзину ${catalogJson[i].id}`;
+// import { makeMiniBasketItem } from "./functions";
+// import { catalogJson } from "./index";
+// // Добавление товаров в корзину
+// const buttons = document.querySelectorAll('.add-button');
+// let catalogCards = document.querySelectorAll('.catalog__item');
 
-    window.addEventListener('DOMContentLoaded',() => {
-        if(localStorage.getItem(key)){
-            makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
-    }
-    });
-}
+// buttons.forEach(button => {
+//     button.addEventListener('click', (event) => {
+//         let catalogItems = Array.from(catalogCards);
+//         let addToBasketItem = event.target.closest('div');
+//         let index = catalogItems.indexOf(addToBasketItem)
+//         let key = `в корзину ${catalogData[index].id}`;
 
-console.log(document.querySelector(".header").clientHeight);
+//         window.localStorage.setItem(key, JSON.stringify(catalogData[index]));
+        
+//         makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
+//     })
+// })
+
+
+// //Для отрисовки товаров в корзине после перезагрузки страницы
+// for (let i = 0; i < catalogData.length; i++) {
+//   let key = `в корзину ${catalogData[i].id}`;
+
+//   window.addEventListener('DOMContentLoaded',() => {
+//     if(localStorage.getItem(key)){
+//         makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+//         console.log(window.localStorage.getItem(key));
+//     }
+//   });
+// }
+
+// console.log(document.querySelector(".header").clientHeight);
 
