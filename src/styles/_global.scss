@@ -15,27 +15,6 @@
   padding: 0 10px;
 }
 
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid $black;
-  border-radius: 4px;
-  padding: 5px;
-  font-weight: 600;
-  line-height: 20px;
-  letter-spacing: 0.192px;
-  color: $white;
-  background: $black;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.btn:hover {
-  color: $black;
-  background: $white;
-}
-
 a {
   text-decoration: none;
   color: $black;
@@ -401,14 +380,14 @@ footer p{
   
   .pre-btn {
     position: absolute;
-    top: 50%;
+    top: 40%;
     right: 0px;
   }
   
   .nxt-btn {
     position: absolute;
     left: 0px;
-    top: 50%;
+    top: 40%;
     transform: rotate(180deg);
   }
   
