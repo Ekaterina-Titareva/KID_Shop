@@ -505,6 +505,8 @@ rangeInput.forEach(input =>{
 //Очистить фильтр
 document.querySelector(".sidebar__reset").addEventListener("click", () => {
   filters.querySelector("#category").value = "";
+  priceInput[0].value = lowestPrice;
+  priceInput[1].value = highestPrice;
   rangeInput[0].value = lowestPrice;
   rangeInput[1].value = highestPrice;
   range.style.left = "50%";
