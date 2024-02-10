@@ -1,4 +1,9 @@
 import "./styles/index.scss";
+// fetch('catalog.json')
+//   .then(response => response.json())
+//   .then(data => {
+// const catalogJson = JSON.parse(data);
+
 
 const catalogJson = [
   {
@@ -8,7 +13,7 @@ const catalogJson = [
     description:
       "Футболка из мягкого хлопчатобумажного джерси с принтом, отделкой в рубчик по вырезу и застежкой-молнией на одном плече. Хлопок 100%.",
     image1:
-      "require('./images/first_pic_of_catalog/Girls_1_4Y_Tshirts_firstpic.jpg')",
+      "./images/first_pic_of_catalog/Girls_1_4Y_Tshirts_firstpic.jpg", //проверка без require
     image2:
       "require('./images/second_pic_of_catalog/Girls_1_4Y_Tshirts_secondpic.jpg')",
     color: "Розовый",
@@ -24,7 +29,7 @@ const catalogJson = [
     description:
       "Классическая футболка из мягкого хлопкового джерси с принтом и обратимыми пайетками спереди. Отделка в рубчик вокруг выреза и низ прямого кроя. Хлопок 100%.",
     image1:
-      "require('./images/first_pic_of_catalog/Girls_5_8Y_Tshirts_firstpic.jpg')",
+      "./images/first_pic_of_catalog/Girls_5_8Y_Tshirts_firstpic.jpg", //проверка без require
     image2:
       "require('./images/second_pic_of_catalog/Girls_5_8Y_Tshirts_secondpic.jpg')",
     color: "Белый",
@@ -526,6 +531,8 @@ spoilers.forEach((spoiler) => {
   });
 });
 
+
+// Фильтр
 // let catalogObject = JSON.parse(catalogJson);
 let catalogObject = catalogJson;
 
@@ -556,7 +563,9 @@ function filterClothes() {
   outputCatalog(filteredCatalog);
 }
 
-// СЛАЙДЕР
+
+
+// Бегунок стоимости
 const lowestPrice = Math.min(...catalogObject.map((exc) => exc.priceadult));
 const highestPrice = Math.max(...catalogObject.map((exc) => exc.priceadult));
 
@@ -607,6 +616,8 @@ rangeInput.forEach((input) => {
 //Очистить фильтр
 document.querySelector(".sidebar__reset").addEventListener("click", () => {
   filters.querySelector("#category").value = "";
+  priceInput[0].value = lowestPrice;
+  priceInput[1].value = highestPrice;
   rangeInput[0].value = lowestPrice;
   rangeInput[1].value = highestPrice;
   range.style.left = "50%";
@@ -621,6 +632,8 @@ document.querySelector(".sidebar__reset").addEventListener("click", () => {
 
   filterClothes();
 });
+
+
 
 function outputCatalog(clothes) {
   document.querySelector(".catalog__container").innerHTML = clothes
@@ -642,6 +655,14 @@ function outputCatalog(clothes) {
     )
     .join("");
 }
+
+
+// })
+// .catch(error => {
+//   console.error('Error:', error);
+// });
+
+
 
 // Форма
 const button = document.querySelector(".user");
