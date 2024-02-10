@@ -422,6 +422,8 @@ spoilers.forEach((spoiler) => {
   });
 });
 
+
+// Фильтр
 // let catalogObject = JSON.parse(catalogJson);
 let catalogObject = catalogJson;
 
@@ -454,7 +456,7 @@ function filterClothes() {
 
 
 
-// СЛАЙДЕР
+// Бегунок стоимости
 const lowestPrice = Math.min(...catalogObject.map((exc) => exc.priceadult));
 const highestPrice = Math.max(...catalogObject.map((exc) => exc.priceadult));
 
@@ -522,6 +524,8 @@ document.querySelector(".sidebar__reset").addEventListener("click", () => {
   filterClothes();
 
 });
+
+
 
 function outputCatalog(clothes) {
 

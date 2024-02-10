@@ -1,32 +1,7 @@
-
 * {
   padding: 0px;
   margin: 0px;
-  border: none;
-  font-weight: normal;
-  position: relative;
 }
-
-/* ---- VARIABLES ---- */
-:root {
-    --color-white: #ffffff;
-    --color-light-gray: #fbfbfb;
-    --color-gray: #d4d4d4;
-    --color-black: #282828;
-  
-    --color-primary: #0499dd;
-    --color-secondary: #ffc700;
-  
-    --color-hover: var(--color-secondary);
-  
-    --box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
-    --border: 1px solid #ededed;
-    --gradient: linear-gradient(93deg, #0499dd 0%, #17c1bc 100%);
-  
-    --font-text: "Montserrat", sans-serif;
-    --font-accent: "Pacifico";
-  }
-
   
 .catalog__wrapper{
   display: grid;
@@ -35,12 +10,12 @@
   gap: 100px;
 }
 
-
-  /** ---- Filter Section ---- **/
+// Фильтры
 .sidebar__title {
-  font-family: var(--font-title);
-  color: var(--color-primary);
-  font-size: 14px;
+  font-family: $font-family;
+  color: $color-primary;
+  font-size: 24px;
+  text-align: center;
   font-weight: 700;}
 
 .sidebar__reset {
@@ -49,19 +24,19 @@
   justify-content: center;
   gap: 5px;
   margin: 0px 0px 20px;
-  color: var(--color-black);
+  color: $color-black;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
 }
 
 .sidebar__reset i {
-  color: var(--color-gray);
+  color: $color-gray;
   transition: color 0.3s;
 }
 
 .sidebar__reset:hover i {
-  color: var(--color-primary);
+  color: $color-primary;
   transition: color 0.3s;
 }
 
@@ -72,12 +47,11 @@
   .filter__item {
     display: flex;
     flex-direction: column;
-    font-family: var(--font-text);
-    color: var(--color-black);
+    color: $color-black;
     font-weight: 500;
     font-size: 12px;
     padding: 40px 0px;
-    border-bottom: solid 1px var(--color-gray);
+    border-bottom: solid 1px $color-gray;
   }
   
   .filter__item:first-of-type {
@@ -92,7 +66,7 @@
   }
   
   .filter__item_subtitle h4 {
-    color: var(--color-black);
+    color: $color-black;
     font-size: 14px;
     font-weight: 700;
   }
@@ -106,7 +80,7 @@
     height: 2px;
     width: 16px;
     border-radius: 40px;
-    background: var(--color-primary);
+    background: $color-primary;
   }
   
   .filter__item_spoiler::before {
@@ -130,19 +104,22 @@
     display: flex;
   }
   
+
+  //Фильтры стоимости
   .filter__price {
     flex-direction: column;
   }
   .filter__price_inputs {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
   }
   
   .filter-input {
     text-align: center;
     padding: 8px 12px;
-    background: var(--color-white);
-    border: 1px solid var(--color-gray);
+    background-color: $light;
+    border: 1px solid $color-gray;
     border-radius: 40px;
   }
   
@@ -168,7 +145,7 @@
     width: 100%;
     height: 5px;
     margin: 30px 0;
-    background-color: var(--color-gray);
+    background-color: $color-gray;
   }
   
   .filter__price_range input {
@@ -185,10 +162,10 @@
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    background: #17A2B8;
+    background: $color-primary;
     pointer-events: auto;
     -webkit-appearance: none;
-    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+    box-shadow: 0 0 6px $box-shadow;
   }
   
   input[type="range"]::-moz-range-thumb {
@@ -196,36 +173,23 @@
     width: 25px;
     border: none;
     border-radius: 50%;
-    background: #17A2B8;
+    background: $color-primary;
     pointer-events: auto;
     -moz-appearance: none;
-    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+    box-shadow: 0 0 6px $box-shadow;
   }
   
+  input[type="radio"]:checked + label {
+    background-color: $color-primary;
+  }
+
   .filter-slider-track {
     height: 100%;
     position: absolute;
-    background-color:  #17A2B8;
+    background-color: $color-primary;
   }
   
-
-  
-  .filter__quantity {
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .filter__quantity input {
-    width: 60px;
-  }
-  
-  
-  .filter__quantity span {
-    color: var(--color-primary);
-    cursor: pointer;
-  }
-  
+  //Другие фильтры
   .filter__age,
   .filter__gender {
     flex-direction: column;
@@ -242,19 +206,24 @@
     display: inline-flex;
   }
   
+  option:hover, option:checked {
+    background-color: $color-primary;
+  }
+
   .sidebar__reset {
+    font-family: $font-family;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    margin: 0px 0px 20px;
-    color: var(--color-black);
-    font-size: 12px;
+    gap: 10px;
+    margin: 5px 0 20px;
+    color: $color-black;
+    font-size: 18px;
     font-weight: 500;
     cursor: pointer;
   }
 
-
+//Каталог с карточками
   .catalog__container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -266,10 +235,10 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    background-color: var(--color-white);
-    box-shadow: var(--box-shadow);
+    background-color: $color-white;
+    box-shadow: 2px 2px 2px $color-primary;
     border-radius: 10px;
-    border: 1px solid var(--color-primary);
+    border: 1px solid $color-primary;
     padding: 10px;
   }
   
@@ -284,26 +253,39 @@
     object-fit: cover;
   }
 
+  .item-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 5px;
+  }
   
   .item__category {
-    color: var(--color-secondary);
+    color: $color-secondary;
     font-size: 13px;
     font-weight: 500;
     margin-bottom: 2px;
   }
   
+  .item__price {
+    color: $color-primary;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
   .item__name {
-    color: var(--color-black);
+    color: $color-black;
     font-size: 18px;
     font-weight: 700;
     margin: 0px 0px 10px;
   }
   
   .item__description {
-    color: var(--color-black);
+    color: $color-black;
     font-size: 13px;
     font-weight: 500;
-    border-left: 3px solid var(--color-primary);
+    border-left: 3px solid $color-primary;
     padding-left: 24px;
     margin: 20px 15px 10px 0px;
   }
