@@ -7,9 +7,7 @@
   font-size: 18px;
 }
 
-.title {
-  color: $primaryColor;
-}
+
 .container {
   margin: 0 auto;
   padding: 0 10px;
@@ -31,7 +29,7 @@ ul {
 .header{
   display: flex;
   justify-content: space-evenly;
-  background-color: $orange;
+  background-color: $color-primary;
   align-items: center;
 }
 #logo{
@@ -50,7 +48,7 @@ ul {
   display: flex;
   justify-content: flex-end;
   font-size: 50px;
-  color: $red;
+  color: $color-secondary;
   width: 30%;
   text-align: center;
   font-family: "Marker";
@@ -77,7 +75,7 @@ ul {
   height: 43px;
   margin-top: 30px;
   margin-bottom: 20px;
-  font-family: 'Ceveat';
+  font-family: $font-family;
   font-size: 20px;
   border-radius: 10px;
   border: 1px solid $black;
@@ -107,7 +105,7 @@ ul {
   right: 0;
   cursor: pointer;
   border-radius: 10px;
-  background-color: $light;
+  background-color: $color-light;
 }
 
 //О нас
@@ -141,7 +139,7 @@ margin-bottom: 150px;
   grid-column: 2/3;
   position: absolute;
   right: 0;
-  background: $light;
+  background: $color-light;
   border-radius: 10px;
   width: 60%;
   min-height: 300px;
@@ -149,9 +147,9 @@ margin-bottom: 150px;
   padding: 30px;
 }
 h2{
-  color: $red;
+  color: $color-secondary;
   text-align: center;
-  font-family: 'Ceveat';
+  font-family: $font-family;
   font-weight: bolder;
   font-size: 30px;
   padding-bottom: 10px;
@@ -176,7 +174,7 @@ h2{
 }
 .footer{
   display: flex;
-  background-color: $orange;
+  background-color: $color-primary;
   justify-content: space-around;
   padding-top: 20px;
   padding-bottom: 10px;
@@ -191,11 +189,11 @@ h2{
   margin-top: 5px;
 }
 footer p{
-  font-family: 'Ceveat';
+  font-family: $font-family;
   font-weight: bolder;
   font-size: 25px;
   margin-bottom: 10px;
-  color: $red;
+  color: $color-secondary;
 
 }
 .logo_tel{
@@ -204,7 +202,7 @@ footer p{
   align-items: center;
 }
 #tel{
-  color: $red;
+  color: $color-secondary;
 }
 #tel:hover{
   color: $white;
@@ -212,18 +210,18 @@ footer p{
 
 //Форма всплывющая
 .user{
-  background-color: $light;
+  background-color: $color-light;
   border: none;
   border-radius: 2px;
   width: 100px;
   height: 30px;
   color: $black;
-  font-family: 'Ceveat';
+  font-family: $font-family;
   font-weight: bold;
   font-size: 25px;
 }
 .user:hover{
-  background-color: $red;
+  background-color: $color-secondary;
 }
 
 #user_login {
@@ -297,34 +295,34 @@ footer p{
 
 .loginform,
 .registration{
-  font-family: 'Ceveat';
+  font-family: $font-family;
 }
 .loginform p,
 .registration p{
-  font-family: 'Ceveat';
+  font-family: $font-family;
   font-size: 25px;
   font-weight: bolder;
 }
 .check_login{
-  background-color: $red;
+  background-color: $color-secondary;
   color: $white;
   padding: 8px;
   width: 150px;
   margin-top: 5px;
-  font-family: 'Ceveat';
+  font-family: $font-family;
 }
 .check_login:hover{
-  background-color: $orange;
+  background-color: $color-primary;
 }
 .registr{
   background-color: rgb(193, 191, 191);
   margin-top:10px;
   padding: 5px;
   color: $white;
-  font-family: 'Ceveat';
+  font-family: $font-family;
 }
 .registr:hover{
-  background-color: $orange;
+  background-color: $color-primary;
 }
 .close,
 .close_reg{
@@ -335,15 +333,15 @@ footer p{
   
 }
 .check_registr{
-  background-color: $red;
+  background-color: $color-secondary;
   color: $white;
   padding: 8px;
   width: 250px;
   margin-top: 5px;
-  font-family: 'Ceveat';
+  font-family: $font-family;
 }
 .check_registr:hover{
-  background-color: $orange;
+  background-color: $color-primary;
 }
 .error{
   color: brown;

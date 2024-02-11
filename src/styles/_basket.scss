@@ -10,7 +10,7 @@
     max-width: 50vw;
     min-height: 70vh;
 
-    background-color: grey;
+    background-color: $color-light;
 
     visibility: visible;
     z-index: 3;
@@ -31,7 +31,7 @@
         left: 0;
         width: 25px;
         height: 3px;
-        background: $primaryColor;
+        background: $color-primary;
     }
 
     &::before {
@@ -52,7 +52,7 @@
     width: 50%;
     margin-bottom: 20px;
     padding: 10px 0;
-    background-color: $primaryColor;
+    background-color: $color-primary;
 
 
     text-align: center;
