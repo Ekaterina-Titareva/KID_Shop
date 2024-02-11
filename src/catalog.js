@@ -506,6 +506,9 @@ createCatalog();
 function createCard(item) {
   catalogContent += `
     <div class="catalog__item">
+      <div class="add-favorites">
+        <div class="add-favorites-img"></div>
+      </div>
       <p class= "item__name">${item.name}</p>
       <p class= "item__category">${item.category}</p>      
       <p class= "item__price">Цена: ${item.price} рублей</p>
@@ -641,6 +644,9 @@ function outputCatalog(clothes) {
     .map(
       (item) => `
       <div class="catalog__item">
+      <div class="add-favorites">
+        <div class="add-favorites-img"></div>
+      </div>
       <p class= "item__name">${item.name}</p>
       <p class= "item__category">${item.category}</p>      
       <p class= "item__price">Цена: ${item.price} рублей</p>
