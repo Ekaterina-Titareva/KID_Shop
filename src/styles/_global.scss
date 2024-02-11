@@ -71,6 +71,7 @@ ul {
 //Поисковик
 .search__form {
   position: relative;
+  justify-self: center;
   width: 450px;
   height: 43px;
   margin-top: 30px;
@@ -97,6 +98,17 @@ ul {
   height: 100%;
   
 }
+
+.search__container{
+  min-width: 50%;
+  min-height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: $color-light;
+  grid-gap: 30px;
+  padding: 20px;
+  }
+
 .search__btn{
   height: 100%;
   width: 50px;
