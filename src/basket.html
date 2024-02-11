@@ -10,10 +10,10 @@
 <body>
   <header class="header">
     <div class="header__logo">
-      <div><img src="icons/logo.svg" alt="logo" id="logo" /></div>
+      <div><a href="index.html"><img src="icons/logo.svg" alt="logo" id="logo" /></a></div>
       <p>KIDShop</p>
     </div>
-    <h1 class="header__title">KIDShop</h1>
+    <h1 class="header__title"><a href="index.html">KIDShop</a></h1>
     <div class="header__menu">
       <ul class="menu__items">
         <li>
@@ -22,11 +22,6 @@
         <li>
           <a href="#">
             <img src="icons/favorits.svg" alt="favorits" class="menu_icon" /></a>
-        </li>
-        <li>
-          <button id="basket">
-            <img src="./icons/basket.svg" alt="basket" class="menu_icon" />
-          </button>
         </li>
         <button class="user">Войти</button>
         <!--Форма входа-->
@@ -104,15 +99,14 @@
   <main>
     <div class="wrap">
       <div class="basket">
-        <h3>Корзина [2 товара]</h3>
+        <h3>Корзина</h3>
         <ul class="basket-list"></ul>
-        <ul class="basket-list-catalog"></ul>
       </div>
 
       <div class="basket-total">
-        <h3>Сумма заказа</h3>
-        <p>[2 товара] на сумму</p>
-        <span>[сумма руб.]</span>
+        <h3>Итого</h3>
+        <span class="basket-quantity"></span>
+        <p class="total-price"></p>
 
         <a href="#">Перейти к оформлению </a>
       </div>
@@ -147,12 +141,6 @@
     </div>
   </footer>
   <div class="copyright">&#169;2024 KID</div>
-
-  <div class="popup-basket hidden">
-    <a class="btn-close"></a>
-    <ul class="popup-basket__list"></ul>
-    <a href="basket.html" class="popup-basket__button">Перейти в корзину</a>
-  </div>
 
   <script src="basket.js" type="module"></script>
 </body>
