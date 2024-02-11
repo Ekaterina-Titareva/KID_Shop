@@ -383,9 +383,7 @@ const catalogJson = [
 const userBtn = document.querySelector('.user');
 const formLogin = document.querySelector('#user_login');
 const popupLogin = document.querySelector('.popup_user');
-const buttonBasket = document.querySelector('#basket');
-const buttonClose = document.querySelector('.btn-close');
-const popupBasket = document.querySelector('.popup-basket');
+
 
 userBtn.addEventListener('click', () => {
   formLogin.classList.add('open');
@@ -503,6 +501,9 @@ if(hasError === false){
 
 
 // Открытие/закрытие popup с корзиной
+const buttonBasket = document.querySelector('#basket');
+const buttonClose = document.querySelector('.btn-close');
+const popupBasket = document.querySelector('.popup-basket');
 
 buttonBasket.addEventListener('click', () => {
   let headerHeight = document.querySelector('.header').clientHeight;
