@@ -14,8 +14,8 @@
 <body>
   <header class="header">
     <div class="header__logo">
-      <div><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></div>
-      <p>KIDShop</p>
+      <div><a href="index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a></div>
+      <p><a href="index.html">KIDShop</a></p>
     </div>
     <h1 class="header__title">KIDShop</h1>
     <div class="header__menu">
@@ -25,12 +25,8 @@
         </li>
         <li>
           <a href="#">
-            <img src="./assets/images/heart.png" alt="favorites" class="menu_icon" /></a>
-        </li>
-        <li>
-          <button id="basket">
-            <img src="./assets/images/basket.png" alt="basket" class="menu_icon" />
-          </button>
+            <img src="./assets/images/heart.png" alt="favorites" class="menu_icon" />
+          </a>
         </li>
         <button class="user">Войти</button>
         <!--Форма входа-->
@@ -108,14 +104,14 @@
   <main>
     <div class="wrap">
       <div class="basket">
-        <h3>Корзина [2 товара]</h3>
+        <h3>Корзина</h3>
         <ul class="basket-list"></ul>
       </div>
 
       <div class="basket-total">
-        <h3>Сумма заказа</h3>
-        <p>[2 товара] на сумму</p>
-        <span>[сумма руб.]</span>
+        <h3>Итого</h3>
+        <span class="basket-quantity"></span>
+        <p class="total-price"></p>
 
         <a href="#">Перейти к оформлению </a>
       </div>

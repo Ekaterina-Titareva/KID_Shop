@@ -177,6 +177,33 @@ function outputCatalog(clothes) {
     .join("");
 }
 
+//КОРЗИНА
+
+// Открытие/закрытие popup с корзиной
+const buttonBasket = document.querySelector('#basket');
+const buttonClose = document.querySelector('.btn-close');
+const popupBasket = document.querySelector('.popup-basket-catalog');
+
+buttonBasket.addEventListener("click", () => {
+  //let headerHeight = document.querySelector(".header").clientHeight;
+
+  if (popupBasket.classList.contains("hidden")) {
+    popupBasket.classList.remove("hidden");
+    popupBasket.classList.add("visible");
+
+    //popupBasket.style.top = `${headerHeight}px`;
+  } else {
+    popupBasket.classList.add("hidden");
+    popupBasket.classList.remove("visible");
+  }
+});
+
+buttonClose.addEventListener("click", () => {
+  if (popupBasket.classList.contains("visible")) {
+    popupBasket.classList.remove("visible");
+    popupBasket.classList.add("hidden");
+  }
+});
 
 // Добавление товаров в корзину
 const buttons = document.querySelectorAll('.add-button');
@@ -197,7 +224,6 @@ buttons.forEach(button => {
         makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
     })
 })
-
 
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {
