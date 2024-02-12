@@ -1,5 +1,5 @@
 import { catalogJson } from "./index.js";
-import { makeMiniBasketItem} from "./functions.js";
+import { makeMiniBasketItem } from "./functions.js";
 
 // Каталог
 
@@ -18,7 +18,7 @@ createCatalog();
 
 function createCard(item) {
   catalogContent += `
-    <div class="catalog__item">
+    <div class="catalog__item" value="${item.id}">
       <div class="add-favorites">
         <div class="add-favorites-img"></div>
       </div>
@@ -58,6 +58,8 @@ const filters = document.querySelector("#filters");
 filters.addEventListener("change", filterClothes);
 
 function filterClothes() {
+  const buttons = document.querySelectorAll('.add-button');
+  
   const age = [...filters.querySelectorAll("#age input:checked")].map(
     (n) => n.value
   );
@@ -156,7 +158,7 @@ function outputCatalog(clothes) {
   document.querySelector(".catalog__container").innerHTML = clothes
     .map(
       (item) => `
-      <div class="catalog__item">
+      <div class="catalog__item" value="${item.id}">
       <div class="add-favorites">
         <div class="add-favorites-img"></div>
       </div>
@@ -207,22 +209,27 @@ buttonClose.addEventListener("click", () => {
 
 // Добавление товаров в корзину
 const buttons = document.querySelectorAll('.add-button');
-let catalogCards = document.querySelectorAll('.catalog__item');
 
-buttons.forEach(button => {
+function addToBasket(event) {
+  let addToBasketItem = event.target.closest('div');
+  let index = addToBasketItem.getAttribute('value');
+  let key = `в корзину ${index}`;
 
-    button.addEventListener('click', (event) => {
-        console.log(buttons);
-        let catalogItems = Array.from(catalogCards);
-        let addToBasketItem = event.target.closest('div');
-        let index = catalogItems.indexOf(addToBasketItem)
+  console.log(index);
+  console.log(JSON.stringify(catalogJson[(index-1)]));
 
-        let key = `в корзину ${catalogJson[index].id}`;
-
-        window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
+  window.localStorage.setItem(key, JSON.stringify(catalogJson[index-1]));
         
-        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
-    })
+  makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+}
+
+buttons.forEach(button => button.addEventListener('click', addToBasket))
+
+
+// Добавление товаров после фильтрации
+filters.addEventListener('change', () => {
+  const buttons = document.querySelectorAll('.add-button');
+  buttons.forEach((button) => button.addEventListener('click', addToBasket))
 })
 
 //Для отрисовки товаров в корзине после перезагрузки страницы

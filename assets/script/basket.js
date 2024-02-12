@@ -1,16 +1,16 @@
 import { catalogJson } from "./index.js";
 import { makeBasketItem } from "./functions.js";
 
+
 // Вывод списка товаров в корзину при переходе на отдельную страницу
 for (let i = 0; i < catalogJson.length; i++) {
     let key = `в корзину ${catalogJson[i].id}`;
 
     window.addEventListener('DOMContentLoaded',() => {
         if(localStorage.getItem(key)){
-            console.log(key)
-            makeBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
+            makeBasketItem(JSON.parse(window.localStorage.getItem(key)));
         }
-    });
+    })
 }
 
 //Удаление товара из корзины
@@ -20,8 +20,9 @@ window.addEventListener('DOMContentLoaded',() => {
     deleteButtons.forEach((btn) => {
         btn.addEventListener('click', (ev) => {
         let item = ev.target.closest('li').getAttribute('value');
+        let key = `в корзину ${item}`;
 
-        window.localStorage.removeItem(item);
+        window.localStorage.removeItem(key);
         location.reload();
         });
     })

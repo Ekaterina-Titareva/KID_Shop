@@ -1,3 +1,5 @@
+import { makeMiniBasketItem } from "./functions.js";
+
 //Здесь код, который используется на всех страницах (header): форма, корзина, избранное pop up
 
 const catalogJson = [
@@ -599,7 +601,7 @@ if(hasError === false){
   document.querySelectorAll('.error').textContent = ' ';
   checkFormReg.reset();
   document.getElementById('success').textContent = 'Вы успешно зарегистрировались!';
- 
+
 }
 
 });
@@ -607,7 +609,7 @@ if(hasError === false){
 
 //КОРЗИНА
 
-// Открытие/закрытие popup с корзиной
+/*// Открытие/закрытие popup с корзиной
 const buttonBasket = document.querySelector('#basket');
 const buttonClose = document.querySelector('.btn-close');
 const popupBasket = document.querySelector('.popup-basket');
@@ -633,40 +635,15 @@ buttonClose.addEventListener('click', () => {
   }
 })
 
-// Отрисовка карточек товаров в корзине popup
-function makeMiniBasketItem (data, value) {
-  let basketList = document.querySelector('.popup-basket__list');
-  let basketItem = document.createElement('li');
-
-  let content = `
-    <img src="${data.image}" alt="${data.name}" width="auto" height="150" />
-    <div class="item-description">
-      <span>${data.name}</span>
-      <span>${data.color}</span>
-      <span>${data.material}</span>
-    </div>
-
-    <div class="item-price">
-        <p>${data.price} &#8381</p>
-    </div>
-    `;
-      
-  basketList.style.marginTop = `40px`;
-  basketList.style.marginBottom = `100px`;
-  basketItem.setAttribute(`value`, value);
-  basketItem.innerHTML+= content;
-  basketList.appendChild(basketItem);
-}
-
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {
-    let key = `в корзину ${catalogJson[i].id}`;
+  let key = `в корзину ${catalogJson[i].id}`;
 
-    window.addEventListener('DOMContentLoaded',() => {
-        if(localStorage.getItem(key)){
-            makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
-    }
-    });
-}
+  window.addEventListener('DOMContentLoaded',() => {
+      if(localStorage.getItem(key)){
+          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+  }
+  });
+}*/
 
 export {catalogJson};

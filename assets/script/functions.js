@@ -1,5 +1,5 @@
-function makeBasketItem (data, value) {
-    let basketList = document.querySelector('.basket-list');
+function makeBasketItem (data) {
+    const basketList = document.querySelector('.basket-list');
     let basketItem = document.createElement('li');
 
     let content = `
@@ -81,13 +81,13 @@ function makeBasketItem (data, value) {
         </div>`;
 
 
-    basketItem.setAttribute(`value`, value);
+    basketItem.setAttribute(`value`, data.id);
     basketItem.innerHTML+= content;
     basketList.appendChild(basketItem);
 }
 
 // Отрисовка карточек товаров в корзине popup
-function makeMiniBasketItem (data, value) {
+function makeMiniBasketItem (data) {
     const basketList = document.querySelector('.popup-basket__list-catalog');
     let basketItem = document.createElement('li');
 
@@ -106,7 +106,6 @@ function makeMiniBasketItem (data, value) {
 
     basketList.style.marginTop = `40px`;
     basketList.style.marginBottom = `50px`;
-    basketItem.setAttribute(`value`, value);
     basketItem.innerHTML+= content;
     basketList.appendChild(basketItem);
 }
