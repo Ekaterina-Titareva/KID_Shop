@@ -5,32 +5,40 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./icons/logo.svg" type="image/x-icon" />
-  <title>Корзина</title>
+  <link rel="shortcut icon" href="./assets/icons/logo.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="./assets/style/style.css" />
+  <title>KIDShop</title>
 </head>
-
 
 <body>
   <header class="header">
     <div class="header__logo">
-      <div><img src="icons/logo.svg" alt="logo" id="logo" /></div>
+      <div><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></div>
       <p>KIDShop</p>
     </div>
     <h1 class="header__title">KIDShop</h1>
     <div class="header__menu">
       <ul class="menu__items">
         <li>
-          <a href="catalog.html"><img src="./images/catalog.png" alt="catalog" class="menu_icon" /></a>
+          <a href="./catalog.html"><img src="./assets/images/catalog.png" alt="catalog" class="menu_icon" /></a>
         </li>
         <li>
           <a href="#">
-            <img src="./images/heart.png" alt="favorites" class="menu_icon" /></a>
+            <img src="./assets/images/heart.png" alt="favorites" class="menu_icon" /></a>
         </li>
+
+        <!-- КОРЗИНА -->
         <li>
           <button id="basket">
-            <img src="./images/basket.png" alt="basket" class="menu_icon" />
+            <img src="./assets/images/basket.png" alt="basket" class="menu_icon" />
           </button>
         </li>
+
+        <div class="popup-basket hidden">
+          <a class="btn-close"></a>
+          <a href="./basket.html" class="popup-basket__button">Перейти в корзину</a>
+        </div>
+
         <button class="user">Войти</button>
         <!--Форма входа-->
         <div class="popup_user">
@@ -105,34 +113,79 @@
     </div>
   </header>
   <main>
-    <div class="wrap">
-      <div class="basket">
-        <h3>Корзина [2 товара]</h3>
-        <ul class="basket-list"></ul>
-        <ul class="basket-list-catalog"></ul>
+    <!-- Поиск -->
+    <div class="search">
+      <div class="search__form">
+        <input type="text" placeholder="Искать здесь..." id="search" />
+        <button class="search__btn">
+          <img src="./assets/icons/search.svg" alt="Искать" id="search__icon" />
+        </button>
       </div>
+      <div class="search__container">
 
-      <div class="basket-total">
-        <h3>Сумма заказа</h3>
-        <p>[2 товара] на сумму</p>
-        <span>[сумма руб.]</span>
-
-        <a href="#">Перейти к оформлению </a>
       </div>
     </div>
+
+    <!-- Слайдер  -->
+
+    <div class="slider">
+      <div class="container__slider">
+        <div class="ad_container">
+          <div class="ad_card">
+            <div class="ad_image">
+              <a href="./catalog.html">
+                <img alt="реклама" id="ad" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="pre-btn">
+          <img src="./assets/images/arrow-right.png" alt="arrow" />
+        </div>
+        <div class="nxt-btn">
+          <img src="./assets/images/arrow-right.png" alt="arrow" />
+        </div>
+      </div>
+    </div>
+
+    <!-- О нас  -->
+
+    <section class="about" id="about">
+      <div class="about__img_block">
+        <img src="./assets/images/background.jpg" alt="О нас" id="about__img" />
+      </div>
+      <div class="about__block">
+        <h2>О НАС</h2>
+        <p class="about__text">
+          Компания KID — ведущий российский производитель стильной одежды для
+          детей от рождения до десяти лет. Наша детская одежда отвечает
+          высочайшим стандартам качества и ожиданиям даже самых требовательных
+          родителей, отдающих предпочтение только лучшим детским товарам.
+        </p>
+        <p class="about__text">
+          Забота о качестве продукции предусматривает контроль каждого этапа
+          производства: пошив одежды происходит на собственных фабриках в
+          России и Узбекистане и на аккредитованных фабриках Китая, проходящих
+          обязательный аудит.
+        </p>
+      </div>
+    </section>
   </main>
+
+  <!-- Подвал -->
+
   <footer class="footer">
     <ul>
       <p>Социальные сети</p>
       <li class="social_text">
-        <div><img src="icons/vk.svg" alt="vk" class="social_icon" /></div>
+        <div><img src="./assets/icons/vk.svg" alt="vk" class="social_icon" /></div>
         <a href="#">Вконтакте</a>
       </li>
       <li class="social_text">
         <div>
-          <img src="icons/instagram.svg" alt="instagram" class="social_icon" />
+          <img src="./assets/icons/instagram.svg" alt="instagram" class="social_icon" />
         </div>
-        <a href="#">Инстаграмм</a>
+        <a href="#">Инстаграм</a>
       </li>
     </ul>
     <ul>
@@ -142,7 +195,7 @@
     </ul>
     <div class="logo_tel">
       <div>
-        <a href="#search"><img src="icons/logo.svg" alt="logo" id="logo" /></a>
+        <a href="./index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a>
       </div>
       <div>
         <a href="tel:+7009005060" id="tel">&#9742; 8-900-900-50-60</a>
@@ -150,14 +203,10 @@
     </div>
   </footer>
   <div class="copyright">&#169;2024 KID</div>
-
-  <div class="popup-basket hidden">
-    <a class="btn-close"></a>
-    <ul class="popup-basket__list"></ul>
-    <a href="basket.html" class="popup-basket__button">Перейти в корзину</a>
-  </div>
-
-  <script src="basket.js" type="module"></script>
+  <script src="./assets/script/index.js" type="module"></script>
+  <script src="./assets/script/slider-main.js" type="module"></script>
+  <script src="./assets/script/search.js" type="module"></script>
+  <!-- <script src="./assets/script/basket.js" type="module"></script> -->
 </body>
 
 </html>

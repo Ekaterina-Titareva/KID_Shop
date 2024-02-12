@@ -5,44 +5,35 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./icons/logo.svg" type="image/x-icon" />
-  <title>Каталог товаров</title>
+  <link rel="shortcut icon" href="./assets/icons/logo.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="./assets/style/style.css" />
+  <title>Корзина</title>
 </head>
 
 
 <body>
   <header class="header">
     <div class="header__logo">
-      <div><img src="icons/logo.svg" alt="logo" id="logo" /></div>
+      <div><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></div>
       <p>KIDShop</p>
     </div>
     <h1 class="header__title">KIDShop</h1>
     <div class="header__menu">
       <ul class="menu__items">
         <li>
-          <a href="catalog.html"><img src="./images/catalog.png" alt="catalog" class="menu_icon" /></a>
+          <a href="./catalog.html"><img src="./assets/images/catalog.png" alt="catalog" class="menu_icon" /></a>
         </li>
-        <!-- Избранное -->
         <li>
           <a href="#">
-            <img src="./images/heart.png" alt="favorites" class="menu_icon" /></a>
+            <img src="./assets/images/heart.png" alt="favorites" class="menu_icon" /></a>
         </li>
-
-        <!-- КОРЗИНА -->
         <li>
-          <button id="basket-catalog">
-            <img src="./images/basket.png" alt="basket" class="menu_icon" />
+          <button id="basket">
+            <img src="./assets/images/basket.png" alt="basket" class="menu_icon" />
           </button>
         </li>
-
-        <div class="popup-basket-catalog hidden">
-          <a class="btn-close-catalog"></a>
-          <ul class="popup-basket__list-catalog"></ul>
-          <a href="basket.html" class="popup-basket__button-catalog">Перейти в корзину</a>
-        </div>
-
-        <!--Форма входа-->
         <button class="user">Войти</button>
+        <!--Форма входа-->
         <div class="popup_user">
           <div class="popup__container">
             <div class="popup__wrapper">
@@ -115,115 +106,43 @@
     </div>
   </header>
   <main>
-
-    <section class="catalog__wrapper">
-
-      <aside class="sidebar">
-        <h3 class="sidebar__title">Фильтры</h3>
-        <div class="sidebar__filter filter" id="filters">
-          <div class="filter__item">
-            <div class="filter__item_subtitle">
-              <h4>Стоимость</h4>
-              <span class="filter__item_spoiler"></span>
-            </div>
-            <div class="filter__item_content filter__price">
-
-              <div class="filter__price_inputs">
-                <input type="number" id="pricemin" step="100" class="filter-input filter-price" />
-                <input type="number" id="pricemax" step="100" class="filter-input filter-price" />
-              </div>
-
-
-
-              <div class="filter__price_range">
-                <span class="filter-slider-track"></span>
-                <input type="range" id="rangemin" class="filter-range" min="299" max="4200" />
-                <input type="range" id="rangemax" class="filter-range" min="299" max="4200" />
-              </div>
-
-
-            </div>
-          </div>
-
-          <div class="filter__item">
-            <div class="filter__item_subtitle">
-              <h4>Пол</h4>
-              <span class="filter__item_spoiler"></span>
-            </div>
-
-            <div class="filter__item_content filter__gender" id="gender">
-              <label for="genderM"><input type="radio" id="genderM" value="Мальчик" name="gender" />Мальчик</label>
-              <label for="genderF"><input type="radio" id="genderF" value="Девочка" name="gender" />Девочка</label>
-            </div>
-
-          </div>
-          <div class="filter__item">
-            <div class="filter__item_subtitle">
-              <h4>Возраст</h4>
-              <span class="filter__item_spoiler"></span>
-            </div>
-
-            <div class="filter__item_content filter__age" id="age">
-              <label for="age1"><input type="radio" id="age1" value="1-4" name="age" />1-4</label>
-              <label for="age5"><input type="radio" id="age5" value="5-8" name="age" />5-8</label>
-              <label for="age9"><input type="radio" id="age9" value="9-14" name="age" />9-14</label>
-            </div>
-
-          </div>
-
-
-
-
-          <div class="filter__item">
-            <div class="filter__item_subtitle">
-              <h4>Выберите категорию товаров</h4>
-              <span class="filter__item_spoiler"></span>
-            </div>
-            <div class="filter__item_content filter__category">
-              <select id="category" name="category" class="filter-input">
-                <option value="">Выберите категорию</option>
-                <option value="Футболки">Футболки</option>
-                <option value="Джемперы и кардиганы">Джемперы и кардиганы</option>
-                <option value="Брюки и джинсы">Брюки и джинсы</option>
-                <option value="Куртки">Куртки</option>
-                <option value="Обувь">Обувь</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="sidebar__reset">
-            <i class="sidebar__reset-before"></i>
-            Сбросить фильтры
-          </div>
-      </aside>
-
-      <div class="catalog__container">
+    <div class="wrap">
+      <div class="basket">
+        <h3>Корзина [2 товара]</h3>
+        <ul class="basket-list"></ul>
       </div>
 
-    </section>
+      <div class="basket-total">
+        <h3>Сумма заказа</h3>
+        <p>[2 товара] на сумму</p>
+        <span>[сумма руб.]</span>
+
+        <a href="#">Перейти к оформлению </a>
+      </div>
+    </div>
   </main>
   <footer class="footer">
     <ul>
       <p>Социальные сети</p>
       <li class="social_text">
-        <div><img src="icons/vk.svg" alt="vk" class="social_icon" /></div>
+        <div><img src="./assets/icons/vk.svg" alt="vk" class="social_icon" /></div>
         <a href="#">Вконтакте</a>
       </li>
       <li class="social_text">
         <div>
           <img src="icons/instagram.svg" alt="instagram" class="social_icon" />
         </div>
-        <a href="#">Инстаграм</a>
+        <a href="#">Инстаграмм</a>
       </li>
     </ul>
     <ul>
       <p>KID</p>
-      <li class="kid"><a href="#index.html">О нас</a></li>
+      <li class="kid"><a href="#about">О нас</a></li>
       <li class="kid"><a href="catalog.html">Каталог</a></li>
     </ul>
     <div class="logo_tel">
       <div>
-        <a href="#search"><img src="icons/logo.svg" alt="logo" id="logo" /></a>
+        <a href="./index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a>
       </div>
       <div>
         <a href="tel:+7009005060" id="tel">&#9742; 8-900-900-50-60</a>
@@ -231,6 +150,14 @@
     </div>
   </footer>
   <div class="copyright">&#169;2024 KID</div>
+
+  <div class="popup-basket hidden">
+    <a class="btn-close"></a>
+    <ul class="popup-basket__list"></ul>
+    <a href="basket.html" class="popup-basket__button">Перейти в корзину</a>
+  </div>
+  <script src="./assets/script/index.js" type="module"></script>
+  <script src="./assets/script/basket.js" type="module"></script>
 </body>
 
 </html>

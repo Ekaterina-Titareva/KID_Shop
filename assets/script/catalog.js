@@ -1,0 +1,211 @@
+import { catalogJson } from "./index.js";
+import { makeMiniBasketItem} from "./functions.js";
+
+// Каталог
+
+let catalogContent = "";
+
+function createCatalog() {
+  // let clothes = JSON.parse(catalogJson);
+  let clothes = catalogJson;
+  for (let item of clothes) {
+    createCard(item);
+  }
+  document.querySelector(".catalog__container").innerHTML = catalogContent;
+}
+
+createCatalog();
+
+function createCard(item) {
+  catalogContent += `
+    <div class="catalog__item">
+      <div class="add-favorites">
+        <div class="add-favorites-img"></div>
+      </div>
+      <p class= "item__name">${item.name}</p>
+      <p class= "item__category">${item.category}</p>      
+      <p class= "item__price">Цена: ${item.price} рублей</p>
+      <div class= "item__img">
+        <img src="${item.image1}" alt="${item.name}"></img>
+      </div>
+      <p class= "item__age">Возраст: ${item.age_group}</p>
+      <p class= "item__genger">Пол: ${item.gender}</p>
+      <p class= "item__color">Цвет: ${item.color}</p>
+      <p class= "item__material">Материал: ${item.material}</p>
+      <p class= "item__description">${item.description}</p>
+      <button class="add-button">Добавить в корзину</button>
+    </div>`;
+  return catalogContent;
+}
+
+//СПОЙЛЕР
+const spoilers = document.querySelectorAll(".filter__item_subtitle");
+
+spoilers.forEach((spoiler) => {
+  spoiler.addEventListener("click", function addVisible() {
+    spoiler.parentElement.classList.toggle("_visible");
+    spoiler.lastElementChild.classList.toggle("_minus");
+  });
+});
+
+
+// Фильтр
+// let catalogObject = JSON.parse(catalogJson);
+let catalogObject = catalogJson;
+
+const filters = document.querySelector("#filters");
+
+filters.addEventListener("change", filterClothes);
+
+function filterClothes() {
+  const age = [...filters.querySelectorAll("#age input:checked")].map(
+    (n) => n.value
+  );
+  let costMin = Number(document.querySelector("#pricemin").value);
+  let costMax = Number(document.querySelector("#pricemax").value);
+  const category = filters.querySelector("#category").value;
+  const gender = [...filters.querySelectorAll("#gender input:checked")].map(
+    (n) => n.value
+  );
+
+  const filteredCatalog = catalogObject.filter(
+    (n) =>
+      (!age.length || age.includes(n.age_group)) &&
+      (!category || n.category.includes(category)) &&
+      (!gender.length || gender.includes(n.gender)) &&
+      (!costMin || costMin <= n.price) &&
+      (!costMax || costMax >= n.price)
+  );
+
+  outputCatalog(filteredCatalog);
+}
+
+
+
+// Бегунок стоимости
+const lowestPrice = Math.min(...catalogObject.map((exc) => exc.priceadult));
+const highestPrice = Math.max(...catalogObject.map((exc) => exc.priceadult));
+
+const rangeInput = document.querySelectorAll(".filter__price_range input");
+rangeInput[0].value = lowestPrice;
+rangeInput[1].value = highestPrice;
+const priceInput = document.querySelectorAll(".filter__price_inputs input");
+const range = document.querySelector(".filter-slider-track");
+let priceGap = 300;
+
+priceInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minPrice = parseInt(priceInput[0].value),
+      maxPrice = parseInt(priceInput[1].value);
+
+    if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+      if (e.target.className === "input-min") {
+        rangeInput[0].value = minPrice;
+        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+      } else {
+        rangeInput[1].value = maxPrice;
+        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+      }
+    }
+  });
+});
+
+rangeInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minVal = parseInt(rangeInput[0].value);
+    let maxVal = parseInt(rangeInput[1].value);
+
+    if (maxVal - minVal < priceGap) {
+      if (e.target.className === "range-min") {
+        rangeInput[0].value = maxVal - priceGap;
+      } else {
+        rangeInput[1].value = minVal + priceGap;
+      }
+    } else {
+      priceInput[0].value = minVal;
+      priceInput[1].value = maxVal;
+      range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+      range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+    }
+  });
+});
+
+//Очистить фильтр
+document.querySelector(".sidebar__reset").addEventListener("click", () => {
+  filters.querySelector("#category").value = "";
+  priceInput[0].value = lowestPrice;
+  priceInput[1].value = highestPrice;
+  rangeInput[0].value = lowestPrice;
+  rangeInput[1].value = highestPrice;
+  range.style.left = "50%";
+  range.style.right = "50%";
+
+  let inputs = document.querySelectorAll("input");
+
+  for (const input of inputs) {
+    if (input.type == "checkbox" || input.type == "radio")
+      input.checked = false;
+  }
+
+  filterClothes();
+});
+
+
+
+function outputCatalog(clothes) {
+  document.querySelector(".catalog__container").innerHTML = clothes
+    .map(
+      (item) => `
+      <div class="catalog__item">
+      <div class="add-favorites">
+        <div class="add-favorites-img"></div>
+      </div>
+      <p class= "item__name">${item.name}</p>
+      <p class= "item__category">${item.category}</p>      
+      <p class= "item__price">Цена: ${item.price} рублей</p>
+      <div class= "item__img">
+        <img src="${item.image1}" alt="${item.name}"></img>
+      </div>
+      <p class= "item__age">Возраст: ${item.age_group}</p>
+      <p class= "item__genger">Пол: ${item.gender}</p>
+      <p class= "item__color">Цвет: ${item.color}</p>
+      <p class= "item__material">Материал: ${item.material}</p>
+      <p class= "item__description">${item.description}</p>
+      <button class="add-button">Добавить в корзину</button>
+    </div>`
+    )
+    .join("");
+}
+
+
+// Добавление товаров в корзину
+const buttons = document.querySelectorAll('.add-button');
+let catalogCards = document.querySelectorAll('.catalog__item');
+
+buttons.forEach(button => {
+
+    button.addEventListener('click', (event) => {
+        console.log(buttons);
+        let catalogItems = Array.from(catalogCards);
+        let addToBasketItem = event.target.closest('div');
+        let index = catalogItems.indexOf(addToBasketItem)
+
+        let key = `в корзину ${catalogJson[index].id}`;
+
+        window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
+        
+        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
+    })
+})
+
+
+//Для отрисовки товаров в корзине после перезагрузки страницы
+for (let i = 0; i < catalogJson.length; i++) {
+    let key = `в корзину ${catalogJson[i].id}`;
+
+    window.addEventListener('DOMContentLoaded',() => {
+        if(localStorage.getItem(key)){
+            makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+    }
+    });
+}
