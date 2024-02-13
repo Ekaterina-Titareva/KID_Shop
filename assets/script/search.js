@@ -7,7 +7,7 @@ let searchContent = "";
 
 function createSearchCard(item) {
   searchContent += `
-  <div class="catalog__item">
+  <div class="catalog__item" value="${item.id}">
     <div class="add-favorites">
       <div class="add-favorites-img"></div>
     </div>
@@ -42,23 +42,28 @@ searchButton.addEventListener("click", function createSearchContent() {
 })
 
 // Добавление товаров в корзину
-const buttons = document.querySelectorAll('.add-button');
-let catalogCards = document.querySelectorAll('.catalog__item');
+searchButton.addEventListener('click', () => {
+  const buttons = document.querySelectorAll('.add-button');
 
-buttons.forEach(button => {
+  buttons.forEach(button => {
 
     button.addEventListener('click', (event) => {
-        console.log(buttons);
-        let catalogItems = Array.from(catalogCards);
         let addToBasketItem = event.target.closest('div');
-        let index = catalogItems.indexOf(addToBasketItem)
+        let index = addToBasketItem.getAttribute('value');
+        let key = `в корзину ${index}`;
 
-        let key = `в корзину ${catalogJson[index].id}`;
+        if (!window.localStorage.getItem(key)) {
+          window.localStorage.setItem(key, JSON.stringify(catalogJson[index-1]));
+          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+        } else {
+          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+        }
 
-        window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
+        //window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
         
-        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
+        //makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
     })
+})
 })
 
 
