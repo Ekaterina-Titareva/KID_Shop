@@ -26,7 +26,7 @@ function createCard(item) {
       <p class= "item__category">${item.category}</p>      
       <p class= "item__price">Цена: ${item.price} рублей</p>
       <div class= "item__img">
-        <img src="${item.image1}" alt="${item.name}"></img>
+        <img src="${item.image1}" alt="${item.name}" />
       </div>
       <p class= "item__age">Возраст: ${item.age_group}</p>
       <p class= "item__genger">Пол: ${item.gender}</p>
@@ -166,7 +166,7 @@ function outputCatalog(clothes) {
       <p class= "item__category">${item.category}</p>      
       <p class= "item__price">Цена: ${item.price} рублей</p>
       <div class= "item__img">
-        <img src="${item.image1}" alt="${item.name}"></img>
+        <img src="${item.image1}" alt="${item.name}" />
       </div>
       <p class= "item__age">Возраст: ${item.age_group}</p>
       <p class= "item__genger">Пол: ${item.gender}</p>

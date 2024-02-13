@@ -528,11 +528,11 @@ registr.addEventListener('click',()=>{
 });
 // Кнопки закрытия
 document.querySelector('.close').addEventListener('click', ()=>{
-  document.querySelector('.popup_user').style.display = 'none';
+  document.querySelector('.popup_user').classList.remove('popup_open');
 });
 
 document.querySelector('.close_reg').addEventListener('click',()=>{
-  document.querySelector('.popup_user_registr').style.display = 'none';
+  document.querySelector('.popup_user_registr').classList.remove('popup_open');
 });
 
 //Валидация формы входа
