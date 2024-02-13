@@ -24,7 +24,7 @@
   justify-content: center;
   gap: 5px;
   margin: 0px 0px 20px;
-  color: $color-black;
+  color: $color-secondary;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -47,7 +47,7 @@
   .filter__item {
     display: flex;
     flex-direction: column;
-    color: $color-black;
+    color: $color-secondary;
     font-weight: 500;
     font-size: 12px;
     padding: 40px 0px;
@@ -66,7 +66,7 @@
   }
   
   .filter__item_subtitle h4 {
-    color: $color-black;
+    color: $color-secondary;
     font-size: 14px;
     font-weight: 700;
   }
@@ -217,7 +217,7 @@
     justify-content: center;
     gap: 10px;
     margin: 5px 0 20px;
-    color: $color-black;
+    color: $color-secondary;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
@@ -236,7 +236,7 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
-    background-color: $color-white;
+    background-color: $white;
     box-shadow: 2px 2px 2px $color-primary;
     border-radius: 10px;
     border: 1px solid $color-primary;
@@ -269,22 +269,22 @@
   }
   
   .item__price {
-    color: $color-primary;
+    color: $color-secondary;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 2px;
   }
 
   .item__name {
-    color: $color-black;
+    color: $color-secondary;
     font-size: 18px;
     font-weight: 700;
-    max-width: 300px;
+    max-width: 250px;
     margin: 0px 0px 10px;
   }
   
   .item__description {
-    color: $color-black;
+    color: $color-secondary;
     font-size: 13px;
     font-weight: 500;
     border-left: 3px solid $color-primary;
