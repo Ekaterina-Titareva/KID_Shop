@@ -25,7 +25,7 @@
   justify-content: center;
   gap: 5px;
   margin: 0px 0px 20px;
-  color: $color-black;
+  color: $color-secondary;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -48,7 +48,7 @@
 .filter__item {
   display: flex;
   flex-direction: column;
-  color: $color-black;
+  color: $color-secondary;
   font-weight: 500;
   font-size: 12px;
   padding: 40px 0px;
@@ -67,7 +67,7 @@
 }
 
 .filter__item_subtitle h4 {
-  color: $color-black;
+  color: $color-secondary;
   font-size: 14px;
   font-weight: 700;
 }
@@ -105,110 +105,15 @@
   display: flex;
 }
 
-//Фильтры стоимости
-.filter__price {
-  flex-direction: column;
+.filter__item:first-of-type {
+  padding: 32px 0px 40px;
 }
-.filter__price_inputs {
+
+.filter__item_subtitle {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.filter-input {
-  text-align: center;
-  padding: 8px 12px;
-  background-color: $color-light;
-  border: 1px solid $color-gray;
-  border-radius: 40px;
-}
-
-.filter-input:not(:last-of-type) {
-  margin-right: 16px;
-}
-
-.filter-price {
-  flex-direction: column;
-}
-
-.filter__price_inputs {
-  margin: 0px 0px 20px;
-}
-
-.filter__price_inputs input {
-  max-width: 105px;
-}
-
-.filter__price_range {
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: 5px;
-  margin: 30px 0;
-  background-color: $color-gray;
-}
-
-.filter__price_range input {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  background: none;
-  pointer-events: none;
-  appearance: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  background: $color-primary;
-  pointer-events: auto;
-  -webkit-appearance: none;
-  box-shadow: 0 0 6px $box-shadow;
-}
-
-input[type="range"]::-moz-range-thumb {
-  height: 25px;
-  width: 25px;
-  border: none;
-  border-radius: 50%;
-  background: $color-primary;
-  pointer-events: auto;
-  -moz-appearance: none;
-  box-shadow: 0 0 6px $box-shadow;
-}
-
-input[type="radio"]:checked + label {
-  background-color: $color-primary;
-}
-
-.filter-slider-track {
-  height: 100%;
-  position: absolute;
-  background-color: $color-primary;
-}
-
-//Другие фильтры
-.filter__age,
-.filter__gender {
-  flex-direction: column;
-  gap: 5px;
-}
-
-.filter__age input,
-.filter__gender input {
-  margin-right: 5px;
-}
-
-.filter__age label,
-.filter__gender label {
-  display: inline-flex;
-}
-
-option:hover,
-option:checked {
-  background-color: $color-primary;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .sidebar__reset {
@@ -218,7 +123,7 @@ option:checked {
   justify-content: center;
   gap: 10px;
   margin: 5px 0 20px;
-  color: $color-black;
+  color: $color-secondary;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
@@ -237,7 +142,7 @@ option:checked {
   justify-content: space-between;
   position: relative;
   width: 100%;
-  background-color: $color-white;
+  background-color: $white;
   box-shadow: 2px 2px 2px $color-primary;
   border-radius: 10px;
   border: 1px solid $color-primary;
@@ -247,6 +152,50 @@ option:checked {
 .item__img {
   position: relative;
   min-width: 240px;
+}
+
+.item__img img {
+  width: 100%;
+  border-radius: 10px 10px 0 0px;
+  object-fit: cover;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.item__category {
+  color: $color-secondary;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.item__price {
+  color: $color-secondary;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.item__name {
+  color: $color-secondary;
+  font-size: 18px;
+  font-weight: 700;
+  max-width: 250px;
+  margin: 0px 0px 10px;
+}
+
+.item__description {
+  color: $color-secondary;
+  font-size: 13px;
+  font-weight: 500;
+  border-left: 3px solid $color-primary;
+  padding-left: 24px;
+  margin: 20px 15px 10px 0px;
 }
 
 .item__img img {

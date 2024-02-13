@@ -18,7 +18,7 @@ createCatalog();
 
 function createCard(item) {
   catalogContent += `
-    <div class="catalog__item">
+    <div class="catalog__item" value="${item.id}">
       <div class="add-favorites">
         <input type="image" src="./assets/icons/favourites.svg" alt="избранное" class="favourites-heart">
       </div>
@@ -57,6 +57,8 @@ const filters = document.querySelector("#filters");
 filters.addEventListener("change", filterClothes);
 
 function filterClothes() {
+  const buttons = document.querySelectorAll(".add-button");
+
   const age = [...filters.querySelectorAll("#age input:checked")].map(
     (n) => n.value
   );
@@ -151,7 +153,7 @@ function outputCatalog(clothes) {
   document.querySelector(".catalog__container").innerHTML = clothes
     .map(
       (item) => `
-      <div class="catalog__item">
+      <div class="catalog__item" value="${item.id}">
       <div class="add-favorites">
         <input type="image" src="./assets/icons/favourites.svg" alt="избранное" class="favourites-heart">
       </div>
@@ -172,23 +174,56 @@ function outputCatalog(clothes) {
     .join("");
 }
 
+//КОРЗИНА
+
+// Открытие/закрытие popup с корзиной
+const buttonBasket = document.querySelector("#basket");
+const buttonClose = document.querySelector(".btn-close");
+const popupBasket = document.querySelector(".popup-basket-catalog");
+
+buttonBasket.addEventListener("click", () => {
+  //let headerHeight = document.querySelector(".header").clientHeight;
+
+  if (popupBasket.classList.contains("hidden")) {
+    popupBasket.classList.remove("hidden");
+    popupBasket.classList.add("visible");
+
+    //popupBasket.style.top = `${headerHeight}px`;
+  } else {
+    popupBasket.classList.add("hidden");
+    popupBasket.classList.remove("visible");
+  }
+});
+
+buttonClose.addEventListener("click", () => {
+  if (popupBasket.classList.contains("visible")) {
+    popupBasket.classList.remove("visible");
+    popupBasket.classList.add("hidden");
+  }
+});
+
 // Добавление товаров в корзину
 const buttons = document.querySelectorAll(".add-button");
-let catalogCards = document.querySelectorAll(".catalog__item");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    console.log(buttons);
-    let catalogItems = Array.from(catalogCards);
-    let addToBasketItem = event.target.closest("div");
-    let index = catalogItems.indexOf(addToBasketItem);
+function addToBasket(event) {
+  let addToBasketItem = event.target.closest("div");
+  let index = addToBasketItem.getAttribute("value");
+  let key = `в корзину ${index}`;
 
-    let key = `в корзину ${catalogJson[index].id}`;
+  console.log(index);
+  console.log(JSON.stringify(catalogJson[index - 1]));
 
-    window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
+  window.localStorage.setItem(key, JSON.stringify(catalogJson[index - 1]));
 
-    makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
-  });
+  makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+}
+
+buttons.forEach((button) => button.addEventListener("click", addToBasket));
+
+// Добавление товаров после фильтрации
+filters.addEventListener("change", () => {
+  const buttons = document.querySelectorAll(".add-button");
+  buttons.forEach((button) => button.addEventListener("click", addToBasket));
 });
 
 //Для отрисовки товаров в корзине после перезагрузки страницы

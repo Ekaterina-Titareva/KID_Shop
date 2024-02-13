@@ -39,7 +39,7 @@ ul {
   align-items: center;
   margin: 20px;
 }
-.header__logo p {
+.header__logo p a {
   font-family: "Marker";
 }
 .header__title {
@@ -95,11 +95,8 @@ ul {
 }
 
 .search__container {
-  min-width: 50%;
-  min-height: 200px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: $color-light;
   grid-gap: 30px;
   padding: 20px;
 }
@@ -216,20 +213,21 @@ footer p {
   color: $white;
 }
 
-//Форма всплывающая
+//Форма всплывющая
 .user {
-  background-color: $color-light;
+  background-color: $color-secondary;
   border: none;
   border-radius: 2px;
   width: 100px;
   height: 30px;
-  color: $black;
+  color: $white;
   font-family: $font-family;
   font-weight: bold;
   font-size: 25px;
 }
 .user:hover {
-  background-color: $color-primary;
+  background-color: $white;
+  color: $color-secondary;
 }
 
 #user_login {

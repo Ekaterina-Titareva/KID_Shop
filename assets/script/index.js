@@ -1,3 +1,5 @@
+import { makeMiniBasketItem } from "./functions.js";
+
 //Здесь код, который используется на всех страницах (header): форма, корзина, избранное pop up
 
 const catalogJson = [
@@ -557,23 +559,52 @@ checkFormReg.addEventListener("submit", function (evt) {
   const userPassTwo = checkFormReg.elements.passcheck;
   const agree = checkFormReg.elements.agree;
 
-  if (userName.value === " ") {
-    document.getElementById("name_error").textContent = "Введите имя";
-    hasError = true;
-  }
-  if (userSurname.value === " ") {
-    document.getElementById("surname_error").textContent = "Введите фамилию";
-    hasError = true;
-  }
-  if (emailRegex.test(userEmail.value) === false) {
-    document.getElementById("emailreg_error").textContent =
-      "Некорректная почта";
-    hasError = true;
-  }
-  if (userEmail.value === "") {
-    document.getElementById("emailreg_error").textContent = "Введите почту";
-    hasError = true;
-  }
+checkFormReg.addEventListener('submit', function(evt){
+evt.preventDefault();
+let hasError = false;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const userName = checkFormReg.elements.regname;
+const userSurname = checkFormReg.elements.surname;
+const userEmail = checkFormReg.elements.email;
+const userPassOne = checkFormReg.elements.password;
+const userPassTwo = checkFormReg.elements.passcheck;
+const agree = checkFormReg.elements.agree;
+
+if(userName.value === ' '){
+  document.getElementById('name_error').textContent = 'Введите имя';
+  hasError = true;
+}
+if(userSurname.value === ' '){
+  document.getElementById('surname_error').textContent = 'Введите фамилию';
+  hasError =true;
+}
+if(emailRegex.test(userEmail.value)=== false){
+  document.getElementById('emailreg_error').textContent = 'Некорректная почта';
+  hasError = true;
+}
+if(userEmail.value === ''){
+  document.getElementById('emailreg_error').textContent = 'Введите почту';
+  hasError = true;
+}
+
+if(userPassOne.value === ''|| userPassOne.length<8){
+  document.getElementById('password_error').textContent = 'Придумайте пароль минимум 8 символов';
+  hasError = true;
+}
+if(userPassTwo.value !== userPassOne.value || userPassTwo.value == ''){
+  document.getElementById('checkpass_error').textContent = 'Пароль не совпадает';
+  hasError = true;
+}
+if(!agree.checked){
+  document.getElementById('check_reg').textContent = 'Необходимо согласие с условиями';
+  hasError = true;
+}
+if(hasError === false){
+  document.querySelectorAll('.error').textContent = ' ';
+  checkFormReg.reset();
+  document.getElementById('success').textContent = 'Вы успешно зарегистрировались!';
+
+}
 
   if (userPassOne.value === "" || userPassOne.length < 8) {
     document.getElementById("password_error").textContent =
@@ -598,10 +629,13 @@ checkFormReg.addEventListener("submit", function (evt) {
   }
 });
 
-// Открытие/закрытие popup с корзиной
-const buttonBasket = document.querySelector("#basket");
-const buttonClose = document.querySelector(".btn-close");
-const popupBasket = document.querySelector(".popup-basket");
+
+//КОРЗИНА
+
+/*// Открытие/закрытие popup с корзиной
+const buttonBasket = document.querySelector('#basket');
+const buttonClose = document.querySelector('.btn-close');
+const popupBasket = document.querySelector('.popup-basket');
 
 buttonBasket.addEventListener("click", () => {
   let headerHeight = document.querySelector(".header").clientHeight;
@@ -623,5 +657,16 @@ buttonClose.addEventListener("click", () => {
     popupBasket.classList.add("hidden");
   }
 });
+
+//Для отрисовки товаров в корзине после перезагрузки страницы
+for (let i = 0; i < catalogJson.length; i++) {
+  let key = `в корзину ${catalogJson[i].id}`;
+
+  window.addEventListener('DOMContentLoaded',() => {
+      if(localStorage.getItem(key)){
+          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+  }
+  });
+}*/
 
 export { catalogJson };

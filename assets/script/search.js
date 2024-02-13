@@ -29,7 +29,7 @@ function createSearchCard(item) {
 }
 
 searchButton.addEventListener("click", function createSearchContent() {
-  document.querySelector(".search__container").innerHTML = ""; //Почему-то не работает очистка контейнера под карточки товара
+  searchContent = "";
   if (document.querySelector("#search").value !== "") {
       for (let item of catalogJson){
   if (item.name.includes(document.querySelector("#search").value)){
