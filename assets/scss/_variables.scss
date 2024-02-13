@@ -1,22 +1,25 @@
-
 $black: #000000;
 
 $white: #ffffff;
-
 
 $color-white: #ffffff;
 $color-light-gray: #fbfbfb;
 $color-gray: #d4d4d4;
 $color-black: #282828;
 
-$color-primary: rgb(255,173,73);
-$color-secondary: rgb(205,79,79);
-$color-light:rgb(255,235,213);
+$color-primary: rgb(200, 172, 236);
+$color-secondary: #202020;
+$color-light: rgb(255, 235, 213);
+$color-favourites: rgb(233, 218, 252);
 
 $color-hover: $color-secondary;
 
 $box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
 $border: 1px solid #ededed;
-$gradient: linear-gradient(93deg, rgb(255,173,73) 0%, rgb(255,235,213) 100%);
+$gradient: linear-gradient(
+  93deg,
+  rgb(255, 173, 73) 0%,
+  rgb(255, 235, 213) 100%
+);
 
 $font-family: "Ceveat";

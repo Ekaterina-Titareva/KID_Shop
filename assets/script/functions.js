@@ -1,8 +1,8 @@
-  function makeBasketItem (data, value) {
-    let basketList = document.querySelector('.basket-list');
-    let basketItem = document.createElement('li');
+function makeBasketItem(data, value) {
+  let basketList = document.querySelector(".basket-list");
+  let basketItem = document.createElement("li");
 
-    let content = `
+  let content = `
         <img src="${data.image1}" alt="${data.name}"
             width="116" height="auto" />
         <div class="item-description">
@@ -16,31 +16,26 @@
                 <p>${data.price} &#8381</p>
             </div>
 
-            <div class="item-icons">
-                <button>
-                    <img src='./assets/images/heart-min.png' alt="избранное">
-                    В избранное
-                </button>
-
-                <button class="delete-btn">
+            <input type="image" src="./assets/icons/favourites.svg" alt="избранное">
+            
+                         <button class="delete-btn">
                     <img src='./assets/images/trash-can-min.png' alt="корзина">
                     Удалить
                 </button>
             </div>
         </div>`;
 
-
-    basketItem.setAttribute(`value`, value);
-    basketList.appendChild(basketItem);
-    basketItem.innerHTML+= content;
+  basketItem.setAttribute(`value`, value);
+  basketList.appendChild(basketItem);
+  basketItem.innerHTML += content;
 }
 
 // Отрисовка карточек товаров в корзине popup
-function makeMiniBasketItem (data) {
-    let basketList = document.querySelector('.popup-basket__list');
-    let basketItem = document.createElement('li');
+function makeMiniBasketItem(data) {
+  let basketList = document.querySelector(".popup-basket__list");
+  let basketItem = document.createElement("li");
 
-    let content = `
+  let content = `
         <img src="${data.image1}" alt="${data.name}"
             width="auto" height="150" />
         <div class="item-description">
@@ -55,9 +50,9 @@ function makeMiniBasketItem (data) {
             </div>
         </div>`;
 
-    // basketItem.setAttribute(`value`, value);
-    basketList.appendChild(basketItem);
-        basketItem.innerHTML+= content;
+  // basketItem.setAttribute(`value`, value);
+  basketList.appendChild(basketItem);
+  basketItem.innerHTML += content;
 }
 
-export {makeBasketItem, makeMiniBasketItem};
+export { makeBasketItem, makeMiniBasketItem };

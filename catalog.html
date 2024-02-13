@@ -21,18 +21,31 @@
     <div class="header__menu">
       <ul class="menu__items">
         <li>
-          <a href="./catalog.html"><img src="./assets/images/catalog.png" alt="catalog" class="menu_icon" /></a>
+          <a href="./catalog.html"><img src="./assets/icons/catalog.svg" alt="catalog" class="menu_icon" /></a>
         </li>
         <!-- Избранное -->
         <li>
-          <a href="#">
-            <img src="./assets/images/heart.png" alt="favorites" class="menu_icon" /></a>
+          <input
+              type="image"
+              src="./assets/icons/favourites_full.svg"
+              alt="Избранное"
+              class="menu_icon open-favourites-header"
+              
+            />
+            <div class="popup_favourites-wrapper">
+              <div>
+                <h3>Избранное</h3>
+                <input type="image" src="./assets/icons/close.svg" class ="close-favourites-header">
+                <div class="favourites-container"></div>
+              </div>
+            </div>
         </li>
+        
 
         <!-- КОРЗИНА -->
         <li>
           <button id="basket">
-            <img src="./assets/images/basket.png" alt="basket" class="menu_icon" />
+            <img src="./assets/icons/basket.svg" alt="basket" class="menu_icon" />
           </button>
         </li>
 
@@ -234,6 +247,7 @@
   <div class="copyright">&#169;2024 KID</div>
   <script src="./assets/script/index.js" type="module"></script>
   <script src="./assets/script/catalog.js" type="module"></script>
+  <script src="./assets/script/favourites.js" type="module"></script>
 </body>
 
 </html>

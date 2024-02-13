@@ -1,0 +1,68 @@
+.favourites-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+}
+
+.popup_favourites-wrapper {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  background-color: $color-favourites;
+  border: 1px solid $color-favourites;
+  border-radius: 10px;
+  top: 50px;
+  bottom: 50px;
+  left: 50px;
+  right: 50px;
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding: 20px 10px;
+  // overflow-x: hidden;
+  overflow-y: auto;
+  // overflow: scroll;
+}
+
+.popup_favourites-wrapper::-webkit-scrollbar {
+  width: 0;
+}
+
+.close-favourites-header {
+  position: fixed;
+  top: 60px;
+  right: 60px;
+  width: 25px;
+  height: 25px;
+}
+
+.favourites-container {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  gap: 15px;
+  box-sizing: border-box;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.fav-img {
+  width: 100%;
+  max-height: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: opacity 0.3s ease-out;
+}
+
+.fav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.fav-delete,
+.fav-basket {
+  width: 25px;
+}

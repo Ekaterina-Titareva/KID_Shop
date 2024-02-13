@@ -1,5 +1,5 @@
 import { catalogJson } from "./index.js";
-import { makeMiniBasketItem} from "./functions.js";
+import { makeMiniBasketItem } from "./functions.js";
 
 // Каталог
 
@@ -20,13 +20,13 @@ function createCard(item) {
   catalogContent += `
     <div class="catalog__item">
       <div class="add-favorites">
-        <div class="add-favorites-img"></div>
+        <input type="image" src="./assets/icons/favourites.svg" alt="избранное" class="favourites-heart">
       </div>
       <p class= "item__name">${item.name}</p>
       <p class= "item__category">${item.category}</p>      
       <p class= "item__price">Цена: ${item.price} рублей</p>
       <div class= "item__img">
-        <img src="${item.image1}" alt="${item.name}"></img>
+        <img src="${item.image1}" alt="${item.name}" class="item__img-card"></img>
       </div>
       <p class= "item__age">Возраст: ${item.age_group}</p>
       <p class= "item__genger">Пол: ${item.gender}</p>
@@ -47,7 +47,6 @@ spoilers.forEach((spoiler) => {
     spoiler.lastElementChild.classList.toggle("_minus");
   });
 });
-
 
 // Фильтр
 // let catalogObject = JSON.parse(catalogJson);
@@ -79,8 +78,6 @@ function filterClothes() {
 
   outputCatalog(filteredCatalog);
 }
-
-
 
 // Бегунок стоимости
 const lowestPrice = Math.min(...catalogObject.map((exc) => exc.priceadult));
@@ -150,21 +147,19 @@ document.querySelector(".sidebar__reset").addEventListener("click", () => {
   filterClothes();
 });
 
-
-
 function outputCatalog(clothes) {
   document.querySelector(".catalog__container").innerHTML = clothes
     .map(
       (item) => `
       <div class="catalog__item">
       <div class="add-favorites">
-        <div class="add-favorites-img"></div>
+        <input type="image" src="./assets/icons/favourites.svg" alt="избранное" class="favourites-heart">
       </div>
       <p class= "item__name">${item.name}</p>
       <p class= "item__category">${item.category}</p>      
       <p class= "item__price">Цена: ${item.price} рублей</p>
       <div class= "item__img">
-        <img src="${item.image1}" alt="${item.name}"></img>
+        <img src="${item.image1}" alt="${item.name}" class="item__img-card"></img>
       </div>
       <p class= "item__age">Возраст: ${item.age_group}</p>
       <p class= "item__genger">Пол: ${item.gender}</p>
@@ -177,35 +172,54 @@ function outputCatalog(clothes) {
     .join("");
 }
 
-
 // Добавление товаров в корзину
-const buttons = document.querySelectorAll('.add-button');
-let catalogCards = document.querySelectorAll('.catalog__item');
+const buttons = document.querySelectorAll(".add-button");
+let catalogCards = document.querySelectorAll(".catalog__item");
 
-buttons.forEach(button => {
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    console.log(buttons);
+    let catalogItems = Array.from(catalogCards);
+    let addToBasketItem = event.target.closest("div");
+    let index = catalogItems.indexOf(addToBasketItem);
 
-    button.addEventListener('click', (event) => {
-        console.log(buttons);
-        let catalogItems = Array.from(catalogCards);
-        let addToBasketItem = event.target.closest('div');
-        let index = catalogItems.indexOf(addToBasketItem)
+    let key = `в корзину ${catalogJson[index].id}`;
 
-        let key = `в корзину ${catalogJson[index].id}`;
+    window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
 
-        window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
-        
-        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
-    })
-})
-
+    makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
+  });
+});
 
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {
-    let key = `в корзину ${catalogJson[i].id}`;
+  let key = `в корзину ${catalogJson[i].id}`;
 
-    window.addEventListener('DOMContentLoaded',() => {
-        if(localStorage.getItem(key)){
-            makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+  window.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem(key)) {
+      makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
     }
-    });
+  });
 }
+
+// анимация картинок в карточках
+
+const sliderPic = document.querySelectorAll(".item__img-card");
+
+sliderPic.forEach((image, index) => {
+  image.addEventListener("mouseover", () => {
+    image.style.opacity = 0;
+    setTimeout(() => {
+      image.src = catalogJson[index].image2;
+      image.style.opacity = 1;
+    }, 300);
+  });
+
+  image.addEventListener("mouseout", () => {
+    image.style.opacity = 0;
+    setTimeout(() => {
+      image.src = catalogJson[index].image1;
+      image.style.opacity = 1;
+    }, 300);
+  });
+});
