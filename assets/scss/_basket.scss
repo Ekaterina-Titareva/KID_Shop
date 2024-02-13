@@ -109,8 +109,7 @@
 }
 
 
-// Страницы корзины
-
+// Страница корзины
 .wrap {
     display: flex;
     flex-direction: row;
@@ -118,79 +117,80 @@
     
     width: 80vw;
     margin: 0 auto;
-}
 
-.basket {
-    width: 60%;
-}
-
-.basket-list {
-    li {
+    .basket {
+        width: 60%;
+    }
+    
+    .basket-list {
+        li {
+            display: flex;
+            flex-direction: row;
+    
+            padding-bottom: 50px;
+    
+            &:hover svg {
+                fill: rgb(135, 60, 168);
+                cursor: pointer;
+            }
+    
+            &:hover .item-icons button {
+                opacity: 1;
+                color: rgb(135, 60, 168);
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .item-description {
+        display: grid;
+        grid-template-columns: 0.7fr 0.3fr;
+        grid-template-rows: repeat(2, auto);
+        width: calc(100% - 116px);
+    
+        padding-left: 3%;
+    }
+    
+    .item-description__text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .item-description__price {
+        text-align: end;
+    }
+    
+    .item-icons {
+        grid-column: -1/1;
+    
         display: flex;
         flex-direction: row;
-
-        padding-bottom: 50px;
-
-        &:hover svg {
-            fill: rgb(135, 60, 168);
-            cursor: pointer;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    
+    .item-icons {
+        svg {
+            width: 20px;
+            height: 20px;
+    
+            fill: none;
         }
-
-        &:hover .item-icons button {
-            opacity: 1;
-            color: rgb(135, 60, 168);
-            cursor: pointer;
+    
+        button {
+            background: none;
+            border: none;
+    
+            opacity: 0;
         }
     }
-}
-
-.item-description {
-    display: grid;
-    grid-template-columns: 0.7fr 0.3fr;
-    grid-template-rows: repeat(2, auto);
-    width: calc(100% - 116px);
-
-    padding-left: 3%;
-}
-
-.item-description__text {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.item-description__price {
-    text-align: end;
-}
-
-.item-icons {
-    grid-column: -1/1;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    gap: 10px;
-}
-
-.item-icons {
-    svg {
-        width: 20px;
-        height: 20px;
-
-        fill: none;
-    }
-
-    button {
-        background: none;
-        border: none;
-
-        opacity: 0;
+    
+    .basket-total { 
+        width: 35%;
+        display: flex;
+        flex-direction: column;
     }
 }
 
-.basket-total { 
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-}

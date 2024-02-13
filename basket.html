@@ -28,76 +28,83 @@
             <img src="./assets/images/heart.png" alt="favorites" class="menu_icon" />
           </a>
         </li>
-        <button class="user">Войти</button>
-        <!--Форма входа-->
-        <div class="popup_user">
-          <div class="popup__container">
-            <div class="popup__wrapper">
-              <div id="user_login">
-                <form name="formLogin" class="loginform">
-                  <p>ВХОД</p>
-                  <br />
-                  <label for="login">Email</label><br />
-                  <input type="text" name="login" id="login" placeholder="Введите логин" class="input" /><br />
-                  <span id="error_login" class="error"></span><br />
-                  <label for="password">Пароль</label><br />
-                  <input type="text" name="password" id="password_login" placeholder="Введите пароль" class="input" />
-                  <br />
-                  <span id="error_password" class="error"></span><br />
-                  <input type="checkbox" name="agree" id="agree" />
-                  <label for="agree">Cогласие на обработку персональных данных, с договором
-                    публичной оферты и политикой конфиденциальности ознакомлен
-                    и принимаю</label><br />
-                  <span id="check_login" class="error"></span><br />
-                  <button type="submit" class="check_login">ВОЙТИ</button><br />
-                </form>
-                <button class="registr">Зарегистрироваться</button><br />
-                <button class="close">Закрыть</button>
+        <li>
+          <button id="basket">
+            <img src="./assets/images/basket.png" alt="basket" class="menu_icon" />
+          </button>
+        </li>
+        <li>
+          <button class="user">Войти</button>
+          <!--Форма входа-->
+          <div class="popup_user">
+            <div class="popup__container">
+              <div class="popup__wrapper">
+                <div id="user_login">
+                  <form name="formLogin" class="loginform">
+                    <p>ВХОД</p>
+                    <br />
+                    <label for="login">Email</label><br />
+                    <input type="text" name="login" id="login" placeholder="Введите логин" class="input" /><br />
+                    <span id="error_login" class="error"></span><br />
+                    <label for="password">Пароль</label><br />
+                    <input type="text" name="password" id="password_login" placeholder="Введите пароль" class="input" />
+                    <br />
+                    <span id="error_password" class="error"></span><br />
+                    <input type="checkbox" name="agree" id="agree" />
+                    <label for="agree">Cогласие на обработку персональных данных, с договором
+                      публичной оферты и политикой конфиденциальности ознакомлен
+                      и принимаю</label><br />
+                    <span id="check_login" class="error"></span><br />
+                    <button type="submit" class="check_login">ВОЙТИ</button><br />
+                  </form>
+                  <button class="registr">Зарегистрироваться</button><br />
+                  <button class="close">Закрыть</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <!--Форма регистарции-->
-        <div class="popup_user_registr">
-          <div class="popup__container">
-            <div class="popup__wrapper">
-              <div id="user_registr">
-                <form name="formRegistration" class="registration">
-                  <p>РЕГИСТРАЦИЯ</p>
-                  <br />
-                  <label for="regname">Имя</label><br />
-                  <input class="input" type="text" name="regname" id="name" placeholder="Введите имя" /><br />
-                  <span id="name_error" class="error"></span><br />
-                  <label for="surname">Фамилия</label><br />
-                  <input class="input" type="text" name="surname" id="surname" placeholder="Введите фамилию" /><br />
-                  <span id="surname_error" class="error"></span><br />
-                  <label for="email">Email</label><br />
-                  <input class="input" type="text" name="email" id="email" placeholder="Введите EMAIL" /><br />
-                  <span id="emailreg_error" class="error"></span><br />
-                  <label for="password">Пароль</label><br />
-                  <input class="input" type="text" name="password" id="password" placeholder="Придумайте пароль"
-                    minlength="8" /><br />
-                  <span id="password_error" class="error"></span><br />
-                  <label for="passcheck">Повторите пароль</label><br />
-                  <input class="input" type="text" name="passcheck" id="pass_check" placeholder="Повторите пароль"
-                    minlength="8" /><br />
-                  <span id="checkpass_error" class="error"></span><br />
-                  <input type="checkbox" name="agree" id="agree" />
-                  <label for="agree">Cогласие на обработку персональных данных, с договором
-                    публичной оферты и политикой конфиденциальности ознакомлен
-                    и принимаю</label><br />
-                  <span id="check_reg" class="error"></span><br />
-                  <button class="check_registr" type="submit">
-                    ЗАРЕГИСТРИРОВАТЬСЯ
-                  </button>
-                  <br />
-                  <span id="success"></span>
-                </form>
-                <button class="close_reg">Закрыть</button>
+          <!--Форма регистарции-->
+          <div class="popup_user_registr">
+            <div class="popup__container">
+              <div class="popup__wrapper">
+                <div id="user_registr">
+                  <form name="formRegistration" class="registration">
+                    <p>РЕГИСТРАЦИЯ</p>
+                    <br />
+                    <label for="regname">Имя</label><br />
+                    <input class="input" type="text" name="regname" id="name" placeholder="Введите имя" /><br />
+                    <span id="name_error" class="error"></span><br />
+                    <label for="surname">Фамилия</label><br />
+                    <input class="input" type="text" name="surname" id="surname" placeholder="Введите фамилию" /><br />
+                    <span id="surname_error" class="error"></span><br />
+                    <label for="email">Email</label><br />
+                    <input class="input" type="text" name="email" id="email" placeholder="Введите EMAIL" /><br />
+                    <span id="emailreg_error" class="error"></span><br />
+                    <label for="password">Пароль</label><br />
+                    <input class="input" type="text" name="password" id="password" placeholder="Придумайте пароль"
+                      minlength="8" /><br />
+                    <span id="password_error" class="error"></span><br />
+                    <label for="passcheck">Повторите пароль</label><br />
+                    <input class="input" type="text" name="passcheck" id="pass_check" placeholder="Повторите пароль"
+                      minlength="8" /><br />
+                    <span id="checkpass_error" class="error"></span><br />
+                    <input type="checkbox" name="agree" id="agree" />
+                    <label for="agree">Cогласие на обработку персональных данных, с договором
+                      публичной оферты и политикой конфиденциальности ознакомлен
+                      и принимаю</label><br />
+                    <span id="check_reg" class="error"></span><br />
+                    <button class="check_registr" type="submit">
+                      ЗАРЕГИСТРИРОВАТЬСЯ
+                    </button>
+                    <br />
+                    <span id="success"></span>
+                  </form>
+                  <button class="close_reg">Закрыть</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </li>
       </ul>
     </div>
   </header>
@@ -147,11 +154,6 @@
   </footer>
   <div class="copyright">&#169;2024 KID</div>
 
-  <div class="popup-basket hidden">
-    <a class="btn-close"></a>
-    <ul class="popup-basket__list"></ul>
-    <a href="basket.html" class="popup-basket__button">Перейти в корзину</a>
-  </div>
   <script src="./assets/script/index.js" type="module"></script>
   <script src="./assets/script/basket.js" type="module"></script>
 </body>
