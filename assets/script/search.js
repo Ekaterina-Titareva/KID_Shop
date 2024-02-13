@@ -15,7 +15,7 @@ function createSearchCard(item) {
     <p class= "item__category">${item.category}</p>      
     <p class= "item__price">Цена: ${item.price} рублей</p>
     <div class= "item__img">
-      <img src="${item.image1}" alt="${item.name}"></img>
+      <img src="${item.image1}" alt="${item.name}" />
     </div>
     <p class= "item__age">Возраст: ${item.age_group}</p>
     <p class= "item__genger">Пол: ${item.gender}</p>
@@ -30,14 +30,19 @@ function createSearchCard(item) {
 
 searchButton.addEventListener("click", function createSearchContent() {
   searchContent = "";
-  if (document.querySelector("#search").value !== "") {
-    for (let item of catalogJson) {
-      if (item.name.includes(document.querySelector("#search").value)) {
+  let searchValue = document.querySelector("#search");
+  let searchValueLetter = searchValue.value.toUpperCase().slice(0, 1) + searchValue.value.toLowerCase().slice(1);
+  let searchValueLetterDelBlank = searchValueLetter.replace(/ |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g, '');
+  let searchValueDelBlank = searchValue.value.replace(/ |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g, '');
+  if (document.querySelector("#search").value !== "" && searchValueDelBlank !== "" && searchValueLetterDelBlank !== "") {
+    for (let item of catalogJson){
+      if (item.name.includes(searchValueLetterDelBlank) || item.name.includes(searchValueDelBlank)){
         createSearchCard(item);
-      } else continue;
-      // document.querySelector(".search__container").innerHTML = "Не удалось найти данный товар";
+      } else continue
     }
-  } else document.querySelector(".search__container").innerHTML = "Введите название товара";
+  } else if (searchValueDelBlank == "" || searchValueLetterDelBlank == "") {
+    document.querySelector(".search__container").innerHTML = "Введите название товара"
+  }
   document.querySelector("#search").value = "";
 });
 
