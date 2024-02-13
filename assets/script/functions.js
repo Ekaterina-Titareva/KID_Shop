@@ -1,8 +1,8 @@
-function makeBasketItem (data) {
-    const basketList = document.querySelector('.basket-list');
-    let basketItem = document.createElement('li');
+function makeBasketItem(data) {
+  const basketList = document.querySelector(".basket-list");
+  let basketItem = document.createElement("li");
 
-    let content = `
+  let content = `
         <img src="${data.image1}" alt="${data.name}"
             width="116" height="auto" />
         <div class="item-description">
@@ -17,30 +17,7 @@ function makeBasketItem (data) {
             </div>
 
             <div class="item-icons">
-                <button>
-                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="512.000000pt"
-                        height="512.000000pt" viewBox="0 0 512.000000 512.000000"
-                        preserveAspectRatio="xMidYMid meet">
-
-                        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill=""
-                            stroke="">
-                            <path d="M1345 4509 c-264 -36 -502 -155 -690 -343 -153 -153 -257 -334 -312
-    -543 -34 -129 -43 -362 -19 -498 30 -175 111 -365 217 -510 30 -41 448 -465
-    1018 -1032 892 -889 969 -962 1000 -963 31 0 97 64 960 921 509 507 952 951
-    984 987 140 160 227 337 275 556 23 108 22 359 -2 464 -79 354 -297 649 -596
-    811 -177 95 -313 131 -525 138 -180 6 -275 -7 -427 -57 -194 -65 -313 -145
-    -516 -344 l-152 -150 -158 155 c-86 86 -186 176 -222 201 -129 91 -303 164
-    -459 194 -97 19 -286 26 -376 13z m303 -174 c151 -14 345 -95 488 -204 43 -33
-    149 -130 234 -215 140 -141 158 -156 189 -156 32 0 51 16 210 173 195 193 265
-    247 402 312 170 80 342 110 532 94 131 -11 236 -41 362 -103 279 -138 471
-    -376 547 -683 29 -117 32 -351 5 -461 -37 -154 -99 -286 -192 -407 -30 -38
-    -461 -477 -960 -975 l-905 -905 -906 905 c-523 523 -931 938 -965 984 -150
-    197 -219 423 -206 675 19 376 233 700 572 867 124 61 230 92 355 103 84 8 112
-    8 238 -4z" />
-                        </g>
-                    </svg>
-                    В избранное
-                </button>
+                <input type="image" src="./assets/icons/favourites.svg" alt="избранное" class="favourites-heart">
 
                 <button class="delete-btn">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="512.000000pt"
@@ -80,18 +57,17 @@ function makeBasketItem (data) {
             </div>
         </div>`;
 
-
-    basketItem.setAttribute(`value`, data.id);
-    basketItem.innerHTML+= content;
-    basketList.appendChild(basketItem);
+  basketItem.setAttribute(`value`, data.id);
+  basketItem.innerHTML += content;
+  basketList.appendChild(basketItem);
 }
 
 // Отрисовка карточек товаров в корзине popup
-function makeMiniBasketItem (data) {
-    const basketList = document.querySelector('.popup-basket__list-catalog');
-    let basketItem = document.createElement('li');
+function makeMiniBasketItem(data) {
+  const basketList = document.querySelector(".popup-basket__list-catalog");
+  let basketItem = document.createElement("li");
 
-    let content = `
+  let content = `
         <img src="${data.image1}" alt="${data.name}" width="auto" height="150" />
         <div class="item-description">
             <span>${data.name}</span>
@@ -104,10 +80,10 @@ function makeMiniBasketItem (data) {
         </div>
         `;
 
-    basketList.style.marginTop = `40px`;
-    basketList.style.marginBottom = `50px`;
-    basketItem.innerHTML+= content;
-    basketList.appendChild(basketItem);
+  basketList.style.marginTop = `40px`;
+  basketList.style.marginBottom = `50px`;
+  basketItem.innerHTML += content;
+  basketList.appendChild(basketItem);
 }
 
-export {makeBasketItem, makeMiniBasketItem};
+export { makeBasketItem, makeMiniBasketItem };
