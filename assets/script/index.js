@@ -485,6 +485,23 @@ const catalogJson = [
   },
 ];
 
+//Бургер меню
+document.getElementById('burger').addEventListener('click', function(){
+  document.querySelector('.header').classList.toggle('open');
+  document.body.classList.toggle('noscroll');
+ 
+
+})
+const links = Array.from(document.querySelector('.menu__items').children);
+links.forEach((link) => {
+  link.addEventListener("click", closeOnClick);
+});
+function closeOnClick(){
+  document.querySelector('.header').classList.remove('open');
+  document.body.classList.remove('noscroll');
+
+}
+
 
 // Форма
 const userBtn = document.querySelector('.user');

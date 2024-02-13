@@ -49,7 +49,7 @@ ul {
   justify-content: flex-end;
   font-size: 50px;
   color: $color-secondary;
-  width: 30%;
+  width: 50%;
   text-align: center;
   font-family: "Marker";
 }
@@ -59,20 +59,81 @@ ul {
   justify-content: flex-end;
   margin: 20px;
   align-items: center;
+  width: 60%;
 
 }
 .header__menu{
-  width: 30%;
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
 }
 .menu_icon{
   width: 30px;
 }
+nav li{
+  margin: 5px;
+}
+//Бургер меню
+nav{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  align-items: center;
+}
+
+.burger_menu-btn{
+  background-color: $color-primary;
+  width: 40px;
+  height: 38px;
+  border: none;
+  position: relative;
+  display: none;
+  z-index: 103;
+  padding-right: 30px;
+
+}
+.burger_menu-btn span{
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  left: 6px;
+  transition: transform .5s, opacity .5s, background-color .5s;
+
+}
+.burger_menu-btn span:nth-child(1){
+  transform: translateY(-10px)
+}
+.burger_menu-btn span:nth-child(3){
+  transform: translateY(10px);
+}
+
+.header.open .burger_menu-btn span:nth-child(1){
+  transform: translateY(0) rotate(45deg);;
+}
+.header.open .burger_menu-btn span:nth-child(2){
+  opacity: 0;
+}
+.header.open .burger_menu-btn span:nth-child(3){
+  transform: translateY(0) rotate(-45deg);
+}
+
+#catalog_link{
+  display: none;
+}
+#favorites_link{
+  display: none;
+}
+#basket_link{
+  display: none;
+}
+
 
 //Поисковик
 .search__form {
   position: relative;
   justify-self: center;
-  width: 450px;
+  width: 50%;
   height: 43px;
   margin-top: 30px;
   margin-bottom: 20px;
@@ -83,8 +144,10 @@ ul {
  
 }
 .search{
-  display: grid;
-  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
 }
 #search__icon{
   width: 25px;
@@ -115,6 +178,7 @@ ul {
   cursor: pointer;
   border-radius: 10px;
   background-color: $color-light;
+  border: none;
 }
 
 //О нас
@@ -122,8 +186,8 @@ ul {
 display: grid;
 grid-template: 1fr / minmax(1.5rem, 1fr) minmax(auto, 1120px) minmax( 1.5rem, 1fr );
 align-items: center;
-padding-top: 30px;
-min-height: 700px;
+padding-top: 100px;
+min-height: 500px;
 margin-bottom: 150px;
 }
 .about__img_block{
@@ -147,10 +211,10 @@ margin-bottom: 150px;
 .about__block{
   grid-column: 2/3;
   position: absolute;
-  right: 0;
-  background: $color-light;
+  right: 40px;
+  background: rgb(248, 241, 223);
   border-radius: 10px;
-  width: 60%;
+  width: 50%;
   min-height: 300px;
   z-index: 2;
   padding: 30px;
@@ -190,6 +254,8 @@ h2{
   flex-wrap: wrap;
   align-items: center;
   min-height: 200px;
+  width: 100%;
+  gap: 15px;
 }
 .copyright{
   background-color: rgb(54, 53, 53);
@@ -219,18 +285,19 @@ footer p{
 
 //Форма всплывющая
 .user{
-  background-color: $color-secondary;
+  background-color: $white;
   border: none;
   border-radius: 2px;
   width: 100px;
   height: 30px;
-  color: $white;
+  color: $black;
   font-family: $font-family;
   font-weight: bold;
   font-size: 25px;
+  margin-left: 10px;
 }
 .user:hover{
-  background-color: $white;
+  background-color: $color-light;
   color: $color-secondary;
 }
 
@@ -251,10 +318,11 @@ footer p{
 }
 #user_registr.open {
   display: block;
+  width: 100%;
 }
 .popup_user {
   position: fixed;
-  z-index: 100;
+  z-index: 103;
   width: 100%;
   height: 100%;
   top: 0;
@@ -266,14 +334,15 @@ footer p{
 }
 .popup_user_registr{
   position: fixed;
-  z-index: 101;
+  z-index: 103;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: 10px;
   left: 0;
   background: rgba(246, 239, 239, 0.5);
   transition: all 0.5s ease;
   display: none;
+  overflow: scroll;
 }
 
 .popup_open {
@@ -287,20 +356,22 @@ footer p{
   transform: translate(-50%, -50%);
   background: $white;
   border-radius: 10px;
-  width: 50%;
+  width: 80%;
  
 }
 
 .popup__wrapper {
-  padding: 40px;
+  padding: 20px;
 }
 .input{
   width: 70%;
   background: transparent;
-  border-bottom: 1px solid rgb(4, 4, 4);
   margin-bottom: 5px;
   margin-top: 5px;
-  height: 25px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid $black;
+
 }
 
 .loginform,
@@ -317,9 +388,10 @@ footer p{
   background-color: $color-secondary;
   color: $white;
   padding: 8px;
-  width: 150px;
+  width: 20%;
   margin-top: 5px;
   font-family: $font-family;
+  border: none;
 }
 .check_login:hover{
   background-color: $color-primary;
@@ -330,6 +402,7 @@ footer p{
   padding: 5px;
   color: $white;
   font-family: $font-family;
+  border: none;
 }
 .registr:hover{
   background-color: $color-primary;
@@ -340,15 +413,16 @@ footer p{
   text-decoration:underline;
   margin-top: 5px;
   padding: 5px;
+  border: none;
   
 }
 .check_registr{
   background-color: $color-secondary;
   color: $white;
   padding: 8px;
-  width: 250px;
   margin-top: 5px;
   font-family: $font-family;
+  border: none;
 }
 .check_registr:hover{
   background-color: $color-primary;
@@ -364,6 +438,7 @@ footer p{
 /* Слайдер */
 .container__slider {
   position: relative;
+ 
   }
   
   .ad_card {
@@ -371,16 +446,19 @@ footer p{
     width: 90%;
     height: fit-content;
     margin: 0 auto;
+    
   }
   .ad_image {
       width: 100%;
       height: 700px;
       overflow: hidden;
+      
   }
   #ad{
     width: 100%;
     height: 100%;
     object-fit: cover;
+   
   }
   .slider {
     margin: 20px;
@@ -403,6 +481,7 @@ footer p{
   .nxt-btn img {
     opacity: 0.4;
     padding: 5px;
+   
   }
   
   .pre-btn:hover img,
@@ -451,4 +530,160 @@ footer p{
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+  }
+
+
+  //Адаптация
+
+  @media screen and (max-width:1024px){
+//бурегер меню
+    nav{
+      position: absolute;
+      left: -100%;
+      top: 0;
+      background-color: $color-primary;
+      display: flex;
+      flex-direction: column;
+      z-index: 101;
+      width: 100%;
+     height: 100%;
+      transition: transform .5s;
+      justify-content: flex-start;
+    }
+    .header{
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    
+    }
+    .header__title{
+      justify-content: flex-start;
+      width: 100%;
+      padding-left: 40px;
+    }
+    .menu__items{
+      display: flex; 
+      padding-left: 10px;
+      flex-direction: column;
+      align-items:flex-start;
+      justify-content:flex-start;
+      width: 100%;
+  
+    }
+    .menu__items li{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: flex-start;
+      gap: 20px;
+      height: 20px;
+      margin: 30px;
+    }
+  
+    .header__menu{
+      justify-content: center;
+      width: 100%;
+     
+    }
+  
+    .burger_menu-btn{
+      display: block;
+    }
+    header.open nav{
+      transform: translateX(100%);
+    }
+    
+    body.noscroll {
+      overflow: hidden;
+    }
+    #catalog_link{
+      display: block;
+    }
+    #favorites_link{
+      display: block;
+    }
+    #basket_link{
+      display: block;
+    }
+    .user{
+      margin-left: 25px;
+      margin-top: 20px;
+    }
+  }
+
+  @media screen and (max-width:769px){
+    .popup__container{
+      width: 100%;
+    }
+    nav{
+      width: 100%;
+      left: -100%;
+    
+    }
+    .header{
+      padding-bottom: 30px;
+    }
+    .header__title{
+      width: 100%;
+
+    }
+    .header__menu{
+      width: 100%;
+      padding-left: 0;
+    }
+
+    .search{
+      align-items: flex-start;
+      margin-left: 10px;
+      width: 80%;
+    }
+    .search__form{
+      width: 70%;
+    }
+    .pre-btn img,
+    .nxt-btn img{
+      width: 50%;
+    }
+    .ad_image{
+      height: 400px;
+    }
+    .about__block{
+      grid-column: 1/3;
+      width: 80%;
+      right: 10px;
+    }
+  }  
+  @media screen and (max-width:320px) {
+    .search__form{
+      width: 100%;
+    }
+    .about__block{
+      right: 0;
+      background-image: url('/assets/images/background.jpg');
+    }
+    .about__img_block{
+      display: none;
+    }
+    .ad_image{
+      height: 300px;
+    }
+    .pre-btn img,
+    .nxt-btn img{
+      width: 40%;
+    }
+    .pre-btn{
+      width: 50px;
+    }
+    .nxt-btn{
+      width: 50px;
+    }
+    .footer{
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .footer ul{
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+ 
   }
