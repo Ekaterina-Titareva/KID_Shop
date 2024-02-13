@@ -1,213 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/logo.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <title>KIDShop</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./assets/icons/logo.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="./assets/style/style.css" />
-  <title>KIDShop</title>
-</head>
-
-<body>
-  <header class="header">
-    <div class="header__logo">
-      <div><a href="index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a></div>
-      <p><a href="index.html">KIDShop</a></p>
-    </div>
-    <h1 class="header__title">KIDShop</h1>
-    <div class="header__menu">
-      <ul class="menu__items">
-        <li>
-          <a href="./catalog.html"><img src="./assets/images/catalog.png" alt="catalog" class="menu_icon" /></a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="./assets/images/heart.png" alt="favorites" class="menu_icon" /></a>
-        </li>
-
-        <!-- КОРЗИНА -->
-        <li>
-          <button id="basket">
-            <img src="./assets/images/basket.png" alt="basket" class="menu_icon" />
-          </button>
-        </li>
-
-        <div class="popup-basket hidden">
-          <a class="btn-close btn-close-catalog"></a>
-          <ul class="popup-basket__list-catalog"></ul>
-          <a href="basket.html" class="popup-basket__button popup-basket__button-catalog">Перейти в корзину</a>
-        </div>
-
-        <button class="user">Войти</button>
-        <!--Форма входа-->
-        <div class="popup_user">
-          <div class="popup__container">
-            <div class="popup__wrapper">
-              <div id="user_login">
-                <form name="formLogin" class="loginform">
-                  <p>ВХОД</p>
-                  <br />
-                  <label for="login">Email</label><br />
-                  <input type="text" name="login" id="login" placeholder="Введите логин" class="input" /><br />
-                  <span id="error_login" class="error"></span><br />
-                  <label for="password">Пароль</label><br />
-                  <input type="text" name="password" id="password_login" placeholder="Введите пароль" class="input" />
-                  <br />
-                  <span id="error_password" class="error"></span><br />
-                  <input type="checkbox" name="agree" id="agree" />
-                  <label for="agree">Cогласие на обработку персональных данных, с договором
-                    публичной оферты и политикой конфиденциальности ознакомлен
-                    и принимаю</label><br />
-                  <span id="check_login" class="error"></span><br />
-                  <button type="submit" class="check_login">ВОЙТИ</button><br />
-                </form>
-                <button class="registr">Зарегистрироваться</button><br />
-                <button class="close">Закрыть</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Форма регистарции-->
-        <div class="popup_user_registr">
-          <div class="popup__container">
-            <div class="popup__wrapper">
-              <div id="user_registr">
-                <form name="formRegistration" class="registration">
-                  <p>РЕГИСТРАЦИЯ</p>
-                  <br />
-                  <label for="regname">Имя</label><br />
-                  <input class="input" type="text" name="regname" id="name" placeholder="Введите имя" /><br />
-                  <span id="name_error" class="error"></span><br />
-                  <label for="surname">Фамилия</label><br />
-                  <input class="input" type="text" name="surname" id="surname" placeholder="Введите фамилию" /><br />
-                  <span id="surname_error" class="error"></span><br />
-                  <label for="email">Email</label><br />
-                  <input class="input" type="text" name="email" id="email" placeholder="Введите EMAIL" /><br />
-                  <span id="emailreg_error" class="error"></span><br />
-                  <label for="password">Пароль</label><br />
-                  <input class="input" type="text" name="password" id="password" placeholder="Придумайте пароль"
-                    minlength="8" /><br />
-                  <span id="password_error" class="error"></span><br />
-                  <label for="passcheck">Повторите пароль</label><br />
-                  <input class="input" type="text" name="passcheck" id="pass_check" placeholder="Повторите пароль"
-                    minlength="8" /><br />
-                  <span id="checkpass_error" class="error"></span><br />
-                  <input type="checkbox" name="agree" id="agree" />
-                  <label for="agree">Cогласие на обработку персональных данных, с договором
-                    публичной оферты и политикой конфиденциальности ознакомлен
-                    и принимаю</label><br />
-                  <span id="check_reg" class="error"></span><br />
-                  <button class="check_registr" type="submit">
-                    ЗАРЕГИСТРИРОВАТЬСЯ
-                  </button>
-                  <br />
-                  <span id="success"></span>
-                </form>
-                <button class="close_reg">Закрыть</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ul>
-    </div>
-  </header>
-  <main>
-    <!-- Поиск -->
-    <div class="search">
-      <div class="search__form">
-        <input type="text" placeholder="Искать здесь..." id="search" />
-        <button class="search__btn">
-          <img src="./assets/icons/search.svg" alt="Искать" id="search__icon" />
-        </button>
-      </div>
-      <div class="search__container">
-
-      </div>
-    </div>
-
-    <!-- Слайдер  -->
-
-    <div class="slider">
-      <div class="container__slider">
-        <div class="ad_container">
-          <div class="ad_card">
-            <div class="ad_image">
-              <a href="./catalog.html">
-                <img alt="реклама" id="ad" />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="pre-btn">
-          <img src="./assets/images/arrow-right.png" alt="arrow" />
-        </div>
-        <div class="nxt-btn">
-          <img src="./assets/images/arrow-right.png" alt="arrow" />
-        </div>
-      </div>
-    </div>
-
-    <!-- О нас  -->
-
-    <section class="about" id="about">
-      <div class="about__img_block">
-        <img src="./assets/images/background.jpg" alt="О нас" id="about__img" />
-      </div>
-      <div class="about__block">
-        <h2>О НАС</h2>
-        <p class="about__text">
-          Компания KID — ведущий российский производитель стильной одежды для
-          детей от рождения до десяти лет. Наша детская одежда отвечает
-          высочайшим стандартам качества и ожиданиям даже самых требовательных
-          родителей, отдающих предпочтение только лучшим детским товарам.
-        </p>
-        <p class="about__text">
-          Забота о качестве продукции предусматривает контроль каждого этапа
-          производства: пошив одежды происходит на собственных фабриках в
-          России и Узбекистане и на аккредитованных фабриках Китая, проходящих
-          обязательный аудит.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Подвал -->
-
-  <footer class="footer">
-    <ul>
-      <p>Социальные сети</p>
-      <li class="social_text">
-        <div><img src="./assets/icons/vk.svg" alt="vk" class="social_icon" /></div>
-        <a href="#">Вконтакте</a>
-      </li>
-      <li class="social_text">
+  <body>
+    <header class="header">
+      <div class="header__logo">
         <div>
-          <img src="./assets/icons/instagram.svg" alt="instagram" class="social_icon" />
+          <a href="index.html"
+            ><img src="./assets/icons/logo.svg" alt="logo" id="logo"
+          /></a>
         </div>
-        <a href="#">Инстаграм</a>
-      </li>
-    </ul>
-    <ul>
-      <p>KID</p>
-      <li class="kid"><a href="#about">О нас</a></li>
-      <li class="kid"><a href="catalog.html">Каталог</a></li>
-    </ul>
-    <div class="logo_tel">
-      <div>
-        <a href="./index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a>
+        <p><a href="index.html">KIDShop</a></p>
       </div>
-      <div>
-        <a href="tel:+7009005060" id="tel">&#9742; 8-900-900-50-60</a>
-      </div>
-    </div>
-  </footer>
-  <div class="copyright">&#169;2024 KID</div>
-  <script src="./assets/script/index.js" type="module"></script>
-  <script src="./assets/script/slider-main.js" type="module"></script>
-  <script src="./assets/script/search.js" type="module"></script>
-  <!-- <script src="./assets/script/basket.js" type="module"></script> -->
-</body>
+      <!--кнопка бургер меню-->
+      <button class="burger_menu-btn" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <h1 class="header__title">KIDShop</h1>
+        <div class="header__menu">
+          <ul class="menu__items">
+            <li>
+              <a href="./catalog.html"
+                ><img
+                  src="./assets/icons/catalog.svg"
+                  alt="catalog"
+                  class="menu_icon"
+              /></a>
+              <p id="catalog_link"><a href="./catalog.html">Каталог</a></p>
+            </li>
+            <li>
+              <input
+                type="image"
+                src="./assets/icons/favourites_full.svg"
+                alt="Избранное"
+                class="menu_icon open-favourites-header"
+              />
+              <div class="popup_favourites-wrapper">
+                <div>
+                  <h3>Избранное</h3>
+                  <input
+                    type="image"
+                    src="./assets/icons/close.svg"
+                    class="close-favourites-header"
+                  />
+                  <div class="favourites-container"></div>
+                </div>
+              </div>
+            </li>
+            <!-- КОРЗИНА -->
+            <li>
+              <button id="basket">
+                <img
+                  src="./assets/icons/basket.svg"
+                  alt="basket"
+                  class="menu_icon"
+                />
+              </button>
+              <p id="basket_link"><a href="./basket.html">Корзина</a></p>
+            </li>
+            <div class="popup-basket hidden">
+              <a class="btn-close btn-close-catalog"></a>
+              <ul class="popup-basket__list-catalog"></ul>
+              <a
+                href="basket.html"
+                class="popup-basket__button popup-basket__button-catalog"
+                >Перейти в корзину</a
+              >
+            </div>
 
+            <button class="user">Войти</button>
+          </ul>
+        </div>
+      </nav>
+      <!--Форма входа-->
+      <div class="popup_user">
+        <div class="popup__container">
+          <div class="popup__wrapper">
+            <div id="user_login">
+              <form name="formLogin" class="loginform">
+                <p>ВХОД</p>
+                <br />
+                <label for="login">Email</label><br />
+                <input
+                  type="text"
+                  name="login"
+                  id="login"
+                  placeholder="Введите логин"
+                  class="input"
+                /><br />
+                <span id="error_login" class="error"></span><br />
+                <label for="password">Пароль</label><br />
+                <input
+                  type="text"
+                  name="password"
+                  id="password_login"
+                  placeholder="Введите пароль"
+                  class="input"
+                />
+                <br />
+                <span id="error_password" class="error"></span><br />
+                <input type="checkbox" name="agree" id="agree" />
+                <label for="agree"
+                  >Cогласие на обработку персональных данных, с договором
+                  публичной оферты и политикой конфиденциальности ознакомлен и
+                  принимаю</label
+                ><br />
+                <span id="check_login" class="error"></span><br />
+                <button type="submit" class="check_login">ВОЙТИ</button><br />
+              </form>
+              <button class="registr">Зарегистрироваться</button><br />
+              <button class="close">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Форма регистарции-->
+      <div class="popup_user_registr">
+        <div class="popup__container">
+          <div class="popup__wrapper">
+            <div id="user_registr">
+              <form name="formRegistration" class="registration">
+                <p>РЕГИСТРАЦИЯ</p>
+                <br />
+                <label for="regname">Имя</label><br />
+                <input
+                  class="input"
+                  type="text"
+                  name="regname"
+                  id="name"
+                  placeholder="Введите имя"
+                /><br />
+                <span id="name_error" class="error"></span><br />
+                <label for="surname">Фамилия</label><br />
+                <input
+                  class="input"
+                  type="text"
+                  name="surname"
+                  id="surname"
+                  placeholder="Введите фамилию"
+                /><br />
+                <span id="surname_error" class="error"></span><br />
+                <label for="email">Email</label><br />
+                <input
+                  class="input"
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder="Введите EMAIL"
+                /><br />
+                <span id="emailreg_error" class="error"></span><br />
+                <label for="password">Пароль</label><br />
+                <input
+                  class="input"
+                  type="text"
+                  name="password"
+                  id="password"
+                  placeholder="Придумайте пароль"
+                  minlength="8"
+                /><br />
+                <span id="password_error" class="error"></span><br />
+                <label for="passcheck">Повторите пароль</label><br />
+                <input
+                  class="input"
+                  type="text"
+                  name="passcheck"
+                  id="pass_check"
+                  placeholder="Повторите пароль"
+                  minlength="8"
+                /><br />
+                <span id="checkpass_error" class="error"></span><br />
+                <input type="checkbox" name="agree" id="agree" />
+                <label for="agree"
+                  >Cогласие на обработку персональных данных, с договором
+                  публичной оферты и политикой конфиденциальности ознакомлен и
+                  принимаю</label
+                ><br />
+                <span id="check_reg" class="error"></span><br />
+                <button class="check_registr" type="submit">
+                  ЗАРЕГИСТРИРОВАТЬСЯ
+                </button>
+                <br />
+                <span id="success"></span>
+              </form>
+              <button class="close_reg">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- Поиск -->
+      <div class="search">
+        <div class="search__form">
+          <input type="text" placeholder="Искать здесь..." id="search" />
+          <button class="search__btn">
+            <img
+              src="./assets/icons/search.svg"
+              alt="Искать"
+              id="search__icon"
+            />
+          </button>
+        </div>
+        <div class="search__container"></div>
+      </div>
+
+      <!-- Слайдер  -->
+
+      <div class="slider">
+        <div class="container__slider">
+          <div class="ad_container">
+            <div class="ad_card">
+              <div class="ad_image">
+                <a href="./catalog.html">
+                  <img alt="реклама" id="ad" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pre-btn">
+            <img src="./assets/images/arrow-right.png" alt="arrow" />
+          </div>
+          <div class="nxt-btn">
+            <img src="./assets/images/arrow-right.png" alt="arrow" />
+          </div>
+        </div>
+      </div>
+
+      <!-- О нас  -->
+
+      <section class="about" id="about">
+        <div class="about__img_block">
+          <img
+            src="./assets/images/background.jpg"
+            alt="О нас"
+            id="about__img"
+          />
+        </div>
+        <div class="about__block">
+          <h2>О НАС</h2>
+          <p class="about__text">
+            Компания KID — ведущий российский производитель стильной одежды для
+            детей от рождения до десяти лет. Наша детская одежда отвечает
+            высочайшим стандартам качества и ожиданиям даже самых требовательных
+            родителей, отдающих предпочтение только лучшим детским товарам.
+          </p>
+          <p class="about__text">
+            Забота о качестве продукции предусматривает контроль каждого этапа
+            производства: пошив одежды происходит на собственных фабриках в
+            России и Узбекистане и на аккредитованных фабриках Китая, проходящих
+            обязательный аудит.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Подвал -->
+
+    <footer class="footer">
+      <ul>
+        <p>Социальные сети</p>
+        <li class="social_text">
+          <div>
+            <img src="./assets/icons/vk.svg" alt="vk" class="social_icon" />
+          </div>
+          <a href="#">Вконтакте</a>
+        </li>
+        <li class="social_text">
+          <div>
+            <img
+              src="./assets/icons/instagram.svg"
+              alt="instagram"
+              class="social_icon"
+            />
+          </div>
+          <a href="#">Инстаграм</a>
+        </li>
+      </ul>
+      <ul>
+        <p>KID</p>
+        <li class="kid"><a href="#about">О нас</a></li>
+        <li class="kid"><a href="catalog.html">Каталог</a></li>
+      </ul>
+      <div class="logo_tel">
+        <div>
+          <a href="./index.html"
+            ><img src="./assets/icons/logo.svg" alt="logo" id="logo"
+          /></a>
+        </div>
+        <div>
+          <a href="tel:+7009005060" id="tel">&#9742; 8-900-900-50-60</a>
+        </div>
+      </div>
+    </footer>
+    <div class="copyright">&#169;2024 KID</div>
+    <script src="./assets/script/index.js" type="module"></script>
+    <script src="./assets/script/slider-main.js" type="module"></script>
+    <script src="./assets/script/search.js" type="module"></script>
+    <script src="./assets/script/favourites.js" type="module"></script>
+    <!-- <script src="./assets/script/basket.js" type="module"></script> -->
+  </body>
 </html>

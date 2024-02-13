@@ -485,6 +485,23 @@ const catalogJson = [
   },
 ];
 
+//Бургер меню
+document.getElementById('burger').addEventListener('click', function(){
+  document.querySelector('.header').classList.toggle('open');
+  document.body.classList.toggle('noscroll');
+ 
+
+})
+const links = Array.from(document.querySelector('.menu__items').children);
+links.forEach((link) => {
+  link.addEventListener("click", closeOnClick);
+});
+function closeOnClick(){
+  document.querySelector('.header').classList.remove('open');
+  document.body.classList.remove('noscroll');
+
+}
+
 
 // Форма
 const userBtn = document.querySelector('.user');
@@ -511,11 +528,11 @@ registr.addEventListener('click',()=>{
 });
 // Кнопки закрытия
 document.querySelector('.close').addEventListener('click', ()=>{
-  document.querySelector('.popup_user').style.display = 'none';
+  document.querySelector('.popup_user').classList.remove('popup_open');
 });
 
 document.querySelector('.close_reg').addEventListener('click',()=>{
-  document.querySelector('.popup_user_registr').style.display = 'none';
+  document.querySelector('.popup_user_registr').classList.remove('popup_open');
 });
 
 //Валидация формы входа

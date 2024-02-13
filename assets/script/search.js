@@ -1,5 +1,5 @@
 import { catalogJson } from "./index.js";
-import { makeMiniBasketItem} from "./functions.js";
+import { makeMiniBasketItem } from "./functions.js";
 
 //Поиск
 const searchButton = document.querySelector(".search__btn");
@@ -9,13 +9,13 @@ function createSearchCard(item) {
   searchContent += `
   <div class="catalog__item" value="${item.id}">
     <div class="add-favorites">
-      <div class="add-favorites-img"></div>
+      <input type="image" src="./assets/icons/favourites.svg" alt="избранное" class="favourites-heart">
     </div>
     <p class= "item__name">${item.name}</p>
     <p class= "item__category">${item.category}</p>      
     <p class= "item__price">Цена: ${item.price} рублей</p>
     <div class= "item__img">
-      <img src="${item.image1}" alt="${item.name}"></img>
+      <img src="${item.image1}" alt="${item.name}" />
     </div>
     <p class= "item__age">Возраст: ${item.age_group}</p>
     <p class= "item__genger">Пол: ${item.gender}</p>
@@ -24,22 +24,27 @@ function createSearchCard(item) {
     <p class= "item__description">${item.description}</p>
     <button class="add-button">Добавить в корзину</button>
   </div>`;
-    document.querySelector(".search__container").innerHTML = searchContent;
+  document.querySelector(".search__container").innerHTML = searchContent;
   return searchContent;
 }
 
 searchButton.addEventListener("click", function createSearchContent() {
   searchContent = "";
-  if (document.querySelector("#search").value !== "") {
-      for (let item of catalogJson){
-  if (item.name.includes(document.querySelector("#search").value)){
-    createSearchCard(item);
-  } else continue
-  // document.querySelector(".search__container").innerHTML = "Не удалось найти данный товар";
+  let searchValue = document.querySelector("#search");
+  let searchValueLetter = searchValue.value.toUpperCase().slice(0, 1) + searchValue.value.toLowerCase().slice(1);
+  let searchValueLetterDelBlank = searchValueLetter.replace(/ |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g, '');
+  let searchValueDelBlank = searchValue.value.replace(/ |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g, '');
+  if (document.querySelector("#search").value !== "" && searchValueDelBlank !== "" && searchValueLetterDelBlank !== "") {
+    for (let item of catalogJson){
+      if (item.name.includes(searchValueLetterDelBlank) || item.name.includes(searchValueDelBlank)){
+        createSearchCard(item);
+      } else continue
+    }
+  } else if (searchValueDelBlank == "" || searchValueLetterDelBlank == "") {
+    document.querySelector(".search__container").innerHTML = "Введите название товара"
   }
-  } else document.querySelector(".search__container").innerHTML = "Введите название товара"
   document.querySelector("#search").value = "";
-})
+});
 
 // Добавление товаров в корзину
 searchButton.addEventListener('click', () => {
@@ -69,11 +74,11 @@ searchButton.addEventListener('click', () => {
 
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {
-    let key = `в корзину ${catalogJson[i].id}`;
+  let key = `в корзину ${catalogJson[i].id}`;
 
-    window.addEventListener('DOMContentLoaded',() => {
-        if(localStorage.getItem(key)){
-            makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+  window.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem(key)) {
+      makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
     }
-    });
+  });
 }
