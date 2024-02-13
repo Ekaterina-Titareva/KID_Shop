@@ -13,7 +13,7 @@
 // Фильтры
 .sidebar__title {
   font-family: $font-family;
-  color: $color-primary;
+  color: $color-violent;
   font-size: 24px;
   text-align: center;
   font-weight: 700;
@@ -37,7 +37,7 @@
 }
 
 .sidebar__reset:hover i {
-  color: $color-primary;
+  color: $color-violent;
   transition: color 0.3s;
 }
 
@@ -81,7 +81,7 @@
   height: 2px;
   width: 16px;
   border-radius: 40px;
-  background: $color-primary;
+  background: $color-violent;
 }
 
 .filter__item_spoiler::before {
@@ -118,9 +118,10 @@
 .filter-input {
   text-align: center;
   padding: 8px 12px;
-  background-color: $color-light;
-  border: 1px solid $color-gray;
+  background-color: $color-favourites;
+  border: 1px solid $color-violent;
   border-radius: 40px;
+  cursor: pointer;
 }
 
 .filter-input:not(:last-of-type) {
@@ -166,6 +167,7 @@ input[type="range"]::-webkit-slider-thumb {
   pointer-events: auto;
   -webkit-appearance: none;
   box-shadow: 0 0 6px $box-shadow;
+  cursor: pointer;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -177,6 +179,7 @@ input[type="range"]::-moz-range-thumb {
   pointer-events: auto;
   -moz-appearance: none;
   box-shadow: 0 0 6px $box-shadow;
+  cursor: pointer;
 }
 
 input[type="radio"]:checked + label {
@@ -204,6 +207,12 @@ input[type="radio"]:checked + label {
 .filter__age label,
 .filter__gender label {
   display: inline-flex;
+  cursor: pointer;
+}
+
+.filter__age label:hover,
+.filter__gender label:hover {
+color: $color-violent;
 }
 
 option:hover,
@@ -271,7 +280,7 @@ option:checked {
 }
 
 .item__price {
-  color: $color-secondary;
+  color: $color-violent;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 2px;

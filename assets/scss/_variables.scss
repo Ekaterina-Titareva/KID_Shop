@@ -6,8 +6,10 @@ $color-gray: #d4d4d4;
 
 $color-primary: rgb(251, 219, 185);
 $color-secondary: #202020;
-$color-light: rgb(228, 230, 255);
 $color-favourites: rgb(233, 218, 252);
+$color-light: $color-favourites; 
+// $color-light: rgb(228, 230, 255);
+$color-violent: #5e2a8c;
 
 $color-hover: $color-secondary;
 

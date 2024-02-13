@@ -34,16 +34,14 @@ searchButton.addEventListener("click", function createSearchContent() {
   let searchValueLetter = searchValue.value.toUpperCase().slice(0, 1) + searchValue.value.toLowerCase().slice(1);
   let searchValueLetterDelBlank = searchValueLetter.replace(/ |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g, '');
   let searchValueDelBlank = searchValue.value.replace(/ |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g, '');
-  if (document.querySelector("#search").value !== "") {
+  if (document.querySelector("#search").value !== "" && searchValueDelBlank !== "" && searchValueLetterDelBlank !== "") {
     for (let item of catalogJson){
-      if (item.name.includes(searchValueLetterDelBlank) || item.name.includes(searchValueDelBlank) && searchValueDelBlank !== ""){
+      if (item.name.includes(searchValueLetterDelBlank) || item.name.includes(searchValueDelBlank)){
         createSearchCard(item);
       } else continue
     }
-  } else if (searchValueDelBlank === "") {
+  } else if (searchValueDelBlank == "" || searchValueLetterDelBlank == "") {
     document.querySelector(".search__container").innerHTML = "Введите название товара"
-  } else if (searchContent === "") {
-    document.querySelector(".search__container").innerHTML = "Не удалось найти данный товар";
   }
   document.querySelector("#search").value = "";
 });
