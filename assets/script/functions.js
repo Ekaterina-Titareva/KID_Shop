@@ -57,17 +57,17 @@ function makeBasketItem(data) {
             </div>
         </div>`;
 
-    basketItem.setAttribute(`value`, data.id);
-    basketItem.innerHTML += content;
-    basketList.appendChild(basketItem);
+  basketItem.setAttribute(`value`, data.id);
+  basketItem.innerHTML += content;
+  basketList.appendChild(basketItem);
 }
 
 // Отрисовка карточек товаров в корзине popup
 function makeMiniBasketItem(data) {
-    const basketList = document.querySelector(".popup-basket__list-catalog");
-    let basketItem = document.createElement("li");
+  const basketList = document.querySelector(".popup-basket__list-catalog");
+  let basketItem = document.createElement("li");
 
-    let content = `
+  let content = `
         <img src="${data.image1}" alt="${data.name}" width="auto" height="150" />
         <div class="item-description">
             <span>${data.name}</span>
