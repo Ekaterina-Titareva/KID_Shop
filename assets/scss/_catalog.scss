@@ -245,24 +245,29 @@ option:checked {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  width: 100%;
   background-color: $white;
-  box-shadow: 2px 2px 2px $color-primary;
   border-radius: 10px;
   border: 1px solid $color-primary;
   padding: 10px;
+  font-size: 16px;
+}
+.catalog__item:hover {
+  border: 1px solid $color-violent;
+  box-shadow: 1px 1px 1px $color-gray;
 }
 
 .item__img {
   position: relative;
-  min-width: 240px;
+  width: 280px;
+  height: 380px;
+  overflow: hidden;
 }
 
 .item__img img {
   width: 100%;
-  border-radius: 10px 10px 0 0px;
   object-fit: cover;
   transition: opacity 0.3s ease-out;
+  object-position: bottom 20px right 0;
 }
 
 .item-info {
@@ -281,24 +286,78 @@ option:checked {
 
 .item__price {
   color: $color-violent;
+  background-color: $color-light;
+  border: 1px solid $color-violent;
+  border-radius: 12px;
+  margin: 5px 0;
+  padding: 8px;
+  align-self: self-start;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 2px;
 }
 
 .item__name {
+  display: flex;
   color: $color-secondary;
   font-size: 18px;
   font-weight: 700;
-  max-width: 250px;
+  align-items: center;
+  height: 3em;
+  max-width: 210px;
   margin: 0px 0px 10px;
 }
 
 .item__description {
+  display: flex;
+  height: 9em;
+  overflow:hidden;
   color: $color-secondary;
   font-size: 13px;
+  padding: 3px;
   font-weight: 500;
-  border-left: 3px solid $color-primary;
-  padding-left: 24px;
-  margin: 20px 15px 10px 0px;
+  background: rgba(251, 219, 185, 0.402);
+    margin: 10px 0px;
 }
+
+
+@media screen and (max-width: 1439px) {
+  .catalog__container {
+    grid-template-columns: 1fr 1fr;
+  }
+.catalog__wrapper {
+  grid-template-columns: 1fr 1fr;
+}
+.filter__item_subtitle h4 {
+  max-width: 167px;
+}
+.catalog__wrapper {
+  gap: 30px;
+}
+}
+
+@media screen and (max-width: 1024px) {
+    .catalog__wrapper {
+    margin: 0 10px;
+  }
+  .catalog__container {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media screen and (max-width: 769px) {
+.catalog__wrapper {
+    grid-template-columns: 1fr;
+  }
+  .catalog__container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media screen and (max-width: 620px) {
+    .catalog__container  {
+      grid-template-columns: 1fr;
+    }
+  
+  }
