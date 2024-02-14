@@ -85,7 +85,7 @@
 
     li {
         display: grid;
-        grid-template-columns: 0.2fr 0.65fr 0.15fr;
+        grid-template-columns: 0.2fr 0.5fr 0.15fr 0.15fr;
         height: fit-content;
 
         img {
@@ -104,10 +104,17 @@
     width: 100%;
 }
 
-.item-description__price {
-    justify-self: end;
+.item-count {
+    display: block;
+    width: 20px;
+    height: 20px;
+    justify-self: center;
+    align-self: center;
 }
 
+.item-price {
+    justify-self: end;
+}
 
 // Страница корзины
 .wrap {

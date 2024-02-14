@@ -7,7 +7,7 @@ let searchContent = "";
 
 function createSearchCard(item) {
   searchContent += `
-  <div class="catalog__item">
+  <div class="catalog__item" value="${item.id}">
     <div class="add-favorites">
       <input type="image" src="./assets/icons/favourites.svg" alt="избранное" class="favourites-heart">
     </div>
@@ -47,23 +47,30 @@ searchButton.addEventListener("click", function createSearchContent() {
 });
 
 // Добавление товаров в корзину
-const buttons = document.querySelectorAll(".add-button");
-let catalogCards = document.querySelectorAll(".catalog__item");
+searchButton.addEventListener('click', () => {
+  const buttons = document.querySelectorAll('.add-button');
 
-buttons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    console.log(buttons);
-    let catalogItems = Array.from(catalogCards);
-    let addToBasketItem = event.target.closest("div");
-    let index = catalogItems.indexOf(addToBasketItem);
+  buttons.forEach(button => {
 
-    let key = `в корзину ${catalogJson[index].id}`;
+    button.addEventListener('click', (event) => {
+        let addToBasketItem = event.target.closest('div');
+        let index = addToBasketItem.getAttribute('value');
+        let key = `в корзину ${index}`;
 
-    window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
+        if (!window.localStorage.getItem(key)) {
+          window.localStorage.setItem(key, JSON.stringify(catalogJson[index-1]));
+          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+        } else {
+          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+        }
 
-    makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
-  });
-});
+        //window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
+        
+        //makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
+    })
+})
+})
+
 
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {

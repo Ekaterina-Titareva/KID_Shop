@@ -75,15 +75,18 @@ function makeMiniBasketItem(data) {
             <span>${data.material}</span>
         </div>
 
+        <input type="text" class="item-count" value="1" disabled></input>
+
         <div class="item-price">
             <p>${data.price} &#8381</p>
         </div>
         `;
 
-  basketList.style.marginTop = `40px`;
-  basketList.style.marginBottom = `50px`;
-  basketItem.innerHTML += content;
-  basketList.appendChild(basketItem);
+    basketItem.setAttribute(`value`, data.id);
+    basketList.style.marginTop = `40px`;
+    basketList.style.marginBottom = `50px`;
+    basketItem.innerHTML+= content;
+    basketList.appendChild(basketItem);
 }
 
 export { makeBasketItem, makeMiniBasketItem };
