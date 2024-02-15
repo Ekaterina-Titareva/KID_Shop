@@ -110,8 +110,8 @@
     }
 }
 
-div:has(a.btn-close-catalog),
-div:has(a.popup-basket__button) {
+.popup-basket div:has(a.btn-close-catalog),
+.popup-basket div:has(a.popup-basket__button) {
     margin: 0;
     padding: 0;
     height: 70px;
