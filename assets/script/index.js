@@ -633,13 +633,10 @@ const popupBasket = document.querySelector('.popup-basket');
 
 if (buttonBasket && buttonClose) {
   buttonBasket.addEventListener('click', () => {
-    let headerHeight = document.querySelector('.header').clientHeight;
     
     if (popupBasket.classList.contains('hidden')){
       popupBasket.classList.remove('hidden');
       popupBasket.classList.add('visible');
-
-      popupBasket.style.top = `${headerHeight}px`;
     } else {
       popupBasket.classList.add('hidden');
       popupBasket.classList.remove('visible');
@@ -654,15 +651,14 @@ if (buttonBasket && buttonClose) {
   })
 }
 
-
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {
   let key = `в корзину ${catalogJson[i].id}`;
 
   window.addEventListener('DOMContentLoaded',() => {
-      if(localStorage.getItem(key)){
-          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
-  }
+    if(localStorage.getItem(key)){
+        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+    }
   });
 }
 

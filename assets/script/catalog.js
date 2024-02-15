@@ -182,13 +182,9 @@ const buttonClose = document.querySelector(".btn-close");
 const popupBasket = document.querySelector(".popup-basket-catalog");
 
 buttonBasket.addEventListener("click", () => {
-  //let headerHeight = document.querySelector(".header").clientHeight;
-
   if (popupBasket.classList.contains("hidden")) {
     popupBasket.classList.remove("hidden");
     popupBasket.classList.add("visible");
-
-    //popupBasket.style.top = `${headerHeight}px`;
   } else {
     popupBasket.classList.add("hidden");
     popupBasket.classList.remove("visible");
@@ -237,7 +233,7 @@ filters.addEventListener("change", () => {
 });
 
 // Отображение после обновления
-buttonBasket.addEventListener('click', () => {
+/*buttonBasket.addEventListener('click', () => {
   for (let i = 0; i < catalogJson.length; i++) {
     let key = `в корзину ${catalogJson[i].id}`;
   
@@ -247,7 +243,7 @@ buttonBasket.addEventListener('click', () => {
       }
     });
   }
-})
+})*/
 
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {
