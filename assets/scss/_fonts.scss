@@ -5,15 +5,15 @@
   font-weight: 400;
 }
 // применяется только для англ слов
-@font-face{
+@font-face {
   font-family: "Marker";
   src: url(../fonts/PermanentMarker-Regular.woff2) format("woff2"),
-  url(../fonts/PermanentMarker-Regular.woff) format("woff");
+    url(../fonts/PermanentMarker-Regular.woff) format("woff");
   font-weight: 400;
 }
 
-@font-face{
+@font-face {
   font-family: "Ceveat";
-  src: url(../fonts/Caveat-Medium.woff) format('woff'),
-  url(../fonts/Caveat-Medium.woff2) format('woff2');
+  src: url(../fonts/Caveat-Medium.woff) format("woff"),
+    url(../fonts/Caveat-Medium.woff2) format("woff2");
 }

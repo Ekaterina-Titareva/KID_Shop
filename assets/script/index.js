@@ -441,8 +441,7 @@ const catalogJson = [
     name: "Кроссовки из парусины",
     description:
       "Кроссовки из хлопчатобумажной ткани с застежками-крючками спереди и петлей сзади. Подкладка и стельки из парусины и резиновая подошва с рисунком. Высота подошвы 2,1 см. Хлопок 100%.",
-    image1:
-      "./assets/images/first_pic_of_catalog/Boys_1_4Y_Shoes_firstpic.jpg",
+    image1: "./assets/images/first_pic_of_catalog/Boys_1_4Y_Shoes_firstpic.jpg",
     image2:
       "./assets/images/second_pic_of_catalog/Boys_1_4Y_Shoes_secondpic.jpg",
     color: "Синий",
@@ -457,8 +456,7 @@ const catalogJson = [
     name: "Мигающие кроссовки",
     description:
       "Кроссовки с мягким верхним краем, застежкой на крючок спереди и петлей в крупный рубчик сзади. Подкладка из сетки и стельки из технической пены Cellfit для дополнительного комфорта. Подошва с активируемыми при движении мигающими светодиодными лампочками. Высота подошвы 2,5 см. Полиэстер 100%.",
-    image1:
-      "./assets/images/first_pic_of_catalog/Boys_5_8Y_Shoes_firstpic.jpg",
+    image1: "./assets/images/first_pic_of_catalog/Boys_5_8Y_Shoes_firstpic.jpg",
     image2:
       "./assets/images/second_pic_of_catalog/Boys_5_8Y_Shoes_secondpic.jpg",
     color: "Красный",
@@ -486,59 +484,53 @@ const catalogJson = [
 ];
 
 //Бургер меню
-document.getElementById('burger').addEventListener('click', function(){
-  document.querySelector('.header').classList.toggle('open');
-  document.body.classList.toggle('noscroll');
- 
-
-})
-const links = Array.from(document.querySelector('.menu__items').children);
+document.getElementById("burger").addEventListener("click", function () {
+  document.querySelector(".header").classList.toggle("open");
+  document.body.classList.toggle("noscroll");
+});
+const links = Array.from(document.querySelector(".menu__items").children);
 links.forEach((link) => {
   link.addEventListener("click", closeOnClick);
 });
-function closeOnClick(){
-  document.querySelector('.header').classList.remove('open');
-  document.body.classList.remove('noscroll');
-
+function closeOnClick() {
+  document.querySelector(".header").classList.remove("open");
+  document.body.classList.remove("noscroll");
 }
 
-
 // Форма
-const userBtn = document.querySelector('.user');
-const formLogin = document.querySelector('#user_login');
-const popupLogin = document.querySelector('.popup_user');
+const userBtn = document.querySelector(".user");
+const formLogin = document.querySelector("#user_login");
+const popupLogin = document.querySelector(".popup_user");
 
-
-userBtn.addEventListener('click', () => {
-  formLogin.classList.add('open');
-  popupLogin.classList.add('popup_open');
+userBtn.addEventListener("click", () => {
+  formLogin.classList.add("open");
+  popupLogin.classList.add("popup_open");
 });
 
 //Форма регистарции
-const registr = document.querySelector('.registr');
-const popupReg = document.querySelector('.popup_user_registr');
-const formReg = document.querySelector('#user_registr');
+const registr = document.querySelector(".registr");
+const popupReg = document.querySelector(".popup_user_registr");
+const formReg = document.querySelector("#user_registr");
 
-registr.addEventListener('click',()=>{
-  formReg.classList.add('open');
-  popupReg.classList.add('popup_open');
-  popupLogin.classList.remove('popup_open');
-  formLogin.classList.remove('open');
-
+registr.addEventListener("click", () => {
+  formReg.classList.add("open");
+  popupReg.classList.add("popup_open");
+  popupLogin.classList.remove("popup_open");
+  formLogin.classList.remove("open");
 });
 // Кнопки закрытия
-document.querySelector('.close').addEventListener('click', ()=>{
-  document.querySelector('.popup_user').classList.remove('popup_open');
+document.querySelector(".close").addEventListener("click", () => {
+  document.querySelector(".popup_user").classList.remove("popup_open");
 });
 
-document.querySelector('.close_reg').addEventListener('click',()=>{
-  document.querySelector('.popup_user_registr').classList.remove('popup_open');
+document.querySelector(".close_reg").addEventListener("click", () => {
+  document.querySelector(".popup_user_registr").classList.remove("popup_open");
 });
 
 //Валидация формы входа
 const formLog = document.forms.formLogin;
 
-formLog.addEventListener('submit', function(evt){
+formLog.addEventListener("submit", function (evt) {
   evt.preventDefault();
   let hasError = false;
   const emailRegexLogin = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -546,83 +538,81 @@ formLog.addEventListener('submit', function(evt){
   const password = formLog.elements.password;
   const agree = formLog.elements.agree;
 
-  if(emailRegexLogin.test(login.value)=== false){
-    document.getElementById('error_login').textContent = 'Неверный логин';
+  if (emailRegexLogin.test(login.value) === false) {
+    document.getElementById("error_login").textContent = "Неверный логин";
     hasError = true;
-   
   }
-  if(password.value === ''){
-    document.getElementById('error_password').textContent = 'Неверный пароль';
+  if (password.value === "") {
+    document.getElementById("error_password").textContent = "Неверный пароль";
     hasError = true;
-    
   }
-  if(!agree.checked){
-    document.getElementById('check_login').textContent = 'Необходимо согласие с условиями';
+  if (!agree.checked) {
+    document.getElementById("check_login").textContent =
+      "Необходимо согласие с условиями";
     hasError = true;
   }
 
-  if(hasError === false){
+  if (hasError === false) {
     formLog.reset();
-    alert('Добро пожаловать!');
+    alert("Добро пожаловать!");
   }
- 
-})
-
+});
 
 //Валидация формы регистрации
 
 const checkFormReg = document.forms.formRegistration;
 
+checkFormReg.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  let hasError = false;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const userName = checkFormReg.elements.regname;
+  const userSurname = checkFormReg.elements.surname;
+  const userEmail = checkFormReg.elements.email;
+  const userPassOne = checkFormReg.elements.password;
+  const userPassTwo = checkFormReg.elements.passcheck;
+  const agree = checkFormReg.elements.agree;
 
-checkFormReg.addEventListener('submit', function(evt){
-evt.preventDefault();
-let hasError = false;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const userName = checkFormReg.elements.regname;
-const userSurname = checkFormReg.elements.surname;
-const userEmail = checkFormReg.elements.email;
-const userPassOne = checkFormReg.elements.password;
-const userPassTwo = checkFormReg.elements.passcheck;
-const agree = checkFormReg.elements.agree;
+  if (userName.value === " ") {
+    document.getElementById("name_error").textContent = "Введите имя";
+    hasError = true;
+  }
+  if (userSurname.value === " ") {
+    document.getElementById("surname_error").textContent = "Введите фамилию";
+    hasError = true;
+  }
+  if (emailRegex.test(userEmail.value) === false) {
+    document.getElementById("emailreg_error").textContent =
+      "Некорректная почта";
+    hasError = true;
+  }
+  if (userEmail.value === "") {
+    document.getElementById("emailreg_error").textContent = "Введите почту";
+    hasError = true;
+  }
 
-if(userName.value === ' '){
-  document.getElementById('name_error').textContent = 'Введите имя';
-  hasError = true;
-}
-if(userSurname.value === ' '){
-  document.getElementById('surname_error').textContent = 'Введите фамилию';
-  hasError =true;
-}
-if(emailRegex.test(userEmail.value)=== false){
-  document.getElementById('emailreg_error').textContent = 'Некорректная почта';
-  hasError = true;
-}
-if(userEmail.value === ''){
-  document.getElementById('emailreg_error').textContent = 'Введите почту';
-  hasError = true;
-}
-
-if(userPassOne.value === ''|| userPassOne.length<8){
-  document.getElementById('password_error').textContent = 'Придумайте пароль минимум 8 символов';
-  hasError = true;
-}
-if(userPassTwo.value !== userPassOne.value || userPassTwo.value == ''){
-  document.getElementById('checkpass_error').textContent = 'Пароль не совпадает';
-  hasError = true;
-}
-if(!agree.checked){
-  document.getElementById('check_reg').textContent = 'Необходимо согласие с условиями';
-  hasError = true;
-}
-if(hasError === false){
-  document.querySelectorAll('.error').textContent = ' ';
-  checkFormReg.reset();
-  document.getElementById('success').textContent = 'Вы успешно зарегистрировались!';
-
-}
-
+  if (userPassOne.value === "" || userPassOne.length < 8) {
+    document.getElementById("password_error").textContent =
+      "Придумайте пароль минимум 8 символов";
+    hasError = true;
+  }
+  if (userPassTwo.value !== userPassOne.value || userPassTwo.value == "") {
+    document.getElementById("checkpass_error").textContent =
+      "Пароль не совпадает";
+    hasError = true;
+  }
+  if (!agree.checked) {
+    document.getElementById("check_reg").textContent =
+      "Необходимо согласие с условиями";
+    hasError = true;
+  }
+  if (hasError === false) {
+    document.querySelectorAll(".error").textContent = " ";
+    checkFormReg.reset();
+    document.getElementById("success").textContent =
+      "Вы успешно зарегистрировались!";
+  }
 });
-
 
 //КОРЗИНА
 
@@ -663,4 +653,4 @@ for (let i = 0; i < catalogJson.length; i++) {
   });
 }*/
 
-export {catalogJson};
+export { catalogJson };
