@@ -1,90 +1,151 @@
-#basket {
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
-  cursor: pointer;
+.popup-basket__list-empty{
+    display: grid;
+    grid-template-areas: 
+    'img text'
+    'img button';
+    align-items: center;
+    margin: 0 auto;
+
+    img {
+        grid-area: img;
+        width: 150px;
+        height: auto;
+    }
+
+    p {
+        grid-area: text;
+        place-self: center;
+        font-size: 28px;
+        margin-top: 35px;
+    }
+
+    a {
+        grid-area: button;
+        height: 50px;
+
+        border: 2px solid $color-violent;
+        border-radius: 10px;
+
+        font-size: 20px;
+        line-height: 50px;
+        text-align: center;
+        
+        &:hover {
+            color: $color-violent;
+            transform: scale(105%);
+                transition: transform 0.5s ease;
+        }
+    }
 }
 
-.popup-basket {
-  position: absolute;
-}
-
+//Стили для popup
 .visible {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  min-width: 40vw;
-  max-width: 50vw;
-  min-height: 30vh;
-  max-height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 20vw;
+    width: 60vw;
+    height: fit-content;
 
   background-color: $color-light;
 
-  visibility: visible;
-  z-index: 3;
-  overflow-x: scroll;
+    visibility: visible;
+    z-index: 3;
+
+    .popup-basket__list-empty {
+        width: 70%;
+        padding-top: 80px;
+    }
 }
 
-.btn-close,
+.btn-close, 
 .btn-close-catalog {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 25px;
-  height: 25px;
-
-  &::before,
-  &::after {
-    content: "";
     position: absolute;
     top: 10px;
-    left: 0;
-    width: 25px;
-    height: 3px;
-    background: red;
-  }
+    right: 20px;
+    width: 20px;
+    height: 20px;
 
-  &::before {
-    transform: rotate(45deg);
-  }
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 20px;
+        height: 3px;
+        background: $color-violent;
+    }
 
-  &::after {
-    transform: rotate(-45deg);
-  }
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        transform: scale(1.5);
+        transition: transform 0.5s ease;
+    }
 }
 
 .popup-basket__button,
 .popup-basket__button-catalog {
-  position: fixed;
-  bottom: 0;
-  right: 10%;
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+    padding: 15px 0;
+    background-color: $color-primary;
+    border-radius: 10px;
 
-  display: block;
-  width: 20%;
-  margin-top: 20px;
-  padding: 10px 0;
-  background-color: $color-primary;
+    text-align: center;
 
-  text-align: center;
+    &:hover {
+        color: $color-violent;
+        transform: scale(110%);
+        transition: transform 0.5s ease;
+    }
 }
 
-.popup-basket .popup-basket-catalog {
-  min-width: fit-content;
-  max-width: 50vw;
-  padding-top: 40px;
+.popup-basket div:has(a.btn-close-catalog),
+.popup-basket div:has(a.popup-basket__button) {
+    margin: 0;
+    padding: 0;
+    height: 70px;
+    background-color: $color-violent-light;
+}
+
+.popup-basket
+.popup-basket-catalog {
+    min-width: fit-content;
+    max-width: 50vw;
+    padding-top: 40px;
+
+    font-size: 15px;
+}
+
+.popup-basket__wrap {
+    height: calc(50vh - 80px);
+    overflow: scroll;
+
+    background-color: $color-violent-light;
 }
 
 .popup-basket__list,
 .popup-basket__list-catalog {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+    
 
-  li {
-    display: grid;
-    grid-template-columns: 0.2fr 0.65fr 0.15fr;
-    height: fit-content;
+    li {
+        display: grid;
+        grid-template-columns: 0.2fr 0.5fr 0.15fr 0.15fr;
+        height: fit-content;
 
     img {
       object-fit: contain;
@@ -102,8 +163,16 @@
   width: 100%;
 }
 
-.item-description__price {
-  justify-self: end;
+.item-count {
+    display: block;
+    width: 20px;
+    height: 20px;
+    justify-self: center;
+    align-self: center;
+}
+
+.item-price {
+    justify-self: end;
 }
 
 // Страница корзины
@@ -168,19 +237,107 @@
     gap: 10px;
   }
 
-  .item-icons {
-    svg {
-      width: 20px;
-      height: 20px;
-
-      fill: none;
+    .basket {
+        width: 65%;
     }
 
-    button {
-      background: none;
-      border: none;
+    .basket-title {
+        margin: 30px 0;
 
-      opacity: 0;
+        font-size: 35px;
+        font-weight: bold;
+    }
+    
+    .basket-list {
+        li {
+            display: flex;
+            flex-direction: row;
+    
+            padding-bottom: 50px;
+    
+            &:hover svg {
+                fill: $color-violent;
+                cursor: pointer;
+            }
+    
+            &:hover .item-icons button {
+                opacity: 1;
+                color: $color-violent;
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .item-description {
+        display: grid;
+        grid-template-columns: 0.7fr 0.3fr;
+        grid-template-rows: repeat(2, auto);
+        width: calc(100% - 116px);
+    
+        padding-left: 3%;
+    }
+    
+    .item-description__text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .item-description__price {
+        text-align: end;
+    }
+    
+    .item-icons {
+        grid-column: -1/1;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    
+    .item-icons {
+        svg {
+            width: 20px;
+            height: 20px;
+    
+            fill: none;
+        }
+    
+        button {
+            background: none;
+            border: none;
+    
+            opacity: 0;
+        }
+    }
+    
+    .basket-total { 
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 30%;
+        margin: 35px 0;
+
+        h3 {
+            font-size: 30px;
+            font-weight: bolder;
+        }
+
+        p, 
+        span {
+            font-size: 20px;
+        }
+
+        a {
+            font-size: 20px;
+            text-decoration: underline;
+
+            &:hover {
+                color: $color-violent;
+            }
+        }
     }
   }
 

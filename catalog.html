@@ -15,9 +15,7 @@
   <header class="header">
     <div class="header__logo">
       <div>
-        <a href="index.html"
-          ><img src="./assets/icons/logo.svg" alt="logo" id="logo"
-        /></a>
+        <a href="index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a>
       </div>
       <p><a href="index.html">KIDShop</a></p>
     </div>
@@ -30,12 +28,7 @@
       <div class="header__menu">
         <ul class="menu__items">
           <li>
-            <a href="./catalog.html"
-              ><img
-                src="./assets/icons/catalog.svg"
-                alt="catalog"
-                class="menu_icon"
-            /></a>
+            <a href="./catalog.html"><img src="./assets/icons/catalog.svg" alt="catalog" class="menu_icon" /></a>
             <p id="catalog_link"><a href="./catalog.html">Каталог</a></p>
           </li>
           <li>
@@ -51,22 +44,25 @@
           <!-- КОРЗИНА -->
           <li>
             <button id="basket">
-              <img
-                src="./assets/icons/basket.svg"
-                alt="basket"
-                class="menu_icon"
-              />
+              <img src="./assets/icons/basket.svg" alt="basket" class="menu_icon" />
             </button>
             <p id="basket_link"><a href="./basket.html">Корзина</a></p>
           </li>
-          <div class="popup-basket hidden">
-            <a class="btn-close btn-close-catalog"></a>
-            <ul class="popup-basket__list-catalog"></ul>
-            <a
-              href="basket.html"
-              class="popup-basket__button popup-basket__button-catalog"
-              >Перейти в корзину</a
-            >
+          <div class="popup-basket-catalog hidden">
+            <div>
+              <a class="btn-close btn-close-catalog"></a>
+            </div>
+            <div class="popup-basket__wrap">
+              <div class="popup-basket__list-empty">
+                <img src="./assets/images/empty-basket.png" alt="Перейдите в каталог" />
+                <p> В корзине пока пусто</p>
+              </div>
+              <ul class="popup-basket__list-catalog"></ul>
+            </div>
+            <div>
+              <a href="basket.html" class="popup-basket__button popup-basket__button-catalog hidden">Перейти в
+                корзину</a>
+            </div>
           </div>
 
           <button class="user">Войти</button>
@@ -82,30 +78,16 @@
               <p>ВХОД</p>
               <br />
               <label for="login">Email</label><br />
-              <input
-                type="text"
-                name="login"
-                id="login"
-                placeholder="Введите логин"
-                class="input"
-              /><br />
+              <input type="text" name="login" id="login" placeholder="Введите логин" class="input" /><br />
               <span id="error_login" class="error"></span><br />
               <label for="password">Пароль</label><br />
-              <input
-                type="text"
-                name="password"
-                id="password_login"
-                placeholder="Введите пароль"
-                class="input"
-              />
+              <input type="text" name="password" id="password_login" placeholder="Введите пароль" class="input" />
               <br />
               <span id="error_password" class="error"></span><br />
               <input type="checkbox" name="agree" id="agree" />
-              <label for="agree"
-                >Cогласие на обработку персональных данных, с договором
+              <label for="agree">Cогласие на обработку персональных данных, с договором
                 публичной оферты и политикой конфиденциальности ознакомлен и
-                принимаю</label
-              ><br />
+                принимаю</label><br />
               <span id="check_login" class="error"></span><br />
               <button type="submit" class="check_login">ВОЙТИ</button><br />
             </form>
@@ -124,58 +106,26 @@
               <p>РЕГИСТРАЦИЯ</p>
               <br />
               <label for="regname">Имя</label><br />
-              <input
-                class="input"
-                type="text"
-                name="regname"
-                id="name"
-                placeholder="Введите имя"
-              /><br />
+              <input class="input" type="text" name="regname" id="name" placeholder="Введите имя" /><br />
               <span id="name_error" class="error"></span><br />
               <label for="surname">Фамилия</label><br />
-              <input
-                class="input"
-                type="text"
-                name="surname"
-                id="surname"
-                placeholder="Введите фамилию"
-              /><br />
+              <input class="input" type="text" name="surname" id="surname" placeholder="Введите фамилию" /><br />
               <span id="surname_error" class="error"></span><br />
               <label for="email">Email</label><br />
-              <input
-                class="input"
-                type="text"
-                name="email"
-                id="email"
-                placeholder="Введите EMAIL"
-              /><br />
+              <input class="input" type="text" name="email" id="email" placeholder="Введите EMAIL" /><br />
               <span id="emailreg_error" class="error"></span><br />
               <label for="password">Пароль</label><br />
-              <input
-                class="input"
-                type="text"
-                name="password"
-                id="password"
-                placeholder="Придумайте пароль"
-                minlength="8"
-              /><br />
+              <input class="input" type="text" name="password" id="password" placeholder="Придумайте пароль"
+                minlength="8" /><br />
               <span id="password_error" class="error"></span><br />
               <label for="passcheck">Повторите пароль</label><br />
-              <input
-                class="input"
-                type="text"
-                name="passcheck"
-                id="pass_check"
-                placeholder="Повторите пароль"
-                minlength="8"
-              /><br />
+              <input class="input" type="text" name="passcheck" id="pass_check" placeholder="Повторите пароль"
+                minlength="8" /><br />
               <span id="checkpass_error" class="error"></span><br />
               <input type="checkbox" name="agree" id="agree" />
-              <label for="agree"
-                >Cогласие на обработку персональных данных, с договором
+              <label for="agree">Cогласие на обработку персональных данных, с договором
                 публичной оферты и политикой конфиденциальности ознакомлен и
-                принимаю</label
-              ><br />
+                принимаю</label><br />
               <span id="check_reg" class="error"></span><br />
               <button class="check_registr" type="submit">
                 ЗАРЕГИСТРИРОВАТЬСЯ
@@ -294,11 +244,7 @@
       </li>
       <li class="social_text">
         <div>
-          <img
-            src="./assets/icons/instagram.svg"
-            alt="instagram"
-            class="social_icon"
-          />
+          <img src="./assets/icons/instagram.svg" alt="instagram" class="social_icon" />
         </div>
         <a href="#">Инстаграм</a>
       </li>
@@ -310,9 +256,7 @@
     </ul>
     <div class="logo_tel">
       <div>
-        <a href="./index.html"
-          ><img src="./assets/icons/logo.svg" alt="logo" id="logo"
-        /></a>
+        <a href="./index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a>
       </div>
       <div>
         <a href="tel:+7009005060" id="tel">&#9742; 8-900-900-50-60</a>

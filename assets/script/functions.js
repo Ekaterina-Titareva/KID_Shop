@@ -1,8 +1,12 @@
 function makeBasketItem(data) {
-  const basketList = document.querySelector(".basket-list");
-  let basketItem = document.createElement("li");
+    const basketList = document.querySelector(".basket-list");
+    let basketItem = document.createElement("li");
+    const emptyBasketInfo = document.querySelector('.popup-basket__list-empty');
+    const title = document.querySelector(".basket-title");;
+    const totalBlock = document.querySelector(".basket-total");;
 
-  let content = `
+
+    let content = `
         <img src="${data.image1}" alt="${data.name}"
             width="116" height="auto" />
         <div class="item-description">
@@ -57,17 +61,22 @@ function makeBasketItem(data) {
             </div>
         </div>`;
 
-  basketItem.setAttribute(`value`, data.id);
-  basketItem.innerHTML += content;
-  basketList.appendChild(basketItem);
+    emptyBasketInfo.style.display = "none";
+    title.classList.remove("hidden");
+    totalBlock.classList.remove("hidden");
+    basketItem.setAttribute(`value`, data.id);
+    basketItem.innerHTML += content;
+    basketList.appendChild(basketItem);
 }
 
 // Отрисовка карточек товаров в корзине popup
 function makeMiniBasketItem(data) {
-  const basketList = document.querySelector(".popup-basket__list-catalog");
-  let basketItem = document.createElement("li");
+    const basketList = document.querySelector(".popup-basket__list-catalog");
+    let basketItem = document.createElement("li");
+    const btn = document.querySelector('.popup-basket__button');
+    const emptyBasketInfo = document.querySelector('.popup-basket__list-empty');
 
-  let content = `
+    let content = `
         <img src="${data.image1}" alt="${data.name}" width="auto" height="150" />
         <div class="item-description">
             <span>${data.name}</span>
@@ -75,15 +84,18 @@ function makeMiniBasketItem(data) {
             <span>${data.material}</span>
         </div>
 
+        <input type="text" class="item-count" value="1" disabled></input>
+
         <div class="item-price">
             <p>${data.price} &#8381</p>
         </div>
         `;
 
-  basketList.style.marginTop = `40px`;
-  basketList.style.marginBottom = `50px`;
-  basketItem.innerHTML += content;
-  basketList.appendChild(basketItem);
+    emptyBasketInfo.style.display = "none";
+    btn.classList.remove("hidden");
+    basketItem.setAttribute(`value`, data.id);
+    basketItem.innerHTML+= content;
+    basketList.appendChild(basketItem);
 }
 
 export { makeBasketItem, makeMiniBasketItem };

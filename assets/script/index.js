@@ -616,41 +616,40 @@ checkFormReg.addEventListener("submit", function (evt) {
 
 //КОРЗИНА
 
-/*// Открытие/закрытие popup с корзиной
+// Открытие/закрытие popup с корзиной
 const buttonBasket = document.querySelector('#basket');
 const buttonClose = document.querySelector('.btn-close');
 const popupBasket = document.querySelector('.popup-basket');
 
-buttonBasket.addEventListener('click', () => {
-  let headerHeight = document.querySelector('.header').clientHeight;
-  
-  if (popupBasket.classList.contains('hidden')){
-    popupBasket.classList.remove('hidden');
-    popupBasket.classList.add('visible');
+if (buttonBasket && buttonClose) {
+  buttonBasket.addEventListener('click', () => {
+    
+    if (popupBasket.classList.contains('hidden')){
+      popupBasket.classList.remove('hidden');
+      popupBasket.classList.add('visible');
+    } else {
+      popupBasket.classList.add('hidden');
+      popupBasket.classList.remove('visible');
+    }
+  })
 
-    popupBasket.style.top = `${headerHeight}px`;
-  } else {
-    popupBasket.classList.add('hidden');
-    popupBasket.classList.remove('visible');
-  }
-})
-
-buttonClose.addEventListener('click', () => {
-  if (popupBasket.classList.contains('visible')){
-    popupBasket.classList.remove('visible');
-    popupBasket.classList.add('hidden');
-  }
-})
+  buttonClose.addEventListener('click', () => {
+    if (popupBasket.classList.contains('visible')){
+      popupBasket.classList.remove('visible');
+      popupBasket.classList.add('hidden');
+    }
+  })
+}
 
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {
   let key = `в корзину ${catalogJson[i].id}`;
 
   window.addEventListener('DOMContentLoaded',() => {
-      if(localStorage.getItem(key)){
-          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
-  }
+    if(localStorage.getItem(key)){
+        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+    }
   });
-}*/
+}
 
 export { catalogJson };

@@ -56,7 +56,7 @@ function changeTotalSum(prices) {
     link.textContent = "Перейдите в каталог.";
   } else {
     let totalSum = prices.reduce((acc, number) => acc + number);
-    totalPrice.textContent = totalSum;
+    totalPrice.textContent = `${totalSum} ₽`;
   }
 }
 
