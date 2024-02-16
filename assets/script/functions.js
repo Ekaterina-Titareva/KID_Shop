@@ -13,8 +13,7 @@ function makeBasketItem(data) {
                 <span>${data.name}</span>
                 <span>${data.color}</span>
                 <span>${data.material}</span>
-            </div>
-
+            </div>            
             <div class="item-description__price">
                 <p>${data.price} &#8381</p>
             </div>

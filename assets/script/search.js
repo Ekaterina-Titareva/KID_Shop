@@ -65,9 +65,11 @@ searchButton.addEventListener("click", function createSearchContent() {
 // Добавление товаров в корзину
 searchButton.addEventListener('click', () => {
   const buttons = document.querySelectorAll('.add-button');
+  const basketList = document.querySelector(".popup-basket__list-catalog");
+  let basketItems = basketList.querySelectorAll('li');
+  console.log(basketItems);
 
   buttons.forEach(button => {
-
     button.addEventListener('click', (event) => {
         let addToBasketItem = event.target.closest('div');
         let index = addToBasketItem.getAttribute('value');
@@ -77,16 +79,15 @@ searchButton.addEventListener('click', () => {
           window.localStorage.setItem(key, JSON.stringify(catalogJson[index-1]));
           makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
         } else {
-          makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+          for (let item of basketItems) {
+            if (!item.getAttribute(value) === index) {
+              makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
+            }
+          }
         }
-
-        //window.localStorage.setItem(key, JSON.stringify(catalogJson[index]));
-        
-        //makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)), key);
     })
 })
 })
-
 
 //Для отрисовки товаров в корзине после перезагрузки страницы
 for (let i = 0; i < catalogJson.length; i++) {
