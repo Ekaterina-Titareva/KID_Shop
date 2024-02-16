@@ -1,3 +1,8 @@
+$mobile-width-min: 320px;
+$mobile-width-max: 768px;
+$tablet-width-min: 769px;
+$tablet-width-max: 1023px;
+
 $black: #000000;
 
 $white: #ffffff;
@@ -17,3 +22,21 @@ $color-hover: $color-secondary;
 $box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
 
 $font-family: "Ceveat";
+
+$basket-text-font-size: 20px;
+$basket-text-font-size-tablet: 15px;
+
+
+@mixin centering {
+    margin: 0 auto;
+}
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}

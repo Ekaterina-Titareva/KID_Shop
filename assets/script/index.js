@@ -629,37 +629,26 @@ if(hasError === false){
 // Открытие/закрытие popup с корзиной
 const buttonBasket = document.querySelector('#basket');
 const buttonClose = document.querySelector('.btn-close');
-const popupBasket = document.querySelector('.popup-basket');
+const popupBasketMainPage = document.querySelector('.popup-basket');
 
-if (buttonBasket && buttonClose) {
+if (popupBasketMainPage) {
   buttonBasket.addEventListener('click', () => {
     
-    if (popupBasket.classList.contains('hidden')){
-      popupBasket.classList.remove('hidden');
-      popupBasket.classList.add('visible');
+    if (popupBasketMainPage.classList.contains('hidden')){
+      popupBasketMainPage.classList.remove('hidden');
+      popupBasketMainPage.classList.add('visible');
     } else {
-      popupBasket.classList.add('hidden');
-      popupBasket.classList.remove('visible');
+      popupBasketMainPage.classList.add('hidden');
+      popupBasketMainPage.classList.remove('visible');
     }
   })
 
   buttonClose.addEventListener('click', () => {
-    if (popupBasket.classList.contains('visible')){
-      popupBasket.classList.remove('visible');
-      popupBasket.classList.add('hidden');
+    if (popupBasketMainPage.classList.contains('visible')){
+      popupBasketMainPage.classList.remove('visible');
+      popupBasketMainPage.classList.add('hidden');
     }
   })
-}
-
-//Для отрисовки товаров в корзине после перезагрузки страницы
-for (let i = 0; i < catalogJson.length; i++) {
-  let key = `в корзину ${catalogJson[i].id}`;
-
-  window.addEventListener('DOMContentLoaded',() => {
-    if(localStorage.getItem(key)){
-        makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
-    }
-  });
 }
 
 export {catalogJson};

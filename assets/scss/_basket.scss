@@ -4,12 +4,11 @@
     'img text'
     'img button';
     align-items: center;
-    margin: 0 auto;
+    @include centering;
 
     img {
         grid-area: img;
-        width: 150px;
-        height: auto;
+        @include size(150px, auto);
     }
 
     p {
@@ -26,14 +25,14 @@
         border: 2px solid $color-violent;
         border-radius: 10px;
 
-        font-size: 20px;
+        font-size: $basket-text-font-size;
         line-height: 50px;
         text-align: center;
         
         &:hover {
             color: $color-violent;
             transform: scale(105%);
-                transition: transform 0.5s ease;
+            transition: transform 0.5s ease;
         }
     }
 }
@@ -43,8 +42,7 @@
     position: fixed;
     top: 0px;
     left: 20vw;
-    width: 60vw;
-    height: fit-content;
+    @include size(60vw, fit-content);
 
     background-color: $color-light;
 
@@ -62,8 +60,7 @@
     position: absolute;
     top: 10px;
     right: 20px;
-    width: 20px;
-    height: 20px;
+    @include size(20px, 20px);
 
     &::before,
     &::after {
@@ -71,8 +68,7 @@
         position: absolute;
         top: 10px;
         left: 0;
-        width: 20px;
-        height: 3px;
+        @include size(20px, 3px);
         background: $color-violent;
     }
 
@@ -96,7 +92,7 @@
 .popup-basket__button-catalog {
     display: block;
     width: 30%;
-    margin: 0 auto;
+    @include centering;
     padding: 15px 0;
     background-color: $color-primary;
     border-radius: 10px;
@@ -110,8 +106,8 @@
     }
 }
 
-.popup-basket div:has(a.btn-close-catalog),
-.popup-basket div:has(a.popup-basket__button) {
+div:has(a.btn-close-catalog),
+div:has(a.popup-basket__button) {
     margin: 0;
     padding: 0;
     height: 70px;
@@ -136,8 +132,7 @@
 
 .popup-basket__list,
 .popup-basket__list-catalog {
-    display: flex;
-    flex-direction: column;
+    @include flex(column);
     gap: 10px;
     margin-bottom: 40px;
     
@@ -156,8 +151,7 @@
 }
 
 .item-description {
-    display: flex;
-    flex-direction: column;
+    @include flex(column);
     gap: 10px;
 
     width: 100%;
@@ -165,8 +159,7 @@
 
 .item-count {
     display: block;
-    width: 20px;
-    height: 20px;
+    @include size(20px, 20px);
     justify-self: center;
     align-self: center;
 }
@@ -177,12 +170,11 @@
 
 // Страница корзины
 .wrap {
-    display: flex;
-    flex-direction: row;
+    @include flex(row);
     justify-content: space-between;
     
     width: 80vw;
-    margin: 0 auto;
+    @include centering;
 
     .basket {
         width: 65%;
@@ -197,8 +189,7 @@
     
     .basket-list {
         li {
-            display: flex;
-            flex-direction: row;
+            @include flex(row);
     
             padding-bottom: 50px;
     
@@ -225,8 +216,7 @@
     }
     
     .item-description__text {
-        display: flex;
-        flex-direction: column;
+        @include flex(column);
         gap: 20px;
     }
     
@@ -237,8 +227,7 @@
     .item-icons {
         grid-column: -1/1;
     
-        display: flex;
-        flex-direction: row;
+        @include flex(row);
         justify-content: flex-end;
         align-items: flex-end;
         gap: 10px;
@@ -246,8 +235,7 @@
     
     .item-icons {
         svg {
-            width: 20px;
-            height: 20px;
+            @include size(20px, 20px);
     
             fill: none;
         }
@@ -261,8 +249,7 @@
     }
     
     .basket-total { 
-        display: flex;
-        flex-direction: column;
+        @include flex(column);
         gap: 20px;
         width: 30%;
         margin: 35px 0;
@@ -274,11 +261,11 @@
 
         p, 
         span {
-            font-size: 20px;
+            font-size: $basket-text-font-size;
         }
 
         a {
-            font-size: 20px;
+            font-size: $basket-text-font-size;
             text-decoration: underline;
 
             &:hover {
@@ -288,3 +275,214 @@
     }
 }
 
+@media screen and (min-width-min: $tablet-width-min) and (max-width: $tablet-width-max) {
+    .popup-basket__list-empty{   
+        img {
+            @include size(100px, auto);
+        }
+    
+        p {
+            place-self: center;
+            font-size: 25px;
+            margin-top: 25px;
+        }
+    
+        a {
+            height: 30px;
+    
+            font-size: 18px;
+            line-height: 30px;
+        }
+    }
+    
+    //Стили для popup
+    .visible {
+        left:0;
+        @include size(100vw, fit-content);
+    
+        .popup-basket__list-empty {
+            width: 60%;
+            padding-top: 0px;
+        }
+    }
+    
+    .popup-basket__button, 
+    .popup-basket__button-catalog {
+        padding: 10px 0;
+    }
+    
+    div:has(a.btn-close-catalog),
+    div:has(a.popup-basket__button) {
+        height: 50px;
+    }
+    
+    .popup-basket
+    .popup-basket-catalog {    
+        font-size: $basket-text-font-size-tablet;
+    }
+    
+    .popup-basket__wrap {
+        height: 40vh;
+    }
+    
+    // Страница корзины
+    .wrap {        
+        width: 90vw;
+    
+        .basket {
+            width: 70%;
+        }
+        
+        .basket-total { 
+            width: 25%;
+            margin: 35px 0;
+        }
+    }
+}
+
+@media screen and (min-width: $mobile-width-min) and (max-width: $mobile-width-max){
+    .popup-basket__list-empty{
+        img {
+            @include size(100px, auto);
+        }
+    
+        p {
+            font-size: 18px;
+            margin-top: 30px;
+        }
+    
+        a {
+            height: 35px;
+    
+            font-size: $basket-text-font-size-tablet;
+            line-height: 35px;
+        }
+    }
+    
+    //Стили для popup
+    .visible {
+        left: 0;
+        @include size(100vw, fit-content);
+    
+        .popup-basket__list-empty {
+            padding-top: 50px;
+        }
+    }
+    
+    .popup-basket__button, 
+    .popup-basket__button-catalog {
+        width: 50%;
+        padding: 12px 0;
+        font-size: 14px;
+    }
+    
+    div:has(a.btn-close-catalog),
+    div:has(a.popup-basket__button) {
+        height: 50px;
+    }
+    
+    .popup-basket__wrap {
+        height: 50vh;
+    }
+    
+    .popup-basket__list,
+    .popup-basket__list-catalog {       
+        span {
+            font-size: $basket-text-font-size-tablet;
+        }
+    }
+    
+    .item-price {
+        p {
+            font-size: $basket-text-font-size-tablet;
+        }
+    }
+    
+    // Страница корзины
+    .wrap {
+        @include flex(column);
+        
+        width: 90vw;
+
+        .popup-basket__list-empty {
+            margin-top: 25px;
+            width: 90%;
+
+            img {
+                place-self: center;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            a {
+                width: 100%;
+                font-size: 13px;
+            }
+        }
+    
+        .basket {
+            width: 100%;
+        }
+    
+        .basket-title {
+            margin: 10px 0;
+    
+            font-size: 30px;
+        }
+        
+        .basket-list {
+            li {
+                @include flex(row);
+        
+                padding-bottom: 20px;
+            }
+        }
+        
+        .item-description {
+            span {
+                font-size: $basket-text-font-size-tablet;
+            }
+        }
+        
+        .item-description__text {
+            gap: 15px;
+        }
+        
+        .item-description__price {
+            p {
+                font-size: $basket-text-font-size-tablet;
+            }
+        }
+        
+        .item-icons {
+            svg {
+                @include size(15px, 15px);
+            }
+        
+            button {
+                font-size: $basket-text-font-size-tablet;
+            }
+        }
+        
+        .basket-total { 
+            gap: 10px;
+            width: 100%;
+            margin: 15px 0;
+    
+            h3 {
+                font-size: 28px;
+            }
+    
+            p, 
+            span {
+                font-size: $basket-text-font-size-tablet;
+            }
+
+            a {
+                font-size: $basket-text-font-size-tablet;
+            }
+        }
+    }
+}
