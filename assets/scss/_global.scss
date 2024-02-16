@@ -132,6 +132,11 @@ nav {
 }
 .open-favourites-burger {
   display: none;
+  cursor: pointer;
+}
+
+.open-favourites-burger:hover {
+  color: $white;
 }
 
 //Поисковик

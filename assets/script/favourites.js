@@ -1,5 +1,6 @@
 import { catalogJson } from "./index.js";
-import { addToBasket } from "./catalog.js";
+// import { addToBasket } from "./catalog.js";
+// import { outputCatalog } from "./catalog.js";
 
 const openFavouritesInHeader = document.querySelector(
   ".open-favourites-header"
@@ -24,6 +25,7 @@ const updateButtonState = (button, product) => {
     button.src = "./assets/icons/favourites.svg";
   }
 };
+
 const isProductInFavourites = (product) => {
   return favourites.some((favProduct) => favProduct.id === product.id);
 };
@@ -36,6 +38,7 @@ const updateFavouritesContainer = () => {
   } else {
     favourites.forEach((product) => {
       const favCard = document.createElement("div");
+      favCard.classList.add("fav-card");
 
       const favName = document.createElement("p");
       favName.textContent = `${product.name}`;
@@ -72,58 +75,61 @@ const updateFavouritesContainer = () => {
 
       favouritesContainer.appendChild(favCard);
       //как-то повесить сюда добавление в корзину товара из избранного
-      favBasket.addEventListener("click", () => {
+      favBasket.addEventListener("click", (event) => {
         console.log("Товар добавлен в корзину");
+        // addToBasket(event);
       });
     });
   }
 };
 
 //слушатели на открытие и закрытие попапа с избранным (а также для названия раздела в бургере)
-openFavouritesInHeader.addEventListener("click", (event) => {
+openFavouritesInHeader.addEventListener("click", () => {
   // event.preventDefault();
   popupFavourites.style.display = "block";
 });
 
-openFavouritesInBurger.addEventListener("click", (event) => {
+openFavouritesInBurger.addEventListener("click", () => {
   // event.preventDefault();
   popupFavourites.style.display = "block";
 });
 
-closeFavouritesInHeader.addEventListener("click", (event) => {
+closeFavouritesInHeader.addEventListener("click", () => {
   // event.preventDefault();
   popupFavourites.style.display = "none";
+  location.reload();
 });
 
 //сама функция добавления товаров в избранное и сохранение в local storage и слушатели на наведение мыши
-favouritesBtnInCard.forEach((button, index) => {
-  const product = catalogJson[index];
-  updateButtonState(button, product);
-  button.addEventListener("click", () => {
-    if (!isProductInFavourites(product)) {
-      favourites.push(product);
-    } else {
-      favourites = favourites.filter(
-        (favProduct) => favProduct.id !== product.id
-      );
-    }
-    localStorage.setItem("favourites", JSON.stringify(favourites));
-    updateFavouritesContainer();
-    bindDeleteButtons();
-  });
+const addFavouritesListeners = () => {
+  favouritesBtnInCard.forEach((button, index) => {
+    const product = catalogJson[index];
+    updateButtonState(button, product);
+    button.addEventListener("mouseover", () => {
+      if (!isProductInFavourites(product)) {
+        button.src = "./assets/icons/favourites_full.svg";
+      }
+    });
 
-  button.addEventListener("mouseover", () => {
-    if (!isProductInFavourites(product)) {
-      button.src = "./assets/icons/favourites_full.svg";
-    }
+    button.addEventListener("mouseout", () => {
+      if (!isProductInFavourites(product)) {
+        button.src = "./assets/icons/favourites.svg";
+      }
+    });
+    button.addEventListener("click", () => {
+      if (!isProductInFavourites(product)) {
+        favourites.push(product);
+      } else {
+        favourites = favourites.filter(
+          (favProduct) => favProduct.id !== product.id
+        );
+      }
+      localStorage.setItem("favourites", JSON.stringify(favourites));
+      updateFavouritesContainer();
+      bindDeleteButtons();
+    });
   });
-
-  button.addEventListener("mouseout", () => {
-    if (!isProductInFavourites(product)) {
-      button.src = "./assets/icons/favourites.svg";
-    }
-  });
-});
+};
 
 //удаление товара из попапа избранного
 const bindDeleteButtons = () => {
@@ -141,3 +147,8 @@ const bindDeleteButtons = () => {
 
 updateFavouritesContainer();
 bindDeleteButtons();
+addFavouritesListeners();
+
+export { updateButtonState };
+export { isProductInFavourites };
+export { addFavouritesListeners };

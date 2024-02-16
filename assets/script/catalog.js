@@ -79,6 +79,7 @@ function filterClothes() {
   );
 
   outputCatalog(filteredCatalog);
+  // addFavouritesListeners();
 }
 
 // Бегунок стоимости
@@ -201,26 +202,27 @@ buttonClose.addEventListener("click", () => {
 // Добавление товаров в корзину
 const buttons = document.querySelectorAll(".add-button");
 
-export function addToBasket(event) {
+function addToBasket(event, count) {
   let addToBasketItem = event.target.closest("div");
   let index = addToBasketItem.getAttribute("value");
-function addToBasket(event, count) {
-  let addToBasketItem = event.target.closest('div');
-  let index = addToBasketItem.getAttribute('value');
   let key = `в корзину ${index}`;
 
   if (!window.localStorage.getItem(key)) {
-    window.localStorage.setItem(key, JSON.stringify(catalogJson[index-1]));
+    window.localStorage.setItem(key, JSON.stringify(catalogJson[index - 1]));
     makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
   } else {
     console.log(index);
-    let catalogItem = document.querySelector('.popup-basket__list-catalog').querySelector(`[value="${index}"]`);
-    let value = parseInt(catalogItem.querySelector('input').getAttribute('value'));
+    let catalogItem = document
+      .querySelector(".popup-basket__list-catalog")
+      .querySelector(`[value="${index}"]`);
+    let value = parseInt(
+      catalogItem.querySelector("input").getAttribute("value")
+    );
 
     console.log(catalogItem);
     console.log(value);
-    value+=count
-    catalogItem.querySelector('input').setAttribute('value', value);
+    value += count;
+    catalogItem.querySelector("input").setAttribute("value", value);
   }
 }
 
@@ -282,3 +284,5 @@ sliderPic.forEach((image, index) => {
     }, 100);
   });
 });
+
+export { addToBasket };

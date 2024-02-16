@@ -1,12 +1,11 @@
 function makeBasketItem(data) {
-    const basketList = document.querySelector(".basket-list");
-    let basketItem = document.createElement("li");
-    const emptyBasketInfo = document.querySelector('.popup-basket__list-empty');
-    const title = document.querySelector(".basket-title");;
-    const totalBlock = document.querySelector(".basket-total");;
+  const basketList = document.querySelector(".basket-list");
+  let basketItem = document.createElement("li");
+  const emptyBasketInfo = document.querySelector(".popup-basket__list-empty");
+  const title = document.querySelector(".basket-title");
+  const totalBlock = document.querySelector(".basket-total");
 
-
-    let content = `
+  let content = `
         <img src="${data.image1}" alt="${data.name}"
             width="116" height="auto" />
         <div class="item-description">
@@ -21,7 +20,7 @@ function makeBasketItem(data) {
             </div>
 
             <div class="item-icons">
-                <input type="image" src="./assets/icons/favourites.svg" alt="избранное" class="favourites-heart">
+                
 
                 <button class="delete-btn">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="512.000000pt"
@@ -61,22 +60,22 @@ function makeBasketItem(data) {
             </div>
         </div>`;
 
-    emptyBasketInfo.style.display = "none";
-    title.classList.remove("hidden");
-    totalBlock.classList.remove("hidden");
-    basketItem.setAttribute(`value`, data.id);
-    basketItem.innerHTML += content;
-    basketList.appendChild(basketItem);
+  emptyBasketInfo.style.display = "none";
+  title.classList.remove("hidden");
+  totalBlock.classList.remove("hidden");
+  basketItem.setAttribute(`value`, data.id);
+  basketItem.innerHTML += content;
+  basketList.appendChild(basketItem);
 }
 
 // Отрисовка карточек товаров в корзине popup
 function makeMiniBasketItem(data) {
-    const basketList = document.querySelector(".popup-basket__list-catalog");
-    let basketItem = document.createElement("li");
-    const btn = document.querySelector('.popup-basket__button');
-    const emptyBasketInfo = document.querySelector('.popup-basket__list-empty');
+  const basketList = document.querySelector(".popup-basket__list-catalog");
+  let basketItem = document.createElement("li");
+  const btn = document.querySelector(".popup-basket__button");
+  const emptyBasketInfo = document.querySelector(".popup-basket__list-empty");
 
-    let content = `
+  let content = `
         <img src="${data.image1}" alt="${data.name}" width="auto" height="150" />
         <div class="item-description">
             <span>${data.name}</span>
@@ -91,11 +90,11 @@ function makeMiniBasketItem(data) {
         </div>
         `;
 
-    emptyBasketInfo.style.display = "none";
-    btn.classList.remove("hidden");
-    basketItem.setAttribute(`value`, data.id);
-    basketItem.innerHTML+= content;
-    basketList.appendChild(basketItem);
+  emptyBasketInfo.style.display = "none";
+  btn.classList.remove("hidden");
+  basketItem.setAttribute(`value`, data.id);
+  basketItem.innerHTML += content;
+  basketList.appendChild(basketItem);
 }
 
 export { makeBasketItem, makeMiniBasketItem };
