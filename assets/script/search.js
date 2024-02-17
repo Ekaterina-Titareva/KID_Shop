@@ -31,17 +31,33 @@ function createSearchCard(item) {
 searchButton.addEventListener("click", function createSearchContent() {
   searchContent = "";
   let searchValue = document.querySelector("#search");
-  let searchValueLetter = searchValue.value.toUpperCase().slice(0, 1) + searchValue.value.toLowerCase().slice(1);
-  let searchValueLetterDelBlank = searchValueLetter.replace(/ |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g, '');
-  let searchValueDelBlank = searchValue.value.replace(/ |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g, '');
-  if (document.querySelector("#search").value !== "" && searchValueDelBlank !== "" && searchValueLetterDelBlank !== "") {
-    for (let item of catalogJson){
-      if (item.name.includes(searchValueLetterDelBlank) || item.name.includes(searchValueDelBlank)){
+  let searchValueLetter =
+    searchValue.value.toUpperCase().slice(0, 1) +
+    searchValue.value.toLowerCase().slice(1);
+  let searchValueLetterDelBlank = searchValueLetter.replace(
+    / |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g,
+    ""
+  );
+  let searchValueDelBlank = searchValue.value.replace(
+    / |[0-9!@#$%^&*()_+=?\.,/<>|`~"№;:]/g,
+    ""
+  );
+  if (
+    document.querySelector("#search").value !== "" &&
+    searchValueDelBlank !== "" &&
+    searchValueLetterDelBlank !== ""
+  ) {
+    for (let item of catalogJson) {
+      if (
+        item.name.includes(searchValueLetterDelBlank) ||
+        item.name.includes(searchValueDelBlank)
+      ) {
         createSearchCard(item);
-      } else continue
+      } else continue;
     }
   } else if (searchValueDelBlank == "" || searchValueLetterDelBlank == "") {
-    document.querySelector(".search__container").innerHTML = "Введите название товара"
+    document.querySelector(".search__container").innerHTML =
+      "Введите название товара";
   }
   document.querySelector("#search").value = "";
 });

@@ -13,7 +13,7 @@ $color-primary: rgb(251, 219, 185);
 $color-secondary: #202020;
 $color-favourites: rgb(233, 218, 252);
 $color-violent-light: rgb(245 236 255);
-$color-light: $color-favourites; 
+$color-light: $color-favourites;
 // $color-light: rgb(228, 230, 255);
 $color-violent: #5e2a8c;
 
@@ -26,17 +26,16 @@ $font-family: "Ceveat";
 $basket-text-font-size: 20px;
 $basket-text-font-size-tablet: 15px;
 
-
 @mixin centering {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 @mixin size($width, $height) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
 }
 
 @mixin flex($direction) {
-    display: flex;
-    flex-direction: $direction;
+  display: flex;
+  flex-direction: $direction;
 }

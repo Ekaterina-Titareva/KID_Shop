@@ -16,31 +16,32 @@
       <div>
         <a href="index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a>
       </div>
-      <p><a href="index.html">KIDShop</a></p>
-    </div>
-    <!--кнопка бургер меню-->
-    <button class="burger_menu-btn" id="burger">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="nav">
-      <h1 class="header__title">KIDShop</h1>
-      <div class="header__menu">
-        <ul class="menu__items">
-          <li>
-            <a href="./catalog.html"><img src="./assets/icons/catalog.svg" alt="catalog" class="menu_icon" /></a>
-            <p id="catalog_link"><a href="./catalog.html">Каталог</a></p>
-          </li>
-          <li>
-            <input type="image" src="./assets/icons/favourites_full.svg" alt="Избранное"
-              class="menu_icon open-favourites-header" />
-            <div class="popup_favourites-wrapper">
-              <div>
-                <h3>Избранное</h3>
-                <input type="image" src="./assets/icons/close.svg" class="close-favourites-header" />
-                <div class="favourites-container"></div>
-              </div>
-            </div>
-          </li>
+      <!--кнопка бургер меню-->
+      <button class="burger_menu-btn" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <h1 class="header__title">KIDShop</h1>
+        <div class="header__menu">
+          <ul class="menu__items">
+            <li>
+              <a href="./catalog.html"
+                ><img
+                  src="./assets/icons/catalog.svg"
+                  alt="catalog"
+                  class="menu_icon"
+              /></a>
+              <p id="catalog_link"><a href="./catalog.html">Каталог</a></p>
+            </li>
+            <li>
+              <input
+                type="image"
+                src="./assets/icons/favourites_full.svg"
+                alt="Избранное"
+                class="menu_icon open-favourites-header"
+              />
+              <p class="open-favourites-burger">Избранное</p>
+            </li>
 
           <!-- КОРЗИНА -->
           <li>
@@ -125,6 +126,13 @@
     </div>
   </header>
   <main>
+    <div class="popup_favourites-wrapper">
+              <div>
+                <h3>Избранное</h3>
+                <input type="image" src="./assets/icons/close.svg" class ="close-favourites-header" alt="Закрыть">
+                <div class="favourites-container"></div>
+              </div>
+            </div>
     <div class="wrap">
       <div class="basket">
         <h3 class="basket-title hidden">Корзина</h3>

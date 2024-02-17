@@ -130,6 +130,14 @@ nav {
 #basket_link {
   display: none;
 }
+.open-favourites-burger {
+  display: none;
+  cursor: pointer;
+}
+
+.open-favourites-burger:hover {
+  color: $white;
+}
 
 //Поисковик
 .search__form {
@@ -571,6 +579,9 @@ footer p {
     display: block;
   }
   #basket_link {
+    display: block;
+  }
+  .open-favourites-burger {
     display: block;
   }
   .user {

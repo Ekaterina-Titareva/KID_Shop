@@ -1,488 +1,485 @@
-.popup-basket__list-empty{
-    display: grid;
-    grid-template-areas: 
-    'img text'
-    'img button';
-    align-items: center;
-    @include centering;
+.popup-basket__list-empty {
+  display: grid;
+  grid-template-areas:
+    "img text"
+    "img button";
+  align-items: center;
+  @include centering;
 
-    img {
-        grid-area: img;
-        @include size(150px, auto);
+  img {
+    grid-area: img;
+    @include size(150px, auto);
+  }
+
+  p {
+    grid-area: text;
+    place-self: center;
+    font-size: 28px;
+    margin-top: 35px;
+  }
+
+  a {
+    grid-area: button;
+    height: 50px;
+
+    border: 2px solid $color-violent;
+    border-radius: 10px;
+
+    font-size: $basket-text-font-size;
+    line-height: 50px;
+    text-align: center;
+
+    &:hover {
+      color: $color-violent;
+      transform: scale(105%);
+      transition: transform 0.5s ease;
     }
-
-    p {
-        grid-area: text;
-        place-self: center;
-        font-size: 28px;
-        margin-top: 35px;
-    }
-
-    a {
-        grid-area: button;
-        height: 50px;
-
-        border: 2px solid $color-violent;
-        border-radius: 10px;
-
-        font-size: $basket-text-font-size;
-        line-height: 50px;
-        text-align: center;
-        
-        &:hover {
-            color: $color-violent;
-            transform: scale(105%);
-            transition: transform 0.5s ease;
-        }
-    }
+  }
 }
 
 //Стили для popup
 .visible {
-    position: fixed;
-    top: 0px;
-    left: 20vw;
-    @include size(60vw, fit-content);
+  position: fixed;
+  top: 0px;
+  left: 20vw;
+  @include size(60vw, fit-content);
 
-    background-color: $color-light;
+  background-color: $color-light;
 
-    visibility: visible;
-    z-index: 3;
+  visibility: visible;
+  z-index: 3;
 
-    .popup-basket__list-empty {
-        width: 70%;
-        padding-top: 80px;
-    }
+  .popup-basket__list-empty {
+    width: 70%;
+    padding-top: 80px;
+  }
 }
 
-.btn-close, 
+.btn-close,
 .btn-close-catalog {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  @include size(20px, 20px);
+
+  &::before,
+  &::after {
+    content: "";
     position: absolute;
     top: 10px;
-    right: 20px;
-    @include size(20px, 20px);
+    left: 0;
+    @include size(20px, 3px);
+    background: $color-violent;
+  }
 
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        top: 10px;
-        left: 0;
-        @include size(20px, 3px);
-        background: $color-violent;
-    }
+  &::before {
+    transform: rotate(45deg);
+  }
 
-    &::before {
-        transform: rotate(45deg);
-    }
+  &::after {
+    transform: rotate(-45deg);
+  }
 
-    &::after {
-        transform: rotate(-45deg);
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-        transform: scale(1.5);
-        transition: transform 0.5s ease;
-    }
+  &:hover,
+  &:focus,
+  &:active {
+    transform: scale(1.5);
+    transition: transform 0.5s ease;
+  }
 }
 
-.popup-basket__button, 
+.popup-basket__button,
 .popup-basket__button-catalog {
-    display: block;
-    width: 30%;
-    @include centering;
-    padding: 15px 0;
-    background-color: $color-primary;
-    border-radius: 10px;
+  display: block;
+  width: 30%;
+  @include centering;
+  padding: 15px 0;
+  background-color: $color-primary;
+  border-radius: 10px;
 
-    text-align: center;
+  text-align: center;
 
-    &:hover {
-        color: $color-violent;
-        transform: scale(110%);
-        transition: transform 0.5s ease;
-    }
+  &:hover {
+    color: $color-violent;
+    transform: scale(110%);
+    transition: transform 0.5s ease;
+  }
 }
 
 div:has(a.btn-close-catalog),
 div:has(a.popup-basket__button) {
-    margin: 0;
-    padding: 0;
-    height: 70px;
-    background-color: $color-violent-light;
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  background-color: $color-violent-light;
 }
 
-.popup-basket
-.popup-basket-catalog {
-    min-width: fit-content;
-    max-width: 50vw;
-    padding-top: 40px;
+.popup-basket .popup-basket-catalog {
+  min-width: fit-content;
+  max-width: 50vw;
+  padding-top: 40px;
 
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .popup-basket__wrap {
-    height: calc(50vh - 80px);
-    overflow: scroll;
+  height: calc(50vh - 80px);
+  overflow: scroll;
 
-    background-color: $color-violent-light;
+  background-color: $color-violent-light;
 }
 
 .popup-basket__list,
 .popup-basket__list-catalog {
-    @include flex(column);
-    gap: 10px;
-    margin-bottom: 40px;
-    
+  @include flex(column);
+  gap: 10px;
+  margin-bottom: 40px;
 
-    li {
-        display: grid;
-        grid-template-columns: 0.2fr 0.5fr 0.15fr 0.15fr;
-        height: fit-content;
+  li {
+    display: grid;
+    grid-template-columns: 0.2fr 0.5fr 0.15fr 0.15fr;
+    height: fit-content;
 
-        img {
-            object-fit: contain;
-            height: 100%;
-            max-height: 100px;
-        }
+    img {
+      object-fit: contain;
+      height: 100%;
+      max-height: 100px;
     }
+  }
 }
 
 .item-description {
-    @include flex(column);
-    gap: 10px;
+  @include flex(column);
+  gap: 10px;
 
-    width: 100%;
+  width: 100%;
 }
 
 .item-count {
-    display: block;
-    @include size(20px, 20px);
-    justify-self: center;
-    align-self: center;
+  display: block;
+  @include size(20px, 20px);
+  justify-self: center;
+  align-self: center;
 }
 
 .item-price {
-    justify-self: end;
+  justify-self: end;
 }
 
 // Страница корзины
 .wrap {
+  @include flex(row);
+  justify-content: space-between;
+
+  width: 80vw;
+  @include centering;
+
+  .basket {
+    width: 65%;
+  }
+
+  .basket-title {
+    margin: 30px 0;
+
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .basket-list {
+    li {
+      @include flex(row);
+
+      padding-bottom: 50px;
+
+      &:hover svg {
+        fill: $color-violent;
+        cursor: pointer;
+      }
+
+      &:hover .item-icons button {
+        opacity: 1;
+        color: $color-violent;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .item-description {
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-rows: repeat(2, auto);
+    width: calc(100% - 116px);
+
+    padding-left: 3%;
+  }
+
+  .item-description__text {
+    @include flex(column);
+    gap: 20px;
+  }
+
+  .item-description__price {
+    text-align: end;
+  }
+
+  .item-icons {
+    grid-column: -1/1;
+
     @include flex(row);
-    justify-content: space-between;
-    
-    width: 80vw;
-    @include centering;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 10px;
+  }
 
-    .basket {
-        width: 65%;
+  .item-icons {
+    svg {
+      @include size(20px, 20px);
+
+      fill: none;
     }
 
-    .basket-title {
-        margin: 30px 0;
+    button {
+      background: none;
+      border: none;
 
-        font-size: 35px;
-        font-weight: bold;
+      opacity: 0;
     }
-    
-    .basket-list {
-        li {
-            @include flex(row);
-    
-            padding-bottom: 50px;
-    
-            &:hover svg {
-                fill: $color-violent;
-                cursor: pointer;
-            }
-    
-            &:hover .item-icons button {
-                opacity: 1;
-                color: $color-violent;
-                cursor: pointer;
-            }
-        }
-    }
-    
-    .item-description {
-        display: grid;
-        grid-template-columns: 0.7fr 0.3fr;
-        grid-template-rows: repeat(2, auto);
-        width: calc(100% - 116px);
-    
-        padding-left: 3%;
-    }
-    
-    .item-description__text {
-        @include flex(column);
-        gap: 20px;
-    }
-    
-    .item-description__price {
-        text-align: end;
-    }
-    
-    .item-icons {
-        grid-column: -1/1;
-    
-        @include flex(row);
-        justify-content: flex-end;
-        align-items: flex-end;
-        gap: 10px;
-    }
-    
-    .item-icons {
-        svg {
-            @include size(20px, 20px);
-    
-            fill: none;
-        }
-    
-        button {
-            background: none;
-            border: none;
-    
-            opacity: 0;
-        }
-    }
-    
-    .basket-total { 
-        @include flex(column);
-        gap: 20px;
-        width: 30%;
-        margin: 35px 0;
+  }
 
-        h3 {
-            font-size: 30px;
-            font-weight: bolder;
-        }
+  .basket-total {
+    @include flex(column);
+    gap: 20px;
+    width: 30%;
+    margin: 35px 0;
 
-        p, 
-        span {
-            font-size: $basket-text-font-size;
-        }
-
-        a {
-            font-size: $basket-text-font-size;
-            text-decoration: underline;
-
-            &:hover {
-                color: $color-violent;
-            }
-        }
+    h3 {
+      font-size: 30px;
+      font-weight: bolder;
     }
+
+    p,
+    span {
+      font-size: $basket-text-font-size;
+    }
+
+    a {
+      font-size: $basket-text-font-size;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-violent;
+      }
+    }
+  }
 }
 
 @media screen and (min-width-min: $tablet-width-min) and (max-width: $tablet-width-max) {
-    .popup-basket__list-empty{   
-        img {
-            @include size(100px, auto);
-        }
-    
-        p {
-            place-self: center;
-            font-size: 25px;
-            margin-top: 25px;
-        }
-    
-        a {
-            height: 30px;
-    
-            font-size: 18px;
-            line-height: 30px;
-        }
+  .popup-basket__list-empty {
+    img {
+      @include size(100px, auto);
     }
-    
-    //Стили для popup
-    .visible {
-        left:0;
-        @include size(100vw, fit-content);
-    
-        .popup-basket__list-empty {
-            width: 60%;
-            padding-top: 0px;
-        }
+
+    p {
+      place-self: center;
+      font-size: 25px;
+      margin-top: 25px;
     }
-    
-    .popup-basket__button, 
-    .popup-basket__button-catalog {
-        padding: 10px 0;
+
+    a {
+      height: 30px;
+
+      font-size: 18px;
+      line-height: 30px;
     }
-    
-    div:has(a.btn-close-catalog),
-    div:has(a.popup-basket__button) {
-        height: 50px;
+  }
+
+  //Стили для popup
+  .visible {
+    left: 0;
+    @include size(100vw, fit-content);
+
+    .popup-basket__list-empty {
+      width: 60%;
+      padding-top: 0px;
     }
-    
-    .popup-basket
-    .popup-basket-catalog {    
-        font-size: $basket-text-font-size-tablet;
+  }
+
+  .popup-basket__button,
+  .popup-basket__button-catalog {
+    padding: 10px 0;
+  }
+
+  div:has(a.btn-close-catalog),
+  div:has(a.popup-basket__button) {
+    height: 50px;
+  }
+
+  .popup-basket .popup-basket-catalog {
+    font-size: $basket-text-font-size-tablet;
+  }
+
+  .popup-basket__wrap {
+    height: 40vh;
+  }
+
+  // Страница корзины
+  .wrap {
+    width: 90vw;
+
+    .basket {
+      width: 70%;
     }
-    
-    .popup-basket__wrap {
-        height: 40vh;
+
+    .basket-total {
+      width: 25%;
+      margin: 35px 0;
     }
-    
-    // Страница корзины
-    .wrap {        
-        width: 90vw;
-    
-        .basket {
-            width: 70%;
-        }
-        
-        .basket-total { 
-            width: 25%;
-            margin: 35px 0;
-        }
-    }
+  }
 }
 
-@media screen and (min-width: $mobile-width-min) and (max-width: $mobile-width-max){
-    .popup-basket__list-empty{
-        img {
-            @include size(100px, auto);
-        }
-    
-        p {
-            font-size: 18px;
-            margin-top: 30px;
-        }
-    
-        a {
-            height: 35px;
-    
-            font-size: $basket-text-font-size-tablet;
-            line-height: 35px;
-        }
+@media screen and (min-width: $mobile-width-min) and (max-width: $mobile-width-max) {
+  .popup-basket__list-empty {
+    img {
+      @include size(100px, auto);
     }
-    
-    //Стили для popup
-    .visible {
-        left: 0;
-        @include size(100vw, fit-content);
-    
-        .popup-basket__list-empty {
-            padding-top: 50px;
-        }
-    }
-    
-    .popup-basket__button, 
-    .popup-basket__button-catalog {
-        width: 50%;
-        padding: 12px 0;
-        font-size: 14px;
-    }
-    
-    div:has(a.btn-close-catalog),
-    div:has(a.popup-basket__button) {
-        height: 50px;
-    }
-    
-    .popup-basket__wrap {
-        height: 50vh;
-    }
-    
-    .popup-basket__list,
-    .popup-basket__list-catalog {       
-        span {
-            font-size: $basket-text-font-size-tablet;
-        }
-    }
-    
-    .item-price {
-        p {
-            font-size: $basket-text-font-size-tablet;
-        }
-    }
-    
-    // Страница корзины
-    .wrap {
-        @include flex(column);
-        
-        width: 90vw;
 
-        .popup-basket__list-empty {
-            margin-top: 25px;
-            width: 90%;
-
-            img {
-                place-self: center;
-            }
-
-            p {
-                font-size: 15px;
-            }
-
-            a {
-                width: 100%;
-                font-size: 13px;
-            }
-        }
-    
-        .basket {
-            width: 100%;
-        }
-    
-        .basket-title {
-            margin: 10px 0;
-    
-            font-size: 30px;
-        }
-        
-        .basket-list {
-            li {
-                @include flex(row);
-        
-                padding-bottom: 20px;
-            }
-        }
-        
-        .item-description {
-            span {
-                font-size: $basket-text-font-size-tablet;
-            }
-        }
-        
-        .item-description__text {
-            gap: 15px;
-        }
-        
-        .item-description__price {
-            p {
-                font-size: $basket-text-font-size-tablet;
-            }
-        }
-        
-        .item-icons {
-            svg {
-                @include size(15px, 15px);
-            }
-        
-            button {
-                font-size: $basket-text-font-size-tablet;
-            }
-        }
-        
-        .basket-total { 
-            gap: 10px;
-            width: 100%;
-            margin: 15px 0;
-    
-            h3 {
-                font-size: 28px;
-            }
-    
-            p, 
-            span {
-                font-size: $basket-text-font-size-tablet;
-            }
-
-            a {
-                font-size: $basket-text-font-size-tablet;
-            }
-        }
+    p {
+      font-size: 18px;
+      margin-top: 30px;
     }
+
+    a {
+      height: 35px;
+
+      font-size: $basket-text-font-size-tablet;
+      line-height: 35px;
+    }
+  }
+
+  //Стили для popup
+  .visible {
+    left: 0;
+    @include size(100vw, fit-content);
+
+    .popup-basket__list-empty {
+      padding-top: 50px;
+    }
+  }
+
+  .popup-basket__button,
+  .popup-basket__button-catalog {
+    width: 50%;
+    padding: 12px 0;
+    font-size: 14px;
+  }
+
+  div:has(a.btn-close-catalog),
+  div:has(a.popup-basket__button) {
+    height: 50px;
+  }
+
+  .popup-basket__wrap {
+    height: 50vh;
+  }
+
+  .popup-basket__list,
+  .popup-basket__list-catalog {
+    span {
+      font-size: $basket-text-font-size-tablet;
+    }
+  }
+
+  .item-price {
+    p {
+      font-size: $basket-text-font-size-tablet;
+    }
+  }
+
+  // Страница корзины
+  .wrap {
+    @include flex(column);
+
+    width: 90vw;
+
+    .popup-basket__list-empty {
+      margin-top: 25px;
+      width: 90%;
+
+      img {
+        place-self: center;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      a {
+        width: 100%;
+        font-size: 13px;
+      }
+    }
+
+    .basket {
+      width: 100%;
+    }
+
+    .basket-title {
+      margin: 10px 0;
+
+      font-size: 30px;
+    }
+
+    .basket-list {
+      li {
+        @include flex(row);
+
+        padding-bottom: 20px;
+      }
+    }
+
+    .item-description {
+      span {
+        font-size: $basket-text-font-size-tablet;
+      }
+    }
+
+    .item-description__text {
+      gap: 15px;
+    }
+
+    .item-description__price {
+      p {
+        font-size: $basket-text-font-size-tablet;
+      }
+    }
+
+    .item-icons {
+      svg {
+        @include size(15px, 15px);
+      }
+
+      button {
+        font-size: $basket-text-font-size-tablet;
+      }
+    }
+
+    .basket-total {
+      gap: 10px;
+      width: 100%;
+      margin: 15px 0;
+
+      h3 {
+        font-size: 28px;
+      }
+
+      p,
+      span {
+        font-size: $basket-text-font-size-tablet;
+      }
+
+      a {
+        font-size: $basket-text-font-size-tablet;
+      }
+    }
+  }
 }

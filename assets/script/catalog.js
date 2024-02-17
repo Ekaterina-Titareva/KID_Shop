@@ -26,7 +26,7 @@ function createCard(item) {
       <p class= "item__category">${item.category}</p>      
       <p class= "item__price">Цена: ${item.price} рублей</p>
       <div class= "item__img">
-        <img src="${item.image1}" alt="${item.name}" />
+        <img src="${item.image1}" alt="${item.name}" class="item__img-card"/>
       </div>
       <p class= "item__age">Возраст: ${item.age_group}</p>
       <p class= "item__genger">Пол: ${item.gender}</p>
@@ -79,6 +79,7 @@ function filterClothes() {
   );
 
   outputCatalog(filteredCatalog);
+  // addFavouritesListeners();
 }
 
 // Бегунок стоимости
@@ -160,7 +161,7 @@ function outputCatalog(clothes) {
       <p class= "item__name">${item.name}</p>
       <p class= "item__category">${item.category}</p>      
       <p class= "item__price">Цена: ${item.price} рублей</p>
-      <div class= "item__img">
+      <div class= "item__img ">
         <img src="${item.image1}" alt="${item.name}" />
       </div>
       <p class= "item__age">Возраст: ${item.age_group}</p>
@@ -191,7 +192,7 @@ if (popupBasketCatalog) {
       popupBasketCatalog.classList.remove("visible");
     }
   });
-  
+
   buttonClose.addEventListener("click", () => {
     if (popupBasketCatalog.classList.contains("visible")) {
       popupBasketCatalog.classList.remove("visible");
@@ -204,26 +205,32 @@ if (popupBasketCatalog) {
 const buttons = document.querySelectorAll(".add-button");
 
 function addToBasket(event, count) {
-  let addToBasketItem = event.target.closest('div');
-  let index = addToBasketItem.getAttribute('value');
+  let addToBasketItem = event.target.closest("div");
+  let index = addToBasketItem.getAttribute("value");
   let key = `в корзину ${index}`;
 
   if (!window.localStorage.getItem(key)) {
-    window.localStorage.setItem(key, JSON.stringify(catalogJson[index-1]));
+    window.localStorage.setItem(key, JSON.stringify(catalogJson[index - 1]));
     makeMiniBasketItem(JSON.parse(window.localStorage.getItem(key)));
   } else {
-    let catalogItem = document.querySelector('.popup-basket__list-catalog').querySelector(`[value="${index}"]`);
-    let value = parseInt(catalogItem.querySelector('input').getAttribute('value'));
+    let catalogItem = document
+      .querySelector(".popup-basket__list-catalog")
+      .querySelector(`[value="${index}"]`);
+    let value = parseInt(
+      catalogItem.querySelector("input").getAttribute("value")
+    );
 
-    value+=count
-    catalogItem.querySelector('input').setAttribute('value', value);
+    value += count;
+    catalogItem.querySelector("input").setAttribute("value", value);
   }
 }
 
-buttons.forEach(button => button.addEventListener('click', (event) => {
-  const count = 1
-  addToBasket(event, count)
-}))
+buttons.forEach((button) =>
+  button.addEventListener("click", (event) => {
+    const count = 1;
+    addToBasket(event, count);
+  })
+);
 
 // Добавление товаров после фильтрации
 filters.addEventListener("change", () => {
@@ -251,15 +258,17 @@ sliderPic.forEach((image, index) => {
     image.style.opacity = 0;
     setTimeout(() => {
       image.src = catalogJson[index].image2;
-      image.style.opacity = 1;
-    }, 300);
+      image.style.opacity = 0.9;
+    }, 100);
   });
 
   image.addEventListener("mouseout", () => {
     image.style.opacity = 0;
     setTimeout(() => {
       image.src = catalogJson[index].image1;
-      image.style.opacity = 1;
-    }, 300);
+      image.style.opacity = 0.9;
+    }, 100);
   });
 });
+
+export { addToBasket };
