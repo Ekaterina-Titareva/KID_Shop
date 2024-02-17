@@ -106,8 +106,8 @@
   }
 }
 
-div:has(a.btn-close-catalog),
-div:has(a.popup-basket__button) {
+.popup-basket-catalog div:has(a.btn-close-catalog),
+.popup-basket-catalog div:has(a.popup-basket__button) {
   margin: 0;
   padding: 0;
   height: 70px;
@@ -309,8 +309,8 @@ div:has(a.popup-basket__button) {
     padding: 10px 0;
   }
 
-  div:has(a.btn-close-catalog),
-  div:has(a.popup-basket__button) {
+  .popup-basket-catalog div:has(a.btn-close-catalog),
+  .popup-basket-catalog div:has(a.popup-basket__button) {
     height: 50px;
   }
 
@@ -373,8 +373,8 @@ div:has(a.popup-basket__button) {
     font-size: 14px;
   }
 
-  div:has(a.btn-close-catalog),
-  div:has(a.popup-basket__button) {
+  .popup-basket-catalog div:has(a.btn-close-catalog),
+  .popup-basket-catalog div:has(a.popup-basket__button) {
     height: 50px;
   }
 
