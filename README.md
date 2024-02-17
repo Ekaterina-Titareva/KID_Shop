@@ -2,9 +2,8 @@
 
 Вы можете посмотреть наш сайт нажав на [ссылку](https://Ekaterina-Titareva.github.io/KID_Shop/)
 
-<h3 align="center">Главная страница, форма входа и регистрации</h3>
-<img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/main.jpg" height="500"/>
-<img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/form.jpg" height="500"/>
+<h3 align="center">Главная страница: форма входа и регистрации</h3>
+<img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/form.jpg" height="600"/>
 <h3 align="center">Поиск товаров с главной страницы</h3>
 <img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/search.jpg" height="600"/>
 <h3 align="center">Каталог с фильтрацией</h3>
