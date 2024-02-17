@@ -7,9 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./assets/icons/logo.svg" type="image/x-icon" />
   <link rel="stylesheet" href="./assets/style/style.css" />
-  <title>Каталог товаров</title>
+  <title>Избранное</title>
 </head>
-
 
 <body>
   <header class="header">
@@ -17,7 +16,6 @@
       <div>
         <a href="index.html"><img src="./assets/icons/logo.svg" alt="logo" id="logo" /></a>
       </div>
-      <p><a href="index.html">KIDShop</a></p>
     </div>
     <!--кнопка бургер меню-->
     <button class="burger_menu-btn" id="burger">
@@ -44,24 +42,9 @@
             </button>
             <p id="basket_link"><a href="./basket.html">Корзина</a></p>
           </li>
+
           <button class="user">Войти</button>
         </ul>
-        <div class="popup-basket-catalog hidden">
-          <div>
-            <a class="btn-close btn-close-catalog"></a>
-          </div>
-          <div class="popup-basket__wrap">
-            <div class="popup-basket__list-empty">
-              <img src="./assets/images/empty-basket.png" alt="Перейдите в каталог" />
-              <p> В корзине пока пусто</p>
-            </div>
-            <ul class="popup-basket__list-catalog"></ul>
-          </div>
-          <div>
-            <a href="basket.html" class="popup-basket__button popup-basket__button-catalog hidden">Перейти в
-              корзину</a>
-          </div>
-        </div>
       </div>
     </nav>
     <!--Форма входа-->
@@ -135,101 +118,14 @@
     </div>
   </header>
   <main>
+
     <div class="popup_favourites-wrapper">
       <div>
         <h3>Избранное</h3>
-        <input type="image" src="./assets/icons/close.svg" class="close-favourites-header" alt="Закрыть">
-
-        <div class="favourites-container"></div>
+        <input type="image" src="./assets/icons/close.svg" alt="Закрыть" class="close-favourites-header" />
       </div>
-      <a href="favourites.html">Перейти в
-        избранное</a>
-    </div>
-    <section class="catalog__wrapper">
+      <div class="favourites-container"></div>
 
-      <aside class="sidebar">
-        <h3 class="sidebar__title">Фильтры</h3>
-        <div class="sidebar__filter filter" id="filters">
-          <div class="filter__item">
-            <div class="filter__item_subtitle">
-              <h4>Стоимость</h4>
-              <span class="filter__item_spoiler"></span>
-            </div>
-            <div class="filter__item_content filter__price">
-
-              <div class="filter__price_inputs">
-                <input type="number" id="pricemin" step="100" class="filter-input filter-price" />
-                <input type="number" id="pricemax" step="100" class="filter-input filter-price" />
-              </div>
-
-
-
-              <div class="filter__price_range">
-                <span class="filter-slider-track"></span>
-                <input type="range" id="rangemin" class="filter-range" min="299" max="4200" />
-                <input type="range" id="rangemax" class="filter-range" min="299" max="4200" />
-              </div>
-
-
-            </div>
-          </div>
-
-          <div class="filter__item">
-            <div class="filter__item_subtitle">
-              <h4>Пол</h4>
-              <span class="filter__item_spoiler"></span>
-            </div>
-
-            <div class="filter__item_content filter__gender" id="gender">
-              <label for="genderM"><input type="radio" id="genderM" value="Мальчик" name="gender" />Мальчик</label>
-              <label for="genderF"><input type="radio" id="genderF" value="Девочка" name="gender" />Девочка</label>
-            </div>
-
-          </div>
-          <div class="filter__item">
-            <div class="filter__item_subtitle">
-              <h4>Возраст</h4>
-              <span class="filter__item_spoiler"></span>
-            </div>
-
-            <div class="filter__item_content filter__age" id="age">
-              <label for="age1"><input type="radio" id="age1" value="1-4" name="age" />1-4</label>
-              <label for="age5"><input type="radio" id="age5" value="5-8" name="age" />5-8</label>
-              <label for="age9"><input type="radio" id="age9" value="9-14" name="age" />9-14</label>
-            </div>
-
-          </div>
-
-
-
-
-          <div class="filter__item">
-            <div class="filter__item_subtitle">
-              <h4>Выберите категорию товаров</h4>
-              <span class="filter__item_spoiler"></span>
-            </div>
-            <div class="filter__item_content filter__category">
-              <select id="category" name="category" class="filter-input">
-                <option value="">Выберите категорию</option>
-                <option value="Футболки">Футболки</option>
-                <option value="Джемперы и кардиганы">Джемперы и кардиганы</option>
-                <option value="Брюки и джинсы">Брюки и джинсы</option>
-                <option value="Куртки">Куртки</option>
-                <option value="Обувь">Обувь</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="sidebar__reset">
-            <i class="sidebar__reset-before"></i>
-            Сбросить фильтры
-          </div>
-      </aside>
-
-      <div class="catalog__container">
-      </div>
-
-    </section>
   </main>
   <footer class="footer">
     <ul>
@@ -262,9 +158,9 @@
     </div>
   </footer>
   <div class="copyright">&#169;2024 KID</div>
+
   <script src="./assets/script/index.js" type="module"></script>
-  <script src="./assets/script/catalog.js" type="module"></script>
-  <script src="./assets/script/favourites.js" type="module"></script>
+  <script src="./assets/script/fav.js" type="module"></script>
 </body>
 
 </html>

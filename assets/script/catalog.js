@@ -1,5 +1,6 @@
 import { catalogJson } from "./index.js";
 import { makeMiniBasketItem } from "./functions.js";
+import { favourites, updateFavouritesContainer } from "./favourites.js";
 
 // Каталог
 
@@ -58,6 +59,7 @@ filters.addEventListener("change", filterClothes);
 
 function filterClothes() {
   const buttons = document.querySelectorAll(".add-button");
+  const favButtons = document.querySelectorAll(".favourites-heart");
 
   const age = [...filters.querySelectorAll("#age input:checked")].map(
     (n) => n.value
@@ -249,6 +251,8 @@ for (let i = 0; i < catalogJson.length; i++) {
   });
 }
 
+
+
 // анимация картинок в карточках
 
 const sliderPic = document.querySelectorAll(".item__img-card");
@@ -271,4 +275,70 @@ sliderPic.forEach((image, index) => {
   });
 });
 
-export { addToBasket };
+
+
+
+// Добавление товаров в избранное
+const favButtons = document.querySelectorAll(".favourites-heart");
+
+function addToFav(event, count) {
+  let addToFavItem = event.target.closest(".catalog__item");
+  let index = addToFavItem.getAttribute("value");
+  let favKey = `в избранное ${index}`;
+
+  if (!window.localStorage.getItem(favKey)) {
+    window.localStorage.setItem(favKey, JSON.stringify(catalogJson[index - 1]));
+    updateFavouritesContainer(JSON.parse(window.localStorage.getItem(favKey)));
+  } else {
+    let catalogItem = document
+      .querySelector(".favourites-container")
+      .querySelector(`[value="${index}"]`);
+    let value = parseInt(
+      catalogItem.querySelector("input").getAttribute("value")
+    );
+
+    value += count;
+    catalogItem.querySelector("input").setAttribute("value", value);
+  }
+}
+
+favButtons.forEach((button) =>
+  button.addEventListener("click", (event) => {
+    const count = 1;
+    addToFav(event, count);
+    console.log("Добавление в избранное")
+  })
+);
+
+// Добавление товаров после фильтрации
+filters.addEventListener("change", () => {
+  const favButtons = document.querySelectorAll(".favourites-heart");
+  favButtons.forEach((button) => button.addEventListener("click", addToFav));
+});
+
+//Для отрисовки товаров в избранном после перезагрузки страницы
+for (let i = 0; i < catalogJson.length; i++) {
+  let favKey = `в избранное ${catalogJson[i].id}`;
+
+    if (localStorage.getItem(favKey)) {
+      let product = JSON.parse(localStorage.getItem(favKey));
+      favourites.push(product);
+      updateFavouritesContainer(favourites);
+    }
+}
+
+//Удаление товара из избранного
+
+  let deleteButtons = document
+    .querySelector(".favourites-container")
+    .querySelectorAll(".fav-delete");
+
+  deleteButtons.forEach((btn) => {
+    btn.addEventListener("click", (ev) => {
+      let item = ev.target.closest("input").id;
+      let favKey = `в избранное ${item}`;
+
+      localStorage.removeItem(favKey);
+      location.reload();
+    });
+  });

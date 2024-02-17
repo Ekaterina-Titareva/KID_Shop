@@ -13,75 +13,40 @@ const closeFavouritesInHeader = document.querySelector(
 );
 const popupFavourites = document.querySelector(".popup_favourites-wrapper");
 const favouritesContainer = document.querySelector(".favourites-container");
-const favouritesBtnInCard = document.querySelectorAll(".favourites-heart");
 
 let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
-
-//обновить состояние кнопки избранное (сердечка в карточке товара) в зависимости от того есть ли товар в избранном или нет
-const updateButtonState = (button, product) => {
-  if (isProductInFavourites(product)) {
-    button.src = "./assets/icons/favourites_full.svg";
-  } else {
-    button.src = "./assets/icons/favourites.svg";
-  }
-};
-
-const isProductInFavourites = (product) => {
-  return favourites.some((favProduct) => favProduct.id === product.id);
-};
+console.log(favourites.length)
 
 //обновление блока избранное, если есть товар в избранном то рисуем товары, если пусто то предлагаем перейти в каталог
 const updateFavouritesContainer = () => {
+  // console.log(favourites)
   favouritesContainer.innerHTML = "";
   if (favourites.length === 0) {
-    favouritesContainer.innerHTML = `<p>Здесь пока нет товаров!<br><br>Перейти в <a href="./catalog.html" style="text-decoration: underline">каталог</a></p>`;
+    favouritesContainer.innerHTML = `
+    <p>Здесь пока нет товаров!
+    <br>
+    <br>
+      Перейти в 
+        <a href="./catalog.html" style="text-decoration: underline">каталог</a>
+    </p>`;
   } else {
     favourites.forEach((product) => {
-      const favCard = document.createElement("div");
-      favCard.classList.add("fav-card");
-
-      const favName = document.createElement("p");
-      favName.textContent = `${product.name}`;
-
-      const favImage = document.createElement("img");
-      favImage.classList.add("fav-img");
-      favImage.src = product.image1;
-      favImage.alt = product.name;
-
-      const favPrice = document.createElement("p");
-      favPrice.textContent = `Цена: ${product.price} рублей`;
-
-      const favActions = document.createElement("div");
-      favActions.classList.add("fav-actions");
-
-      const favDelete = document.createElement("input");
-      favDelete.type = "image";
-      favDelete.src = "./assets/icons/delete.svg";
-      favDelete.classList.add("fav-delete");
-      favDelete.setAttribute("data-id", product.id);
-
-      const favBasket = document.createElement("input");
-      favBasket.type = "image";
-      favBasket.src = "./assets/icons/basket.svg";
-      favBasket.classList.add("fav-basket");
-
-      favCard.appendChild(favName);
-      favCard.appendChild(favImage);
-      favCard.appendChild(favPrice);
-      favCard.appendChild(favActions);
-
-      favActions.appendChild(favDelete);
-      favActions.appendChild(favBasket);
-
-      favouritesContainer.appendChild(favCard);
-      //как-то повесить сюда добавление в корзину товара из избранного
-      favBasket.addEventListener("click", (event) => {
-        console.log("Товар добавлен в корзину");
-        // addToBasket(event);
-      });
-    });
+    favouritesContainer.innerHTML +=`
+      <div class="fav-card">
+        <p>${product.name}</p>
+        <img class="fav-img" src="${product.image1}" alt="${product.name}" />
+        <p>
+          Цена: ${product.price} рублей
+        </p>
+        <div class="fav-actions">
+          <input type="image" src="./assets/icons/delete.svg" class="fav-delete" id="${product.id}" />
+          <input type="image" src="./assets/icons/basket.svg" class="fav-basket" />
+        </div>
+      </div>`;
+    })
   }
-};
+}
+updateFavouritesContainer()
 
 //слушатели на открытие и закрытие попапа с избранным (а также для названия раздела в бургере)
 openFavouritesInHeader.addEventListener("click", () => {
@@ -100,55 +65,7 @@ closeFavouritesInHeader.addEventListener("click", () => {
   location.reload();
 });
 
-//сама функция добавления товаров в избранное и сохранение в local storage и слушатели на наведение мыши
-const addFavouritesListeners = () => {
-  favouritesBtnInCard.forEach((button, index) => {
-    const product = catalogJson[index];
-    updateButtonState(button, product);
-    button.addEventListener("mouseover", () => {
-      if (!isProductInFavourites(product)) {
-        button.src = "./assets/icons/favourites_full.svg";
-      }
-    });
 
-    button.addEventListener("mouseout", () => {
-      if (!isProductInFavourites(product)) {
-        button.src = "./assets/icons/favourites.svg";
-      }
-    });
-    button.addEventListener("click", () => {
-      if (!isProductInFavourites(product)) {
-        favourites.push(product);
-      } else {
-        favourites = favourites.filter(
-          (favProduct) => favProduct.id !== product.id
-        );
-      }
-      localStorage.setItem("favourites", JSON.stringify(favourites));
-      updateFavouritesContainer();
-      bindDeleteButtons();
-    });
-  });
-};
+export { updateFavouritesContainer };
+export {favourites}
 
-//удаление товара из попапа избранного
-const bindDeleteButtons = () => {
-  favouritesContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("fav-delete")) {
-      const productId = event.target.getAttribute("data-id");
-      favourites = favourites.filter(
-        (favProduct) => favProduct.id !== productId
-      );
-      localStorage.setItem("favourites", JSON.stringify(favourites));
-      updateFavouritesContainer();
-    }
-  });
-};
-
-updateFavouritesContainer();
-bindDeleteButtons();
-addFavouritesListeners();
-
-export { updateButtonState };
-export { isProductInFavourites };
-export { addFavouritesListeners };
