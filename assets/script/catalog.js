@@ -29,7 +29,7 @@ function createCard(item) {
         <img src="${item.image1}" alt="${item.name}" class="item__img-card"/>
       </div>
       <p class= "item__age">Возраст: ${item.age_group}</p>
-      <p class= "item__genger">Пол: ${item.gender}</p>
+      <p class= "item__gender">Пол: ${item.gender}</p>
       <p class= "item__color">Цвет: ${item.color}</p>
       <p class= "item__material">Материал: ${item.material}</p>
       <p class= "item__description">${item.description}</p>
@@ -165,7 +165,7 @@ function outputCatalog(clothes) {
         <img src="${item.image1}" alt="${item.name}" />
       </div>
       <p class= "item__age">Возраст: ${item.age_group}</p>
-      <p class= "item__genger">Пол: ${item.gender}</p>
+      <p class= "item__gender">Пол: ${item.gender}</p>
       <p class= "item__color">Цвет: ${item.color}</p>
       <p class= "item__material">Материал: ${item.material}</p>
       <p class= "item__description">${item.description}</p>
