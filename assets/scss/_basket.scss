@@ -106,8 +106,10 @@
   }
 }
 
-.popup-basket-catalog div:has(a.btn-close-catalog),
-.popup-basket-catalog div:has(a.popup-basket__button) {
+.popup-basket-catalog div:has(a.btn-close-catalog), 
+.popup-basket div:has(a.btn-close-catalog), 
+.popup-basket-catalog div:has(a.popup-basket__button),
+.popup-basket div:has(a.popup-basket__button)  {
   margin: 0;
   padding: 0;
   height: 70px;
@@ -273,7 +275,7 @@
   }
 }
 
-@media screen and (min-width-min: $tablet-width-min) and (max-width: $tablet-width-max) {
+@media screen and (min-width: $tablet-width-min) and (max-width: $tablet-width-max) {
   .popup-basket__list-empty {
     img {
       @include size(100px, auto);
@@ -309,8 +311,10 @@
     padding: 10px 0;
   }
 
-  .popup-basket-catalog div:has(a.btn-close-catalog),
-  .popup-basket-catalog div:has(a.popup-basket__button) {
+  .popup-basket-catalog div:has(a.btn-close-catalog), 
+  .popup-basket div:has(a.btn-close-catalog), 
+  .popup-basket-catalog div:has(a.popup-basket__button),
+  .popup-basket div:has(a.popup-basket__button)  {
     height: 50px;
   }
 
@@ -351,7 +355,7 @@
     a {
       height: 35px;
 
-      font-size: $basket-text-font-size-tablet;
+      font-size: 11px;
       line-height: 35px;
     }
   }
@@ -373,8 +377,10 @@
     font-size: 14px;
   }
 
-  .popup-basket-catalog div:has(a.btn-close-catalog),
-  .popup-basket-catalog div:has(a.popup-basket__button) {
+  .popup-basket-catalog div:has(a.btn-close-catalog), 
+  .popup-basket div:has(a.btn-close-catalog), 
+  .popup-basket-catalog div:has(a.popup-basket__button),
+  .popup-basket div:has(a.popup-basket__button) {
     height: 50px;
   }
 
