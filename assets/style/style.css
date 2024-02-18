@@ -1628,7 +1628,7 @@ option:checked {
   color: #5e2a8c;
 }
 
-@media screen and (min-width-min: 769px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1023px) {
   .popup-basket__list-empty img {
     width: 100px;
     height: auto;
@@ -1656,6 +1656,7 @@ option:checked {
   .popup-basket__button-catalog {
     padding: 10px 0;
   }
+
   .popup-basket__btn-close,
   .popup-basket__move-to-catalog {
     height: 50px;
@@ -1688,7 +1689,7 @@ option:checked {
   }
   .popup-basket__list-empty a {
     height: 35px;
-    font-size: 15px;
+    font-size: 11px;
     line-height: 35px;
   }
   .visible {
@@ -1705,6 +1706,7 @@ option:checked {
     padding: 12px 0;
     font-size: 14px;
   }
+
   .popup-basket__btn-close,
   .popup-basket__move-to-catalog {
     height: 50px;

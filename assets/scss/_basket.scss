@@ -272,7 +272,7 @@
   }
 }
 
-@media screen and (min-width-min: $tablet-width-min) and (max-width: $tablet-width-max) {
+@media screen and (min-width: $tablet-width-min) and (max-width: $tablet-width-max) {
   .popup-basket__list-empty {
     img {
       @include size(100px, auto);
@@ -350,7 +350,7 @@
     a {
       height: 35px;
 
-      font-size: $basket-text-font-size-tablet;
+      font-size: 11px;
       line-height: 35px;
     }
   }
@@ -375,7 +375,7 @@
   .popup-basket__btn-close, 
   .popup-basket__move-to-catalog {
         height: 50px;
-  } 
+  }
 
   .popup-basket__wrap {
     height: 50vh;
