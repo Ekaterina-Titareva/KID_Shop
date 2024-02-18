@@ -32,14 +32,10 @@
             <p id="catalog_link"><a href="./catalog.html">Каталог</a></p>
           </li>
           <li>
-          <input
-              type="image"
-              src="./assets/icons/favourites_full.svg"
-              alt="Избранное"
-              class="menu_icon open-favourites-header"
-              />
-              <p class="open-favourites-burger">Избранное</p>
-                    </li>
+            <input type="image" src="./assets/icons/favourites_full.svg" alt="Избранное"
+              class="menu_icon open-favourites-header" />
+            <p class="open-favourites-burger">Избранное</p>
+          </li>
 
           <!-- КОРЗИНА -->
           <li>
@@ -51,7 +47,7 @@
           <button class="user">Войти</button>
         </ul>
         <div class="popup-basket-catalog hidden">
-          <div>
+          <div class="popup-basket__btn-close">
             <a class="btn-close btn-close-catalog"></a>
           </div>
           <div class="popup-basket__wrap">
@@ -61,7 +57,7 @@
             </div>
             <ul class="popup-basket__list-catalog"></ul>
           </div>
-          <div>
+          <div class="popup-basket__move-to-catalog">
             <a href="basket.html" class="popup-basket__button popup-basket__button-catalog hidden">Перейти в
               корзину</a>
           </div>
@@ -139,13 +135,13 @@
     </div>
   </header>
   <main>
-            <div class="popup_favourites-wrapper">
-              <div>
-                <h3>Избранное</h3>
-                <input type="image" src="./assets/icons/close.svg" class ="close-favourites-header" alt="Закрыть">
-                <div class="favourites-container"></div>
-              </div>
-            </div>
+    <div class="popup_favourites-wrapper">
+      <div>
+        <h3>Избранное</h3>
+        <input type="image" src="./assets/icons/close.svg" class="close-favourites-header" alt="Закрыть">
+        <div class="favourites-container"></div>
+      </div>
+    </div>
     <section class="catalog__wrapper">
 
       <aside class="sidebar">
