@@ -137,7 +137,7 @@ const bindDeleteButtons = () => {
     if (event.target.classList.contains("fav-delete")) {
       const productId = event.target.getAttribute("data-id");
       favourites = favourites.filter(
-        (favProduct) => favProduct.id !== productId
+        favProduct => favProduct.id !== parseInt(productId)
       );
       localStorage.setItem("favourites", JSON.stringify(favourites));
       updateFavouritesContainer();

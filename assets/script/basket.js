@@ -2,18 +2,15 @@ import { catalogJson } from "./index.js";
 import { makeBasketItem } from "./functions.js";
 
 // Вывод списка товаров в корзину при переходе на отдельную страницу
-for (let i = 0; i < catalogJson.length; i++) {
-  let key = `в корзину ${catalogJson[i].id}`;
-
-  window.addEventListener("DOMContentLoaded", () => {
+  for (let i = 0; i < catalogJson.length; i++) {
+    let key = `в корзину ${catalogJson[i].id}`;
     if (localStorage.getItem(key)) {
       makeBasketItem(JSON.parse(window.localStorage.getItem(key)));
     }
-  });
-}
+  }
 
 //Удаление товара из корзины
-window.addEventListener("DOMContentLoaded", () => {
+
   let deleteButtons = document
     .querySelector(".basket-list")
     .querySelectorAll(".delete-btn");
@@ -27,7 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
       location.reload();
     });
   });
-});
+
 
 // Отображение итоговой стоимости и количества товаров в корзине
 let prices = [];
