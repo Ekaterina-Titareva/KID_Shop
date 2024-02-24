@@ -25,4 +25,4 @@
 
 ## Команда проекта
 
-[![link](https://img.shields.io/badge/-Екатерина-orange?style=for-the-badge&logo=github&logoColor=black)](https://github.com/Ekaterina-Titareva) [![link](https://img.shields.io/badge/-Елена-lightblue?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ElenaBachi) [![link](https://img.shields.io/badge/-Ксения-pink?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ksvaska) [![link](https://img.shields.io/badge/-Виктория-violent?style=for-the-badge&logo=github&logoColor=black)](https://github.com/april-victory)
+[![link](https://img.shields.io/badge/-Екатерина-orange?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ekaterina-Titareva) [![link](https://img.shields.io/badge/-Елена-lightblue?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ElenaBachi) [![link](https://img.shields.io/badge/-Ксения-pink?style=for-the-badge&logo=github&logoColor=black)](https://github.com/ksvaska) [![link](https://img.shields.io/badge/-Виктория-violent?style=for-the-badge&logo=github&logoColor=white)](https://github.com/april-victory)
