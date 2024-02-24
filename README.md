@@ -8,9 +8,9 @@
 <img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/search.jpg" height="450"/>
 <h3 align="center">Каталог с фильтрацией</h3>
 <img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/filter.jpg" height="450"/>
-<h3 align="center">Избранное(Всплывающее окно)</h3>
+<h3 align="center">Избранное (Всплывающее окно)</h3>
 <img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/favourites.jpg" height="450"/>
-<h3 align="center">Корзина(Всплывающее окно)</h3>
+<h3 align="center">Корзина (Всплывающее окно)</h3>
 <img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/minBasket.jpg" height="450"/>
 <h3 align="center">Корзина</h3>
 <img src="https://github.com/Ekaterina-Titareva/KID_Shop/blob/main/assets/images/readme/basket.jpg" height="450"/>
